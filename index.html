@@ -1293,7 +1293,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="ana-sayfa" class="min-h-screen flex items-center justify-center relative overflow-hidden" style="padding-top: 64px;">
+    <section id="ana-sayfa" class="min-h-screen flex items-center justify-center relative overflow-hidden" style="padding-top: 64px; background: var(--bg-primary);">
         <div class="absolute inset-0">
             <img src="/LayigaWebsite/assets/hero.jpg" alt="Layiga Adventure Park - Ultimate Zipline Experience" class="w-full h-full object-cover object-bottom">
             <div class="absolute inset-0 bg-black/20"></div>
@@ -1390,7 +1390,7 @@
     </section>
 
     <!-- Activities Section -->
-    <section id="aktiviteler" class="py-20 relative" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 50%, var(--bg-tertiary) 100%);">
+    <section id="aktiviteler" class="py-20" style="background: var(--bg-primary);">
         <div class="absolute inset-0 opacity-30">
             <div style="background: radial-gradient(circle at 25% 25%, rgba(255, 107, 53, 0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(22, 160, 133, 0.1) 0%, transparent 50%);"></div>
         </div>
@@ -1746,6 +1746,124 @@
         </div>
     </section>
 
+    <!-- Featured Zipline Video Section -->
+    <section class="py-20 relative" style="background: var(--bg-secondary);">
+        <div class="absolute inset-0 opacity-10">
+            <div style="background: radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.2) 0%, transparent 70%), radial-gradient(circle at 20% 80%, rgba(22, 160, 133, 0.15) 0%, transparent 60%);"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-6xl font-bold mb-6" style="color: var(--layiga-orange);" 
+                    data-tr="🚡 Gökyüzündeki Adrenalin Deneyimi" 
+                    data-en="🚡 Adrenaline Experience in the Sky" 
+                    data-ar="🚡 تجربة الأدرينالين في السماء">
+                    🚡 Gökyüzündeki Adrenalin Deneyimi
+                </h2>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed" style="color: var(--text-secondary);" 
+                   data-tr="300 metre uzunluğunda Türkiye'nin en nefes kesici zipline deneyimini keşfedin. Uzungöl'ün büyüleyici manzarası eşliğinde unutulmaz anlar yaşayın." 
+                   data-en="Discover Turkey's most breathtaking zipline experience spanning 300 meters. Live unforgettable moments with the enchanting view of Uzungöl." 
+                   data-ar="اكتشف أكثر تجارب خط الانزلاق إثارة في تركيا بطول 300 متر. عش لحظات لا تُنسى مع المنظر الساحر لأوزونغول.">
+                    300 metre uzunluğunda Türkiye'nin en nefes kesici zipline deneyimini keşfedin. Uzungöl'ün büyüleyici manzarası eşliğinde unutulmaz anlar yaşayın.
+                </p>
+            </div>
+
+            <!-- Featured Video Container -->
+            <div class="max-w-5xl mx-auto">
+                <div class="relative group cursor-pointer" onclick="openVideoModal()">
+                    <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+                        <video 
+                            id="featuredZiplineVideo"
+                            muted 
+                            playsinline 
+                            preload="metadata"
+                            class="w-full h-[60vh] md:h-[70vh] object-cover transition-transform duration-700 group-hover:scale-105"
+                            poster="/LayigaWebsite/assets/zipline2.jpg">
+                            <source src="/LayigaWebsite/assets/zipline.mov" type="video/quicktime">
+                            <source src="/LayigaWebsite/assets/zipline.mov" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Video Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 group-hover:from-black/40 transition-all duration-500">
+                            <!-- Play Button -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-24 h-24 md:w-32 md:h-32 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-500 group-hover:scale-110">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 bg-layiga-orange rounded-full flex items-center justify-center shadow-2xl">
+                                        <i class="fas fa-play text-white text-2xl md:text-3xl ml-2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Video Info Overlay -->
+                            <div class="absolute bottom-8 left-8 right-8">
+                                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-2" 
+                                        data-tr="Uzungöl Zipline - 360° Görünüm" 
+                                        data-en="Uzungöl Zipline - 360° View" 
+                                        data-ar="خط الانزلاق أوزونغول - منظر 360°">
+                                        Uzungöl Zipline - 360° Görünüm
+                                    </h3>
+                                    <p class="text-white/90 text-lg" 
+                                       data-tr="Tam ekranda izlemek için tıklayın" 
+                                       data-en="Click to watch in full screen" 
+                                       data-ar="انقر للمشاهدة بملء الشاشة">
+                                        Tam ekranda izlemek için tıklayın
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Stats -->
+                    <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold" style="color: var(--layiga-orange);">300m</div>
+                            <div class="text-sm" style="color: var(--text-secondary);" 
+                                 data-tr="Zipline Uzunluğu" data-en="Zipline Length" data-ar="طول خط الانزلاق">Zipline Uzunluğu</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold" style="color: var(--layiga-orange);">25m</div>
+                            <div class="text-sm" style="color: var(--text-secondary);" 
+                                 data-tr="Yükseklik" data-en="Height" data-ar="الارتفاع">Yükseklik</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold" style="color: var(--layiga-orange);">40</div>
+                            <div class="text-sm" style="color: var(--text-secondary);" 
+                                 data-tr="km/s Hız" data-en="km/h Speed" data-ar="سرعة كم/س">km/s Hız</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold" style="color: var(--layiga-orange);">360°</div>
+                            <div class="text-sm" style="color: var(--text-secondary);" 
+                                 data-tr="Manzara" data-en="View" data-ar="منظر">Manzara</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Screen Video Modal -->
+    <div id="videoModal" class="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="relative w-full h-full max-w-7xl flex items-center justify-center">
+            <!-- Close Button -->
+            <button onclick="closeVideoModal()" class="absolute top-6 right-6 z-60 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300">
+                <i class="fas fa-times text-white text-xl"></i>
+            </button>
+            
+            <!-- Video Player -->
+            <video 
+                id="modalVideo"
+                controls 
+                autoplay
+                class="w-full h-full max-h-[90vh] object-contain rounded-2xl shadow-2xl"
+                poster="/LayigaWebsite/assets/zipline2.jpg">
+                <source src="/LayigaWebsite/assets/zipline.mov" type="video/quicktime">
+                <source src="/LayigaWebsite/assets/zipline.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
     <!-- Premium Testimonials Section -->
     <section class="py-20 relative" style="background: var(--bg-primary);">
         <div class="absolute inset-0 opacity-10">
@@ -1877,7 +1995,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="galeri" class="py-20 relative" style="background: var(--bg-primary);">
+    <section id="galeri" class="py-20 relative" style="background: var(--bg-secondary);">
         <div class="absolute inset-0 opacity-20">
             <div style="background: radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(22, 160, 133, 0.15) 0%, transparent 50%);"></div>
         </div>
@@ -2004,7 +2122,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="iletisim" class="py-20" style="background: var(--bg-secondary);">
+    <section id="iletisim" class="py-20" style="background: var(--bg-primary);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" style="color: var(--text-primary);" 
@@ -2094,50 +2212,50 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-forest-dark text-white py-12">
+    <footer class="py-12" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
                     <h3 class="font-serif text-2xl font-bold text-gradient mb-4">Layiga</h3>
-                    <p class="text-gray-300 leading-relaxed">
+                    <p class="leading-relaxed" style="color: var(--text-secondary);">
                         Uzungöl'ün nefes kesen doğasında adrenalin dolu maceralar. 
                         Güvenli, eğlenceli ve unutulmaz deneyimler.
                     </p>
                 </div>
 
                 <div>
-                    <h4 class="font-semibold text-lg mb-4" data-tr="Sosyal Medya" data-en="Social Media" data-ar="وسائل التواصل الاجتماعي">Sosyal Medya</h4>
+                    <h4 class="font-semibold text-lg mb-4" style="color: var(--text-primary);" data-tr="Sosyal Medya" data-en="Social Media" data-ar="وسائل التواصل الاجتماعي">Sosyal Medya</h4>
                     <ul class="space-y-3">
                         <li>
-                            <a href="https://instagram.com/layigasalincak" target="_blank" class="text-gray-300 hover:text-pink-400 transition-colors flex items-center">
+                            <a href="https://instagram.com/layigasalincak" target="_blank" class="hover:text-pink-400 transition-colors flex items-center" style="color: var(--text-secondary);">
                                 <i class="fab fa-instagram mr-3 text-lg"></i>
                                 <span>@layigasalincak</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://tiktok.com/@layiga.salincak.z" target="_blank" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                            <a href="https://tiktok.com/@layiga.salincak.z" target="_blank" class="hover:text-white transition-colors flex items-center" style="color: var(--text-secondary);">
                                 <i class="fab fa-tiktok mr-3 text-lg"></i>
                                 <span>@layiga.salincak.z</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://wa.me/905378738398" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors flex items-center">
+                            <a href="https://wa.me/905378738398" target="_blank" class="hover:text-green-400 transition-colors flex items-center" style="color: var(--text-secondary);">
                                 <i class="fab fa-whatsapp mr-3 text-lg"></i>
                                 <span data-tr="WhatsApp İletişim" data-en="WhatsApp Contact" data-ar="واتساب اتصال">WhatsApp İletişim</span>
                             </a>
                         </li>
                     </ul>
                     <div class="mt-6">
-                        <h5 class="font-medium text-white mb-2" data-tr="Deneyimlerinizi Paylaşın" data-en="Share Your Experiences" data-ar="شارك تجاربك">Deneyimlerinizi Paylaşın</h5>
-                        <p class="text-gray-400 text-sm" data-tr="Parkta yaşadığınız muhteşem anları sosyal medyada paylaşmayı unutmayın!" data-en="Don't forget to share your amazing moments at the park on social media!" data-ar="لا تنس مشاركة لحظاتك المذهلة في المنتزه على وسائل التواصل الاجتماعي!">
+                        <h5 class="font-medium mb-2" style="color: var(--text-primary);" data-tr="Deneyimlerinizi Paylaşın" data-en="Share Your Experiences" data-ar="شارك تجاربك">Deneyimlerinizi Paylaşın</h5>
+                        <p class="text-sm" style="color: var(--text-tertiary);" data-tr="Parkta yaşadığınız muhteşem anları sosyal medyada paylaşmayı unutmayın!" data-en="Don't forget to share your amazing moments at the park on social media!" data-ar="لا تنس مشاركة لحظاتك المذهلة في المنتزه على وسائل التواصل الاجتماعي!">
                             Parkta yaşadığınız muhteşem anları sosyal medyada paylaşmayı unutmayın!
                         </p>
                     </div>
                 </div>
 
                 <div>
-                    <h4 class="font-semibold text-lg mb-4" data-tr="İletişim" data-en="Contact" data-ar="اتصل بنا">İletişim</h4>
-                    <ul class="space-y-3 text-gray-300">
+                    <h4 class="font-semibold text-lg mb-4" style="color: var(--text-primary);" data-tr="İletişim" data-en="Contact" data-ar="اتصل بنا">İletişim</h4>
+                    <ul class="space-y-3" style="color: var(--text-secondary);">
                         <li class="flex items-center">
                             <i class="fas fa-user-tie mr-3 text-layiga-orange"></i>
                             <div>
@@ -2167,11 +2285,11 @@
 
 
 
-            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
-                <p class="text-gray-400">
+            <div class="mt-8 pt-8 text-center" style="border-top: 1px solid var(--border-color);">
+                <p style="color: var(--text-tertiary);">
                     © 2024 Layiga Salıncak & Zipline. Tüm hakları saklıdır.
                 </p>
-                <p class="text-gray-500 text-sm mt-2" data-tr="2019'dan bu yana güvenilir macera deneyimi" data-en="Trusted adventure experience since 2019" data-ar="خبرة مغامرة موثوقة منذ 2019">
+                <p class="text-sm mt-2" style="color: var(--text-tertiary);" data-tr="2019'dan bu yana güvenilir macera deneyimi" data-en="Trusted adventure experience since 2019" data-ar="خبرة مغامرة موثوقة منذ 2019">
                     2019'dan bu yana güvenilir macera deneyimi
                 </p>
             </div>
@@ -2644,6 +2762,58 @@
         console.log('%c⚡ Ultra-Premium Experience Loaded', 'color: #16A085; font-size: 16px; font-weight: bold;');
         console.log('%c🚀 Built with cutting-edge web technologies', 'color: #667eea; font-size: 12px;');
         console.log('%c🎯 Optimized for performance and accessibility', 'color: #2C5530; font-size: 12px;');
+
+        // Video Modal Functions (Global)
+        window.openVideoModal = function() {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            // Start playing the video in modal
+            modalVideo.currentTime = 0;
+            modalVideo.play();
+        }
+
+        window.closeVideoModal = function() {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            
+            // Pause the video
+            modalVideo.pause();
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+
+        // Close modal when clicking outside video
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+
+        // Intersection Observer for auto-play
+        const featuredVideo = document.getElementById('featuredZiplineVideo');
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.play();
+                } else {
+                    entry.target.pause();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (featuredVideo) {
+            videoObserver.observe(featuredVideo);
+        }
     </script>
 
     <!-- Dark Mode & Background Effects Script -->
