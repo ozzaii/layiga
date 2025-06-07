@@ -459,6 +459,114 @@
         .group-hover\:animate-wave:hover {
             animation: wave 0.5s ease-in-out infinite;
         }
+
+        /* Enhanced Hero Section Animations */
+        .hero-badge {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            animation: heroFadeInBounce 1s ease-out 0.2s forwards;
+        }
+
+        .hero-title {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: heroSlideInUp 1.2s ease-out 0.5s forwards;
+        }
+
+        .hero-subtitle {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: heroSlideInUp 1s ease-out 0.8s forwards;
+        }
+
+        .hero-button {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            animation: heroFadeInScale 1s ease-out 1.1s forwards;
+        }
+
+        .hero-stats {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: heroSlideInUp 1.2s ease-out 1.4s forwards;
+        }
+
+        .hero-stat-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-stat-item:nth-child(1) { animation: heroFadeInUp 0.8s ease-out 1.6s forwards; }
+        .hero-stat-item:nth-child(2) { animation: heroFadeInUp 0.8s ease-out 1.7s forwards; }
+        .hero-stat-item:nth-child(3) { animation: heroFadeInUp 0.8s ease-out 1.8s forwards; }
+        .hero-stat-item:nth-child(4) { animation: heroFadeInUp 0.8s ease-out 1.9s forwards; }
+        .hero-stat-item:nth-child(5) { animation: heroFadeInUp 0.8s ease-out 2.0s forwards; }
+
+        @keyframes heroFadeInBounce {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            60% {
+                opacity: 0.8;
+                transform: translateY(-5px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes heroSlideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heroFadeInScale {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            60% {
+                opacity: 0.8;
+                transform: translateY(-3px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes heroFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Text gradient animation */
+        .text-gradient-animated {
+            background: linear-gradient(135deg, #FF6B35, #FFD700, #FF6B35, #16A085);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
         
         /* Premium Hero Section */
         .hero-bg {
@@ -1309,7 +1417,7 @@
                  <div class="relative z-10 text-center px-4 max-w-4xl mx-auto" style="margin-top: 8vh;">
             <div class="animate-fade-in">
                 <!-- Premium Hero Badge -->
-                <div class="inline-flex items-center px-6 py-3 rounded-full glass-effect mb-6 animate-float backdrop-blur-md bg-white/10 border border-white/20">
+                <div class="hero-badge inline-flex items-center px-6 py-3 rounded-full glass-effect mb-6 animate-float backdrop-blur-md bg-white/10 border border-white/20">
                     <i class="fas fa-mountain text-white mr-3"></i>
                     <span class="text-white font-medium text-sm md:text-base" 
                           data-tr="Uzungöl'ün Premium Macera Parkı" 
@@ -1320,12 +1428,12 @@
                 </div>
 
                 <h1 class="hero-title font-serif text-4xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-2xl" 
-                    data-tr="Doğayla Buluştuğun<br/><span class='block text-gradient'>Adrenalin Noktası</span>" 
-                    data-en="Where Nature Meets<br/><span class='block text-gradient'>Adrenaline Rush</span>" 
-                    data-ar="حيث تلتقي الطبيعة<br/><span class='block text-gradient'>بالأدرينالين</span>"
+                    data-tr="Doğayla Buluştuğun<br/><span class='block text-gradient-animated'>Adrenalin Noktası</span>" 
+                    data-en="Where Nature Meets<br/><span class='block text-gradient-animated'>Adrenaline Rush</span>" 
+                    data-ar="حيث تلتقي الطبيعة<br/><span class='block text-gradient-animated'>بالأدرينالين</span>"
                     style="text-shadow: 3px 6px 12px rgba(0,0,0,0.8), 0 0 30px rgba(255,107,53,0.6);">
                     Doğayla Buluştuğun
-                    <span class="block text-gradient animate-pulse" style="background: linear-gradient(135deg, #FF6B35, #FFD700, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Adrenalin Noktası</span>
+                    <span class="block text-gradient-animated">Adrenalin Noktası</span>
                 </h1>
                 
                 <p class="hero-subtitle text-lg md:text-xl text-white/95 mb-8 max-w-2xl mx-auto leading-relaxed font-medium backdrop-blur-sm bg-black/20 rounded-xl p-4" 
@@ -1337,7 +1445,7 @@
                 </p>
                 
                 <!-- Premium Action Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                <div class="hero-button flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                     <a href="https://wa.me/905378738398?text=Merhaba! Layiga Adventure Park için rezervasyon yapmak istiyorum." target="_blank" class="whatsapp-btn-large text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-2xl group transform hover:scale-105 transition-all duration-300" 
                             data-tr="Hemen Rezervasyon Yap" data-en="Book Now" data-ar="احجز الآن">
                         <span class="flex items-center">
@@ -1348,36 +1456,36 @@
                 </div>
 
                 <!-- Enhanced Hero Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
-                    <div class="glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
+                <div class="hero-stats grid grid-cols-2 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                    <div class="hero-stat-item glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
                         <div class="text-3xl font-bold text-white mb-2">300m</div>
                         <div class="text-white/80 text-sm font-medium" 
                              data-tr="Zipline Uzunluğu" data-en="Zipline Length" data-ar="طول خط الانزلاق">
                             Zipline Uzunluğu
                         </div>
                     </div>
-                    <div class="glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
+                    <div class="hero-stat-item glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
                         <div class="text-3xl font-bold text-white mb-2">25m</div>
                         <div class="text-white/80 text-sm font-medium" 
                              data-tr="Maksimum Yükseklik" data-en="Maximum Height" data-ar="أقصى ارتفاع">
                             Maksimum Yükseklik
                         </div>
                     </div>
-                    <div class="glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
+                    <div class="hero-stat-item glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
                         <div class="text-3xl font-bold text-white mb-2">08-20</div>
                         <div class="text-white/80 text-sm font-medium" 
                              data-tr="Çalışma Saatleri" data-en="Operating Hours" data-ar="ساعات العمل">
                             Çalışma Saatleri
                         </div>
                     </div>
-                    <div class="glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
+                    <div class="hero-stat-item glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
                         <div class="text-3xl font-bold text-white mb-2">2019</div>
                         <div class="text-white/80 text-sm font-medium" 
                              data-tr="Kuruluş Yılı" data-en="Established" data-ar="تأسس عام">
                             Kuruluş Yılı
                         </div>
                     </div>
-                    <div class="glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
+                    <div class="hero-stat-item glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
                         <div class="text-3xl font-bold text-white mb-2">ISO</div>
                         <div class="text-white/80 text-sm font-medium" 
                              data-tr="CE Sertifikalı" data-en="CE Certified" data-ar="معتمد CE">
