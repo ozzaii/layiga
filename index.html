@@ -1,0 +1,2489 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layiga Salıncak & Zipline - Uzungöl'de Adrenalin Dolu Macera</title>
+    <meta name="description" content="Uzungöl'ün nefes kesen doğasında zipline, salıncak ve macera. Layiga'da göğe komşu adrenalin yaşayın!">
+    
+    <!-- Optimized Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'layiga-orange': '#FF6B35',
+                        'layiga-green': '#16A085',
+                        'forest-dark': '#2C3E50',
+                        'cream': '#FEF9E7'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'gentle-float': 'gentleFloat 3s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Ultra-Premium Custom Styles -->
+    <style>
+        /* CSS Custom Properties for Design System */
+        :root {
+            --layiga-orange: #FF6B35;
+            --layiga-orange-light: #FF8A5E;
+            --layiga-orange-dark: #E55A2B;
+            --layiga-green: #16A085;
+            --layiga-green-light: #1ABC9C;
+            --layiga-green-dark: #138D75;
+            --forest-dark: #2C5530;
+            --forest-light: #E8F5E8;
+            
+            /* Dynamic Theme Variables */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-tertiary: #64748b;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            
+            /* Gradient System */
+            --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #FF8A5E 25%, #E55A2B 100%);
+            --gradient-secondary: linear-gradient(135deg, #16A085 0%, #1ABC9C 25%, #138D75 100%);
+            --gradient-accent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-mesh: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(22, 160, 133, 0.1) 50%, rgba(103, 126, 234, 0.1) 100%);
+        }
+        
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #e2e8f0;
+            --text-tertiary: #cbd5e1;
+            --border-color: rgba(255, 255, 255, 0.15);
+            --card-bg: rgba(30, 41, 59, 0.95);
+            --glass-bg: rgba(15, 23, 42, 0.4);
+            --nav-bg: rgba(15, 23, 42, 0.9);
+        }
+
+        /* Premium Shadow System */
+        :root {
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-premium: 0 32px 64px -12px rgba(0, 0, 0, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
+            --shadow-colored-orange: 0 20px 40px -12px rgba(255, 107, 53, 0.4);
+            --shadow-colored-green: 0 20px 40px -12px rgba(22, 160, 133, 0.4);
+        }
+
+        /* Global Header Styling */
+        h1, h2, h3, h4, h5, h6, 
+        .font-serif,
+        [class*="text-"] h1, 
+        [class*="text-"] h2, 
+        [class*="text-"] h3, 
+        [class*="text-"] h4,
+        [class*="text-"] h5,
+        [class*="text-"] h6 {
+            color: var(--layiga-orange) !important;
+        }
+
+        /* Override for specific sections that need different colors */
+        .hero-title,
+        .text-white h1,
+        .text-white h2,
+        .text-white h3,
+        .text-white h4,
+        .text-white h5,
+        .text-white h6 {
+            color: white !important;
+        }
+
+        /* Advanced Animation System */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(40px) scale(0.95);
+                filter: blur(5px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(60px) rotateX(15deg);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) rotateX(0);
+            }
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-8px) rotate(1deg); }
+            66% { transform: translateY(-4px) rotate(-1deg); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) skew(-15deg); }
+            100% { transform: translateX(200%) skew(-15deg); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: var(--shadow-lg); }
+            50% { box-shadow: var(--shadow-colored-orange), var(--shadow-lg); }
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 24px; }
+            25% { border-radius: 32px 24px 28px 20px; }
+            50% { border-radius: 20px 32px 24px 28px; }
+            75% { border-radius: 28px 20px 32px 24px; }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        .group-hover\:animate-wave:hover {
+            animation: wave 0.5s ease-in-out infinite;
+        }
+        
+        /* Premium Hero Section */
+        .hero-bg {
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.4) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(22, 160, 133, 0.4) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(103, 126, 234, 0.2) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(22, 160, 133, 0.5) 30%, rgba(255, 107, 53, 0.4) 70%, rgba(30, 41, 59, 0.8) 100%),
+                url('images/IMG_6855.jpg');
+            background-size: cover, cover, cover, cover, cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at center top, transparent 0%, rgba(0,0,0,0.1) 100%),
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.02) 50%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gentleFloat 20s linear infinite;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        /* Ultra-Premium Button System */
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-colored-orange);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+            transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-colored-orange), var(--shadow-premium);
+            filter: brightness(1.1);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px) scale(1.01);
+        }
+        
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-colored-green);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+            transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-colored-green), var(--shadow-premium);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+        
+        /* Premium Card System */
+        .card-hover {
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, transparent 50%, rgba(22,160,133,0.08) 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: var(--shadow-premium), var(--shadow-colored-orange);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .card-hover:hover::before {
+            opacity: 1;
+        }
+
+        .card-hover:hover .activity-icon {
+            animation: gentleFloat 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.4));
+            transform: scale(1.1);
+        }
+
+        /* Dark mode card enhancements */
+        [data-theme="dark"] .card-hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] .card-hover:hover {
+            border-color: rgba(255, 107, 53, 0.5);
+            box-shadow: var(--shadow-premium), 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+        
+        /* Advanced Typography */
+        .text-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.1));
+            position: relative;
+        }
+
+        .text-gradient::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: blur(8px) brightness(1.5);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        /* Glassmorphism Navigation */
+        .nav-blur {
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-blur::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            pointer-events: none;
+        }
+        
+        /* Enhanced Accent Border */
+        .accent-border {
+            border-left: 4px solid var(--layiga-orange);
+            position: relative;
+            background: linear-gradient(90deg, rgba(255, 107, 53, 0.08) 0%, rgba(22, 160, 133, 0.05) 50%, transparent 100%);
+        }
+
+        .accent-border::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 4px;
+            height: 0;
+            background: var(--gradient-primary);
+            transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accent-border:hover::before {
+            height: 100%;
+        }
+
+        .accent-border::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            filter: blur(8px);
+            transition: opacity 0.8s ease;
+        }
+
+        .accent-border:hover::after {
+            opacity: 0.6;
+        }
+        
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+        }
+        
+        /* Universal Smooth Transitions */
+        * {
+            transition: inherit;
+        }
+
+        button, a, .card-hover, .activity-icon {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Scroll-triggered animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateY(40px);
+                transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .animate-on-scroll.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Premium loading states */
+        .loading-shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        /* Enhanced focus states for accessibility */
+        button:focus,
+        a:focus {
+            outline: 2px solid var(--layiga-orange);
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2);
+        }
+        
+        /* 3D Transform optimizations */
+        .card-hover {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        /* Hardware acceleration */
+        .card-hover,
+        .btn-primary,
+        .btn-secondary,
+        .activity-icon {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        /* Dynamic Background System */
+        body {
+            background: var(--bg-primary);
+            transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .dynamic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.6;
+            transition: opacity 0.6s ease;
+        }
+
+        [data-theme="light"] .dynamic-background {
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(255, 107, 53, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(22, 160, 133, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 45% 10%, rgba(103, 126, 234, 0.05) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(248, 250, 252, 0.05) 100%);
+        }
+
+        [data-theme="dark"] .dynamic-background {
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(255, 107, 53, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(22, 160, 133, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 45% 10%, rgba(103, 126, 234, 0.12) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--layiga-orange);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float-particle 20s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.6;
+            }
+            95% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Premium Dark Mode Toggle */
+        .premium-theme-toggle {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .toggle-track {
+            width: 80px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255,255,255,0.2);
+            box-shadow: 
+                0 8px 32px rgba(102, 126, 234, 0.3),
+                inset 0 2px 4px rgba(255,255,255,0.1),
+                inset 0 -2px 4px rgba(0,0,0,0.2);
+        }
+
+        [data-theme="dark"] .toggle-track {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            box-shadow: 
+                0 8px 32px rgba(26, 26, 46, 0.6),
+                inset 0 2px 4px rgba(255,255,255,0.05),
+                inset 0 -2px 4px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .toggle-thumb {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 4px 16px rgba(0,0,0,0.15),
+                0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .toggle-thumb {
+            transform: translateX(38px);
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            box-shadow: 
+                0 4px 16px rgba(0,0,0,0.3),
+                0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .premium-theme-toggle:hover .toggle-track {
+            transform: scale(1.05);
+            box-shadow: 
+                0 12px 40px rgba(102, 126, 234, 0.4),
+                inset 0 2px 4px rgba(255,255,255,0.2),
+                inset 0 -2px 4px rgba(0,0,0,0.2);
+        }
+
+        [data-theme="dark"] .premium-theme-toggle:hover .toggle-track {
+            box-shadow: 
+                0 12px 40px rgba(26, 26, 46, 0.8),
+                inset 0 2px 4px rgba(255,255,255,0.1),
+                inset 0 -2px 4px rgba(0,0,0,0.4);
+        }
+
+        .theme-toggle-icon {
+            font-size: 16px;
+            transition: all 0.4s ease;
+            position: absolute;
+        }
+
+        .toggle-thumb .sun-icon {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        .toggle-thumb .moon-icon {
+            opacity: 0;
+            transform: rotate(180deg);
+        }
+
+        [data-theme="dark"] .toggle-thumb .sun-icon {
+            opacity: 0;
+            transform: rotate(-180deg);
+        }
+
+        [data-theme="dark"] .toggle-thumb .moon-icon {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        /* Theme-aware elements */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        .glass-effect {
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-blur {
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Global text color fixes for theme awareness */
+        .card-hover h3,
+        .card-hover h4 {
+            color: var(--text-primary) !important;
+        }
+
+        .card-hover p {
+            color: var(--text-secondary) !important;
+        }
+
+        .card-hover .text-gray-600 {
+            color: var(--text-tertiary) !important;
+        }
+
+        .card-hover .text-gray-500 {
+            color: var(--text-tertiary) !important;
+        }
+
+        /* Card background enhancements */
+        .card-hover {
+            background: var(--card-bg) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-hover::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 107, 53, 0.1), transparent, rgba(22, 160, 133, 0.1), transparent);
+            animation: card-glow 8s linear infinite;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: 1;
+        }
+
+        .card-hover:hover::after {
+            opacity: 1;
+        }
+
+        .card-hover > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes card-glow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Activity card special backgrounds */
+        .bg-orange-50 {
+            background: rgba(255, 107, 53, 0.1) !important;
+        }
+
+        .bg-green-50 {
+            background: rgba(22, 160, 133, 0.1) !important;
+        }
+
+        [data-theme="dark"] .bg-orange-50 {
+            background: rgba(255, 107, 53, 0.15) !important;
+        }
+
+        [data-theme="dark"] .bg-green-50 {
+            background: rgba(22, 160, 133, 0.15) !important;
+        }
+
+        /* Dark mode hero adjustments */
+        [data-theme="dark"] #ana-sayfa .absolute.inset-0 div {
+            background: rgba(15, 23, 42, 0.3) !important;
+        }
+
+        /* Hero image specific styles */
+        #ana-sayfa {
+            position: relative;
+        }
+
+        #ana-sayfa::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Smooth theme transitions */
+        * {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Premium Icon Styles */
+        .activity-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--icon-color-1), var(--icon-color-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .icon-zipline { --icon-color-1: #FF6B35; --icon-color-2: #E55A2B; }
+        .icon-swing { --icon-color-1: #16A085; --icon-color-2: #138D75; }
+        .icon-shooting { --icon-color-1: #8B4513; --icon-color-2: #CD853F; }
+        .icon-cafe { --icon-color-1: #F39C12; --icon-color-2: #E67E22; }
+        
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .language-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .language-option:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .language-option:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .language-option:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .rtl {
+            direction: rtl;
+        }
+        
+        .rtl .text-right {
+            text-align: left;
+        }
+        
+        .rtl .text-left {
+            text-align: right;
+        }
+
+        /* Premium WhatsApp Button Styles */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border: 2px solid rgba(255,255,255,0.2);
+            box-shadow: 
+                0 4px 15px rgba(37, 211, 102, 0.4),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+
+        .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(37, 211, 102, 0.6),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+
+        .whatsapp-btn-large {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border: 2px solid rgba(255,255,255,0.2);
+            box-shadow: 
+                0 8px 30px rgba(37, 211, 102, 0.4),
+                inset 0 2px 0 rgba(255,255,255,0.2);
+        }
+
+        .whatsapp-btn-large:hover {
+            background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+            box-shadow: 
+                0 12px 40px rgba(37, 211, 102, 0.6),
+                inset 0 2px 0 rgba(255,255,255,0.3);
+        }
+
+        .whatsapp-btn-large .fa-whatsapp {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+    </style>
+</head>
+    <body class="font-sans antialiased" data-theme="light">
+        <!-- Dynamic Background -->
+        <div class="dynamic-background">
+            <div class="particles" id="particles"></div>
+        </div>
+    
+    <!-- Clean Navigation -->
+    <nav class="fixed w-full top-0 z-50 nav-blur backdrop-blur-md" style="background: var(--nav-bg); border-bottom: 1px solid var(--border-color);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center logo-container">
+                    <img src="images/logo.png" alt="Layiga Adventure Park" class="nav-logo h-20 w-auto transition-all duration-300 hover:scale-110" style="object-fit: cover; object-position: center; clip-path: inset(25% 0% 25% 0%); transform: scaleY(0.8);">
+                    <!-- Logo enhancement for dark mode -->
+                    <style>
+                        [data-theme="dark"] .nav-logo {
+                            filter: brightness(1.1) contrast(1.1) drop-shadow(0 4px 8px rgba(255,255,255,0.1));
+                        }
+                        .nav-logo {
+                            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+                            width: auto !important;
+                            min-width: 200px;
+                            max-width: 300px;
+                        }
+                        
+                        /* Ensure navigation items stay in LTR order even in RTL mode */
+                        .nav-items-container {
+                            direction: ltr !important;
+                            flex-direction: row !important;
+                        }
+                        
+                        /* Ensure logo container stays on the left */
+                        .logo-container {
+                            direction: ltr !important;
+                        }
+                        
+                        /* Force navigation bar to stay LTR */
+                        nav, nav * {
+                            direction: ltr !important;
+                        }
+                        
+                        /* Exception for language dropdown content */
+                        .language-dropdown {
+                            direction: inherit;
+                        }
+                    </style>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8 nav-items-container" style="direction: ltr;">
+                    <a href="#ana-sayfa" class="font-medium transition-all duration-300" style="color: var(--text-primary);" onmouseover="this.style.color='var(--layiga-orange)'" onmouseout="this.style.color='var(--text-primary)'" data-tr="Ana Sayfa" data-en="Home" data-ar="الرئيسية">Ana Sayfa</a>
+                    <a href="#aktiviteler" class="font-medium transition-all duration-300" style="color: var(--text-primary);" onmouseover="this.style.color='var(--layiga-orange)'" onmouseout="this.style.color='var(--text-primary)'" data-tr="Aktiviteler" data-en="Activities" data-ar="الأنشطة">Aktiviteler</a>
+                    <a href="#galeri" class="font-medium transition-all duration-300" style="color: var(--text-primary);" onmouseover="this.style.color='var(--layiga-orange)'" onmouseout="this.style.color='var(--text-primary)'" data-tr="Galeri" data-en="Gallery" data-ar="المعرض">Galeri</a>
+                    <a href="#iletisim" class="font-medium transition-all duration-300" style="color: var(--text-primary);" onmouseover="this.style.color='var(--layiga-orange)'" onmouseout="this.style.color='var(--text-primary)'" data-tr="İletişim" data-en="Contact" data-ar="اتصل بنا">İletişim</a>
+                    
+                    <!-- Language Selector -->
+                    <div class="language-selector">
+                        <button id="languageToggle" class="flex items-center space-x-2 font-medium transition-all duration-300" style="color: var(--text-primary);" onmouseover="this.style.color='var(--layiga-orange)'" onmouseout="this.style.color='var(--text-primary)'">
+                            <i class="fas fa-globe"></i>
+                            <span id="currentLang">TR</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="languageDropdown" class="language-dropdown">
+                            <div class="language-option" data-lang="tr">
+                                <span class="text-xl">🇹🇷</span>
+                                <span>Türkçe</span>
+                            </div>
+                            <div class="language-option" data-lang="en">
+                                <span class="text-xl">🇺🇸</span>
+                                <span>English</span>
+                            </div>
+                            <div class="language-option" data-lang="ar">
+                                <span class="text-xl">🇸🇦</span>
+                                <span>العربية</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/905378738398?text=Merhaba, Layiga Adventure Park hakkında bilgi almak istiyorum." target="_blank" class="whatsapp-btn text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2 transition-all duration-300" data-tr="WhatsApp İletişim" data-en="WhatsApp Contact" data-ar="واتساب اتصال">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span data-tr="WhatsApp" data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
+                    </a>
+                    
+                    <!-- Premium Dark Mode Toggle -->
+                    <div class="premium-theme-toggle ml-4" id="themeToggle">
+                        <div class="toggle-track">
+                            <div class="toggle-thumb">
+                                <div class="theme-toggle-icon sun-icon">☀️</div>
+                                <div class="theme-toggle-icon moon-icon">🌙</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="md:hidden p-2 mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu md:hidden hidden absolute top-full left-0 right-0 nav-blur border-t" style="border-color: var(--border-color);">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#ana-sayfa" class="block py-3 font-medium transition-all duration-300" style="color: var(--text-primary);" data-tr="Ana Sayfa" data-en="Home" data-ar="الرئيسية">Ana Sayfa</a>
+                <a href="#aktiviteler" class="block py-3 font-medium transition-all duration-300" style="color: var(--text-primary);" data-tr="Aktiviteler" data-en="Activities" data-ar="الأنشطة">Aktiviteler</a>
+                <a href="#galeri" class="block py-3 font-medium transition-all duration-300" style="color: var(--text-primary);" data-tr="Galeri" data-en="Gallery" data-ar="المعرض">Galeri</a>
+                <a href="#iletisim" class="block py-3 font-medium transition-all duration-300" style="color: var(--text-primary);" data-tr="İletişim" data-en="Contact" data-ar="اتصل بنا">İletişim</a>
+                
+                <!-- Mobile Language & Theme Toggle -->
+                <div class="pt-4 border-t" style="border-color: var(--border-color);">
+                    <div class="flex items-center justify-between">
+                        <div class="language-selector">
+                            <button id="languageToggleMobile" class="flex items-center space-x-2 font-medium" style="color: var(--text-primary);">
+                                <i class="fas fa-globe"></i>
+                                <span id="currentLangMobile">TR</span>
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div id="languageMenuMobile" class="language-menu hidden mt-2 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+                                <button class="lang-option block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="tr">🇹🇷 Türkçe</button>
+                                <button class="lang-option block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="en">🇺🇸 English</button>
+                                <button class="lang-option block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="ar">🇸🇦 العربية</button>
+                            </div>
+                        </div>
+                        
+                        <button id="themeToggleMobile" class="theme-toggle-mobile p-2">
+                            <div class="theme-switch">
+                                <div class="theme-switch-track">
+                                    <div class="theme-switch-thumb">
+                                        <i class="fas fa-sun text-yellow-500"></i>
+                                        <i class="fas fa-moon text-blue-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="ana-sayfa" class="min-h-screen flex items-center justify-center relative overflow-hidden" style="padding-top: 64px;">
+        <div class="absolute inset-0">
+            <img src="images/hero.jpg" alt="Layiga Adventure Park - Ultimate Zipline Experience" class="w-full h-full object-cover object-bottom">
+            <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+        
+                 <!-- Hero content positioned strategically between the legs -->
+                 <div class="relative z-10 text-center px-4 max-w-4xl mx-auto" style="margin-top: 8vh;">
+            <div class="animate-fade-in">
+                <!-- Premium Hero Badge -->
+                <div class="inline-flex items-center px-6 py-3 rounded-full glass-effect mb-6 animate-float backdrop-blur-md bg-white/10 border border-white/20">
+                    <i class="fas fa-mountain text-white mr-3"></i>
+                    <span class="text-white font-medium text-sm md:text-base" 
+                          data-tr="Uzungöl'ün Premium Macera Parkı" 
+                          data-en="Uzungöl's Premium Adventure Park" 
+                          data-ar="منتزه المغامرات المميز في أوزونغول">
+                        Uzungöl'ün Premium Macera Parkı
+                    </span>
+                </div>
+
+                <h1 class="hero-title font-serif text-4xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-2xl" 
+                    data-tr="Doğayla Buluştuğun<br/><span class='block text-gradient'>Adrenalin Noktası</span>" 
+                    data-en="Where Nature Meets<br/><span class='block text-gradient'>Adrenaline Rush</span>" 
+                    data-ar="حيث تلتقي الطبيعة<br/><span class='block text-gradient'>بالأدرينالين</span>"
+                    style="text-shadow: 3px 6px 12px rgba(0,0,0,0.8), 0 0 30px rgba(255,107,53,0.6);">
+                    Doğayla Buluştuğun
+                    <span class="block text-gradient animate-pulse" style="background: linear-gradient(135deg, #FF6B35, #FFD700, #FF6B35); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Adrenalin Noktası</span>
+                </h1>
+                
+                <p class="hero-subtitle text-lg md:text-xl text-white/95 mb-8 max-w-2xl mx-auto leading-relaxed font-medium backdrop-blur-sm bg-black/20 rounded-xl p-4" 
+                   data-tr="Uzungöl'ün büyüleyici atmosferinde cesaret ve heyecanın buluşma noktası. Her anı özel kılan macera seni bekliyor!" 
+                   data-en="Where courage meets excitement in the enchanting atmosphere of Uzungöl. The adventure that makes every moment special awaits you!" 
+                   data-ar="حيث تلتقي الشجاعة بالإثارة في أجواء أوزونغول الساحرة. المغامرة التي تجعل كل لحظة مميزة تنتظرك!"
+                   style="text-shadow: 2px 4px 8px rgba(0,0,0,0.8);">
+                    Uzungöl'ün büyüleyici atmosferinde cesaret ve heyecanın buluşma noktası. Her anı özel kılan macera seni bekliyor!
+                </p>
+                
+                <!-- Premium Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <a href="https://wa.me/905378738398?text=Merhaba! Layiga Adventure Park için rezervasyon yapmak istiyorum." target="_blank" class="whatsapp-btn-large text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-2xl group transform hover:scale-105 transition-all duration-300" 
+                            data-tr="Hemen Rezervasyon Yap" data-en="Book Now" data-ar="احجز الآن">
+                        <span class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-2xl group-hover:animate-bounce"></i>
+                            <span data-tr="Hemen Rezervasyon Yap" data-en="Book Now" data-ar="احجز الآن">Hemen Rezervasyon Yap</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Enhanced Hero Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                    <div class="glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
+                        <div class="text-3xl font-bold text-white mb-2">300m</div>
+                        <div class="text-white/80 text-sm font-medium" 
+                             data-tr="Zipline Uzunluğu" data-en="Zipline Length" data-ar="طول خط الانزلاق">
+                            Zipline Uzunluğu
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
+                        <div class="text-3xl font-bold text-white mb-2">80m</div>
+                        <div class="text-white/80 text-sm font-medium" 
+                             data-tr="Maksimum Yükseklik" data-en="Maximum Height" data-ar="أقصى ارتفاع">
+                            Maksimum Yükseklik
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
+                        <div class="text-3xl font-bold text-white mb-2">08-20</div>
+                        <div class="text-white/80 text-sm font-medium" 
+                             data-tr="Çalışma Saatleri" data-en="Operating Hours" data-ar="ساعات العمل">
+                            Çalışma Saatleri
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
+                        <div class="text-3xl font-bold text-white mb-2">2019</div>
+                        <div class="text-white/80 text-sm font-medium" 
+                             data-tr="Kuruluş Yılı" data-en="Established" data-ar="تأسس عام">
+                            Kuruluş Yılı
+                        </div>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center backdrop-blur-md transform hover:scale-105 transition-all duration-300">
+                        <div class="text-3xl font-bold text-white mb-2">ISO</div>
+                        <div class="text-white/80 text-sm font-medium" 
+                             data-tr="CE Sertifikalı" data-en="CE Certified" data-ar="معتمد CE">
+                            CE Sertifikalı
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-gentle-float">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="aktiviteler" class="py-20 relative" style="background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 50%, var(--bg-tertiary) 100%);">
+        <div class="absolute inset-0 opacity-30">
+            <div style="background: radial-gradient(circle at 25% 25%, rgba(255, 107, 53, 0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(22, 160, 133, 0.1) 0%, transparent 50%);"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                         <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" style="color: var(--layiga-orange);" 
+                    data-tr="Aktiviteler" data-en="Activities" data-ar="الأنشطة">
+                    Aktiviteler
+                </h2>
+                <p class="text-xl max-w-2xl mx-auto" style="color: var(--text-secondary);" 
+                   data-tr="Uzungöl'ün nefes kesen doğasında unutulmaz deneyimler" 
+                   data-en="Unforgettable experiences in the breathtaking nature of Uzungöl" 
+                   data-ar="تجارب لا تُنسى في طبيعة أوزونغول الخلابة">
+                    Uzungöl'ün nefes kesen doğasında unutulmaz deneyimler
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <!-- Zipline -->
+                <div class="card-hover rounded-2xl overflow-hidden shadow-lg">
+                    <div class="aspect-w-16 aspect-h-10">
+                        <img src="images/zipline2.jpg" alt="Zipline" class="w-full h-64 object-cover">
+                    </div>
+                                         <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-layiga-orange/10 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-mountain activity-icon icon-zipline"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-2xl font-semibold" style="color: var(--layiga-orange);" 
+                                    data-tr="Zipline" data-en="Zipline" data-ar="خط الانزلاق">
+                                    Zipline
+                                </h3>
+                                <div class="flex items-center text-sm text-layiga-orange mt-1">
+                                    <i class="fas fa-star text-xs mr-1"></i>
+                                    <span data-tr="En Popüler" data-en="Most Popular" data-ar="الأكثر شعبية">En Popüler</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-4 leading-relaxed" style="color: var(--text-secondary);" 
+                           data-tr="300 metre uzunluğundaki zipline ile Uzungöl'ün büyüleyici manzarası eşliğinde adrenalin dolu bir yolculuk yapın. Dağların zirvesinden vadiye doğru süzülürken doğanın tadını çıkarın." 
+                           data-en="Take an adrenaline-filled journey on a 300-meter zipline with the enchanting view of Uzungöl. Enjoy nature as you glide from the mountain peaks to the valley." 
+                           data-ar="قم برحلة مليئة بالأدرينالين على خط انزلاق بطول 300 متر مع المنظر الساحر لأوزونغول. استمتع بالطبيعة وأنت تنزلق من قمم الجبال إلى الوادي.">
+                            300 metre uzunluğundaki zipline ile Uzungöl'ün büyüleyici manzarası eşliğinde 
+                            adrenalin dolu bir yolculuk yapın. Dağların zirvesinden vadiye doğru süzülürken doğanın tadını çıkarın.
+                        </p>
+                        
+                        <div class="bg-orange-50 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-forest-dark mb-3" 
+                                data-tr="Teknik Özellikler" data-en="Technical Specifications" data-ar="المواصفات التقنية">
+                                Teknik Özellikler
+                            </h4>
+                            <div class="grid grid-cols-2 gap-3 text-sm">
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-ruler text-layiga-orange mr-2"></i>
+                                    <span data-tr="300m uzunluk" data-en="300m length" data-ar="300 متر طول">300m uzunluk</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-mountain text-layiga-orange mr-2"></i>
+                                    <span data-tr="80m yükseklik" data-en="80m height" data-ar="80 متر ارتفاع">80m yükseklik</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-tachometer-alt text-layiga-orange mr-2"></i>
+                                    <span data-tr="60 km/h hız" data-en="60 km/h speed" data-ar="60 كم/ساعة سرعة">60 km/h hız</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-shield-alt text-layiga-orange mr-2"></i>
+                                    <span data-tr="ISO sertifikalı" data-en="ISO certified" data-ar="معتمد ISO">ISO sertifikalı</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-3xl font-bold text-layiga-orange">250₺</span>
+                                <p class="text-sm text-gray-500" data-tr="kişi başı" data-en="per person" data-ar="للشخص الواحد">kişi başı</p>
+                            </div>
+                            <button class="btn-primary text-white px-6 py-2 rounded-lg font-medium" 
+                                    data-tr="Detaylar" data-en="Details" data-ar="التفاصيل">
+                                Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Giant Swing -->
+                <div class="card-hover rounded-2xl overflow-hidden shadow-lg">
+                    <div class="aspect-w-16 aspect-h-10">
+                        <img src="images/swing.JPG" alt="Dev Salıncak" class="w-full h-64 object-cover">
+                    </div>
+                                         <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-layiga-green/10 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-wind activity-icon icon-swing"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-2xl font-semibold" style="color: var(--layiga-orange);" 
+                                    data-tr="Dev Salıncak" data-en="Giant Swing" data-ar="الأرجوحة العملاقة">
+                                    Dev Salıncak
+                                </h3>
+                                <div class="flex items-center text-sm text-layiga-green mt-1">
+                                    <i class="fas fa-heart text-xs mr-1"></i>
+                                    <span data-tr="Aileler için ideal" data-en="Perfect for families" data-ar="مثالي للعائلات">Aileler için ideal</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 leading-relaxed" 
+                           data-tr="60m yükseklikten gökyüzüne dokunur gibi hissedeceğiniz dev salıncak deneyimi ile panoramik manzara keyfini çıkarın. Uzungöl'ün 360° manzarasını izleyerek unutulmaz anlar yaşayın." 
+                           data-en="Enjoy the panoramic view with the giant swing experience where you will feel like touching the sky from 60m height. Experience unforgettable moments watching the 360° view of Uzungöl." 
+                           data-ar="استمتع بالمنظر البانورامي مع تجربة الأرجوحة العملاقة حيث ستشعر وكأنك تلمس السماء من ارتفاع 60 متر. اختبر لحظات لا تُنسى وأنت تشاهد منظر 360° لأوزونغول.">
+                            60m yükseklikten gökyüzüne dokunur gibi hissedeceğiniz dev salıncak deneyimi 
+                            ile panoramik manzara keyfini çıkarın. Uzungöl'ün 360° manzarasını izleyerek unutulmaz anlar yaşayın.
+                        </p>
+                        
+                        <div class="bg-green-50 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-forest-dark mb-3" 
+                                data-tr="Deneyim Özellikleri" data-en="Experience Features" data-ar="خصائص التجربة">
+                                Deneyim Özellikleri
+                            </h4>
+                            <div class="grid grid-cols-2 gap-3 text-sm">
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-arrows-alt-v text-layiga-green mr-2"></i>
+                                    <span data-tr="60m yükseklik" data-en="60m height" data-ar="60 متر ارتفاع">60m yükseklik</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-expand-arrows-alt text-layiga-green mr-2"></i>
+                                    <span data-tr="40m salınım" data-en="40m swing" data-ar="40 متر أرجحة">40m salınım</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-eye text-layiga-green mr-2"></i>
+                                    <span data-tr="360° manzara" data-en="360° view" data-ar="منظر 360°">360° manzara</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-users text-layiga-green mr-2"></i>
+                                    <span data-tr="Çift kişilik" data-en="Double seat" data-ar="مقعد مزدوج">Çift kişilik</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-3xl font-bold text-layiga-green">200₺</span>
+                                <p class="text-sm text-gray-500" data-tr="kişi başı" data-en="per person" data-ar="للشخص الواحد">kişi başı</p>
+                            </div>
+                            <button class="btn-secondary text-white px-6 py-2 rounded-lg font-medium" 
+                                    data-tr="Detaylar" data-en="Details" data-ar="التفاصيل">
+                                Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Shooting Range -->
+                <div class="card-hover rounded-2xl overflow-hidden shadow-lg">
+                    <div class="aspect-w-16 aspect-h-10">
+                        <img src="images/shooting.jpg" alt="Atış Poligonu" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-bullseye text-orange-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold" style="color: var(--layiga-orange);" 
+                                    data-tr="Atış Poligonu" data-en="Shooting Range" data-ar="ساحة الرماية">
+                                    Atış Poligonu
+                                </h3>
+                                <div class="flex items-center text-sm text-orange-600 mt-1">
+                                    <i class="fas fa-medal text-xs mr-1"></i>
+                                    <span data-tr="Beceri geliştirici" data-en="Skill building" data-ar="تطوير المهارات">Beceri geliştirici</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-4 text-sm leading-relaxed" style="color: var(--text-secondary);" 
+                           data-tr="Profesyonel atış poligonunda konsantrasyon ve hedef odaklı aktivitelerle keyifli zaman geçirin." 
+                           data-en="Enjoy quality time with concentration and target-focused activities at our professional shooting range." 
+                           data-ar="استمتع بوقت ممتع مع الأنشطة التي تركز على التركيز والهدف في ساحة الرماية المهنية لدينا.">
+                            Profesyonel atış poligonunda konsantrasyon ve hedef odaklı aktivitelerle keyifli zaman geçirin.
+                        </p>
+                        
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-orange-600">200₺</span>
+                                <p class="text-xs text-gray-500" data-tr="10 atış" data-en="10 shots" data-ar="10 رصاصات">10 atış</p>
+                            </div>
+                            <button class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300" 
+                                    data-tr="Detaylar" data-en="Details" data-ar="التفاصيل">
+                                Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Akülü Araç -->
+                <div class="card-hover rounded-2xl overflow-hidden shadow-lg">
+                    <div class="aspect-w-16 aspect-h-10">
+                        <img src="images/car.jpg" alt="Akülü Araç" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-car text-blue-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold" style="color: var(--layiga-orange);" 
+                                    data-tr="Akülü Araç" data-en="Electric Vehicle" data-ar="مركبة كهربائية">
+                                    Akülü Araç
+                                </h3>
+                                <div class="flex items-center text-sm text-blue-600 mt-1">
+                                    <i class="fas fa-leaf text-xs mr-1"></i>
+                                    <span data-tr="Çevre dostu" data-en="Eco-friendly" data-ar="صديق للبيئة">Çevre dostu</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-4 text-sm leading-relaxed" style="color: var(--text-secondary);" 
+                           data-tr="Uzungöl'ün muhteşem doğasını çevre dostu akülü araçlarla keşfedin. 5 dakikalık eğlenceli tur." 
+                           data-en="Explore the magnificent nature of Uzungöl with eco-friendly electric vehicles. 5-minute fun tour." 
+                           data-ar="استكشف الطبيعة الرائعة لأوزونغول بالمركبات الكهربائية الصديقة للبيئة. جولة ممتعة لمدة 5 دقائق.">
+                            Uzungöl'ün muhteşem doğasını çevre dostu akülü araçlarla keşfedin. 5 dakikalık eğlenceli tur.
+                        </p>
+                        
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-blue-600">150₺</span>
+                                <p class="text-xs text-gray-500" data-tr="5 dk tur" data-en="5 min tour" data-ar="جولة 5 دقائق">5 dk tur</p>
+                            </div>
+                            <a href="https://wa.me/905378738398?text=Merhaba! Akülü araç aktivitesi için rezervasyon yapmak istiyorum." target="_blank" class="whatsapp-btn text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-1 transition-all duration-300" 
+                                    data-tr="WhatsApp" data-en="WhatsApp" data-ar="واتساب">
+                                <i class="fab fa-whatsapp text-sm"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Üçüncü küçük kart (şimdilik boş - ihtiyaç halinde eklenebilir) -->
+                <div class="card-hover rounded-2xl overflow-hidden shadow-lg">
+                    <div class="aspect-w-16 aspect-h-10">
+                        <img src="images/swinguzungol.jpg" alt="Uzungöl Manzarası" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-camera text-green-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-xl font-semibold" style="color: var(--layiga-orange);" 
+                                    data-tr="Fotoğraf Çekimi" data-en="Photo Session" data-ar="جلسة تصوير">
+                                    Fotoğraf Çekimi
+                                </h3>
+                                <div class="flex items-center text-sm text-green-600 mt-1">
+                                    <i class="fas fa-star text-xs mr-1"></i>
+                                    <span data-tr="Anı ölümsüzleştirin" data-en="Immortalize moments" data-ar="خلد اللحظات">Anı ölümsüzleştirin</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-4 text-sm leading-relaxed" style="color: var(--text-secondary);" 
+                           data-tr="Uzungöl'ün en güzel noktalarında profesyonel fotoğraf çekimi imkanı." 
+                           data-en="Professional photography opportunities at the most beautiful spots of Uzungöl." 
+                           data-ar="فرص تصوير احترافية في أجمل بقاع أوزونغول.">
+                            Uzungöl'ün en güzel noktalarında profesyonel fotoğraf çekimi imkanı.
+                        </p>
+                        
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-lg font-bold text-green-600" data-tr="Ücretsiz" data-en="Free" data-ar="مجاني">Ücretsiz</span>
+                            </div>
+                            <button class="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-all" 
+                                    data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">
+                                Bilgi Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÖZSE Café - Premium Large Card -->
+            <div class="mt-12">
+                <div class="card-hover rounded-2xl overflow-hidden shadow-lg">
+                    <div class="md:flex">
+                        <div class="md:w-1/2">
+                            <img src="images/cafe.JPG" alt="ÖZSE Café" class="h-64 md:h-full w-full object-cover">
+                        </div>
+                        <div class="md:w-1/2 p-8">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 bg-amber-100 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-coffee activity-icon text-amber-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif text-2xl font-semibold" style="color: var(--text-primary);" 
+                                        data-tr="ÖZSE Café" data-en="ÖZSE Café" data-ar="مقهى أوزسي">
+                                        ÖZSE Café
+                                    </h3>
+                                    <div class="flex items-center text-sm text-amber-600 mt-1">
+                                        <i class="fas fa-leaf text-xs mr-1"></i>
+                                        <span data-tr="Organik ve yerel" data-en="Organic & local" data-ar="عضوي ومحلي">Organik ve yerel</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="mb-6 leading-relaxed" style="color: var(--text-secondary);" 
+                               data-tr="Macera dolu gününüzün ardından sıcak çay, kahve ve yöresel lezzetlerle dinlenin. Uzungöl'ün geleneksel tatlarını modern sunumla buluşturan menümüzle doğanın tadını çıkarın." 
+                               data-en="Relax with hot tea, coffee and local delicacies after your adventure-filled day. Enjoy nature with our menu that combines traditional flavors of Uzungöl with modern presentation." 
+                               data-ar="استرخ مع الشاي الساخن والقهوة والمأكولات المحلية بعد يوم مليء بالمغامرات. استمتع بالطبيعة مع قائمة طعامنا التي تجمع بين النكهات التقليدية لأوزونغول والعرض الحديث.">
+                                Macera dolu gününüzün ardından sıcak çay, kahve ve yöresel lezzetlerle dinlenin. 
+                                Uzungöl'ün geleneksel tatlarını modern sunumla buluşturan menümüzle doğanın tadını çıkarın.
+                            </p>
+
+                            <div class="bg-amber-50 rounded-lg p-4 mb-6">
+                                <h4 class="font-semibold text-forest-dark mb-3" 
+                                    data-tr="Özel Lezzetler" data-en="Special Delicacies" data-ar="المأكولات الخاصة">
+                                    Özel Lezzetler
+                                </h4>
+                                <div class="grid grid-cols-2 gap-3 text-sm">
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-coffee text-amber-600 mr-2"></i>
+                                        <span data-tr="Türk kahvesi" data-en="Turkish coffee" data-ar="قهوة تركية">Türk kahvesi</span>
+                                    </div>
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-leaf text-amber-600 mr-2"></i>
+                                        <span data-tr="Yayla çayı" data-en="Highland tea" data-ar="شاي المرتفعات">Yayla çayı</span>
+                                    </div>
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-cookie-bite text-amber-600 mr-2"></i>
+                                        <span data-tr="Ev yapımı pasta" data-en="Homemade cake" data-ar="كعكة منزلية">Ev yapımı pasta</span>
+                                    </div>
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-cheese text-amber-600 mr-2"></i>
+                                        <span data-tr="Yöresel peynir" data-en="Local cheese" data-ar="جبن محلي">Yöresel peynir</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="text-2xl font-bold text-amber-600" data-tr="Açık 09:00-22:00" data-en="Open 09:00-22:00" data-ar="مفتوح 09:00-22:00">Açık 09:00-22:00</span>
+                                </div>
+                                <a href="https://wa.me/905378738398?text=Merhaba! ÖZSE Café hakkında bilgi almak istiyorum." target="_blank" class="whatsapp-btn text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2 transition-all duration-300" 
+                                        data-tr="WhatsApp Menü" data-en="WhatsApp Menu" data-ar="قائمة واتساب">
+                                    <i class="fab fa-whatsapp text-lg"></i>
+                                    <span data-tr="Menü İste" data-en="Request Menu" data-ar="طلب القائمة">Menü İste</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeri" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-forest-dark mb-4" 
+                    data-tr="Galeri" data-en="Gallery" data-ar="المعرض">
+                    Galeri
+                </h2>
+                <p class="text-xl text-gray-600" 
+                   data-tr="Müşterilerimizin unutulmaz anları" 
+                   data-en="Unforgettable moments of our guests" 
+                   data-ar="لحظات لا تُنسى لضيوفنا">
+                    Müşterilerimizin unutulmaz anları
+                </p>
+            </div>
+
+            <!-- Premium Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                <!-- Zipline Gallery Item -->
+                <div class="group relative aspect-square glass-card rounded-3xl overflow-hidden card-hover">
+                    <img src="images/IMG_6856.jpg" alt="Zipline Adventure" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-layiga-orange/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold" data-tr="Zipline" data-en="Zipline" data-ar="خط الانزلاق">Zipline</span>
+                            <i class="fas fa-mountain text-layiga-orange"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Giant Swing Gallery Item -->
+                <div class="group relative aspect-square glass-card rounded-3xl overflow-hidden card-hover">
+                    <img src="images/IMG_6857.jpg" alt="Giant Swing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-layiga-green/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold" data-tr="Dev Salıncak" data-en="Giant Swing" data-ar="الأرجوحة العملاقة">Dev Salıncak</span>
+                            <i class="fas fa-wind text-layiga-green"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shooting Range Gallery Item -->
+                <div class="group relative aspect-square glass-card rounded-3xl overflow-hidden card-hover">
+                    <div class="w-full h-full bg-gradient-to-br from-orange-100 via-orange-200 to-orange-300 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-bullseye text-6xl text-orange-600 mb-4 group-hover:animate-pulse"></i>
+                            <div class="text-orange-800 font-semibold" data-tr="Atış Poligonu" data-en="Shooting Range" data-ar="ساحة الرماية">Atış Poligonu</div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+
+                <!-- Café Gallery Item -->
+                <div class="group relative aspect-square glass-card rounded-3xl overflow-hidden card-hover">
+                    <img src="images/IMG_6858.jpg" alt="ÖZSE Café" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold" data-tr="ÖZSE Café" data-en="ÖZSE Café" data-ar="مقهى أوزسي">ÖZSE Café</span>
+                            <i class="fas fa-coffee text-amber-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Adventure Photo -->
+                <div class="group relative aspect-square glass-card rounded-3xl overflow-hidden card-hover">
+                    <img src="images/FullSizeRender.jpg" alt="Layiga Adventure Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold" data-tr="Macera Deneyimi" data-en="Adventure Experience" data-ar="تجربة المغامرة">Macera Deneyimi</span>
+                            <i class="fas fa-camera text-purple-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Features Grid -->
+            <div class="mt-16 grid md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-3xl p-8 text-center group hover:scale-105 transition-all duration-500">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-layiga-orange to-layiga-orange-dark rounded-2xl flex items-center justify-center group-hover:animate-pulse">
+                        <i class="fas fa-shield-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-forest-dark mb-4" data-tr="ISO Sertifikalı Güvenlik" data-en="ISO Certified Safety" data-ar="سلامة معتمدة من ISO">ISO Sertifikalı Güvenlik</h3>
+                    <p class="text-gray-600" data-tr="Uluslararası standartlarda güvenlik protokolleri" data-en="International standard safety protocols" data-ar="بروتوكولات السلامة بالمعايير الدولية">Uluslararası standartlarda güvenlik protokolleri</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 text-center group hover:scale-105 transition-all duration-500">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-layiga-green to-layiga-green-dark rounded-2xl flex items-center justify-center group-hover:animate-pulse">
+                        <i class="fas fa-leaf text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-forest-dark mb-4" data-tr="Doğa Dostu" data-en="Eco-Friendly" data-ar="صديق للبيئة">Doğa Dostu</h3>
+                    <p class="text-gray-600" data-tr="Çevreye saygılı sürdürülebilir turizm" data-en="Environmentally respectful sustainable tourism" data-ar="سياحة مستدامة صديقة للبيئة">Çevreye saygılı sürdürülebilir turizm</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 text-center group hover:scale-105 transition-all duration-500">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center group-hover:animate-pulse">
+                        <i class="fas fa-award text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-forest-dark mb-4" data-tr="Uzman Ekip" data-en="Expert Team" data-ar="فريق خبير">Uzman Ekip</h3>
+                    <p class="text-gray-600" data-tr="Deneyimli ve sertifikalı eğitmenler" data-en="Experienced and certified instructors" data-ar="مدربون ذوو خبرة ومعتمدون">Deneyimli ve sertifikalı eğitmenler</p>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="mt-16 grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-layiga-orange rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            A
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Ahmet K.</h4>
+                            <div class="text-amber-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Uzungöl'de geçirdiğim en heyecanlı gündü! Zipline deneyimi nefes kesiciydi."
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-layiga-green rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            E
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Elif M.</h4>
+                            <div class="text-amber-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Dev salıncak muhteşemdi! Manzara eşliğinde adrenalini doruklarda yaşadık."
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-forest-dark rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Mehmet Y.</h4>
+                            <div class="text-amber-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Ailecek geldik ve herkes çok eğlendi. Güvenlik önlemleri mükemmel!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeri" class="py-20 relative" style="background: var(--bg-primary);">
+        <div class="absolute inset-0 opacity-20">
+            <div style="background: radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(22, 160, 133, 0.15) 0%, transparent 50%);"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" style="color: var(--text-primary);" 
+                    data-tr="Galeri" data-en="Gallery" data-ar="المعرض">
+                    Galeri
+                </h2>
+                <p class="text-xl max-w-2xl mx-auto" style="color: var(--text-secondary);" 
+                   data-tr="Adrenalinin dorukları ve unutulmaz anlar" 
+                   data-en="Peak adrenaline and unforgettable moments" 
+                   data-ar="ذروة الأدرينالين ولحظات لا تُنسى">
+                    Adrenalinin dorukları ve unutulmaz anlar
+                </p>
+            </div>
+
+            <!-- Featured Videos Section -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-center mb-8" style="color: var(--text-primary);" 
+                    data-tr="Tanıtım Videoları" data-en="Promotional Videos" data-ar="فيديوهات ترويجية">
+                    Tanıtım Videoları
+                </h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-black rounded-2xl overflow-hidden shadow-2xl">
+                        <video 
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline 
+                            preload="metadata"
+                            class="w-full h-64 md:h-80 object-cover"
+                            poster="images/hero.jpg">
+                            <source src="images/IMG_2052 2.mov" type="video/quicktime">
+                            <source src="images/IMG_2052 2.mov" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="p-4">
+                            <h4 class="font-semibold text-white" data-tr="Zipline Macerası" data-en="Zipline Adventure" data-ar="مغامرة خط الانزلاق">Zipline Macerası</h4>
+                            <p class="text-gray-300 text-sm" data-tr="Gökyüzündeki adrenalin" data-en="Adrenaline in the sky" data-ar="الأدرينالين في السماء">Gökyüzündeki adrenalin</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-black rounded-2xl overflow-hidden shadow-2xl">
+                        <video 
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline 
+                            preload="metadata"
+                            class="w-full h-64 md:h-80 object-cover"
+                            poster="images/hero.jpg">
+                            <source src="images/IMG_4239 2.mov" type="video/quicktime">
+                            <source src="images/IMG_4239 2.mov" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="p-4">
+                            <h4 class="font-semibold text-white" data-tr="Park Deneyimi" data-en="Park Experience" data-ar="تجربة المنتزه">Park Deneyimi</h4>
+                            <p class="text-gray-300 text-sm" data-tr="Doğayla buluşan adrenalin" data-en="Adrenaline meets nature" data-ar="الأدرينالين يلتقي بالطبيعة">Doğayla buluşan adrenalin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="group relative overflow-hidden rounded-2xl aspect-square">
+                    <img src="images/zipline3.jpg" alt="Layiga Adventure Park" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4">
+                            <p class="text-white font-medium text-sm">Park Manzarası</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-2xl aspect-square">
+                    <img src="images/shooting.jpg" alt="Adventure Activities" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4">
+                            <p class="text-white font-medium text-sm">Atış Poligonu</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-2xl aspect-square md:col-span-2">
+                    <img src="images/hero.jpg" alt="Uzungöl Scenic View" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4">
+                            <p class="text-white font-medium text-sm">Uzungöl Manzarası</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-2xl aspect-square md:col-span-2">
+                    <img src="images/zipline2.jpg" alt="Zipline Experience" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4">
+                            <p class="text-white font-medium text-sm">Zipline Deneyimi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-2xl aspect-square">
+                    <img src="images/swinguzungol.jpg" alt="Giant Swing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4">
+                            <p class="text-white font-medium text-sm">Dev Salıncak</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-2xl aspect-square">
+                    <img src="images/cafe.JPG" alt="Café Experience" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4">
+                            <p class="text-white font-medium text-sm">ÖZSE Café</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim" class="py-20" style="background: var(--bg-secondary);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" style="color: var(--text-primary);" 
+                    data-tr="Ziyaretinizi Planlayın" data-en="Plan Your Visit" data-ar="خطط لزيارتك">
+                    Ziyaretinizi Planlayın
+                </h2>
+                <p class="text-xl" style="color: var(--text-secondary);" 
+                   data-tr="Unutulmaz maceranıza hazır olun" 
+                   data-en="Get ready for your unforgettable adventure" 
+                   data-ar="استعد لمغامرتك التي لا تُنسى">
+                    Unutulmaz maceranıza hazır olun
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-1 gap-12 max-w-4xl mx-auto">
+                <!-- Map & Transport -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Embedded Google Maps with high zoom level -->
+                    <div class="h-80 relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1508.4117283945062!2d40.2813017!3d40.6202711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406595d1cbcc65e5%3A0xff6bf16003f6f218!2sUzung%C3%B6l%2C%2061940%20%C3%87aykara%2FTrabzon!5e1!3m2!1str!2str!4v1640000000000!5m2!1str!2str&z=18"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="w-full h-full rounded-t-2xl">
+                        </iframe>
+                        <!-- Location overlay -->
+                        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-map-marker-alt text-emerald-600"></i>
+                                <div class="text-sm font-medium text-gray-800">Layiga Adventure Park</div>
+                            </div>
+                        </div>
+                        <!-- Directions button overlay -->
+                        <div class="absolute top-4 right-4">
+                            <a href="https://www.google.com/maps/dir//Uzung%C3%B6l,+61940+%C3%87aykara%2FTrabzon/@40.6202638,40.2401023,18z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x406595d1cbcc65e5:0xff6bf16003f6f218!2m2!1d40.2813017!2d40.6202711?entry=ttu&g_ep=EgoyMDI1MDYwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-lg font-medium inline-flex items-center space-x-1 transition-all duration-300 text-sm shadow-lg">
+                                <i class="fas fa-route"></i>
+                                <span data-tr="Yol Tarifi" data-en="Directions" data-ar="الاتجاهات">Yol Tarifi</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-semibold text-forest-dark mb-6">Ulaşım</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <span class="text-layiga-orange text-2xl mr-3">🚗</span>
+                                <div>
+                                    <strong>Arabayla:</strong> Trabzon merkez - Uzungöl arası 1.5 saat. 
+                                    Ücretsiz otopark mevcut.
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-layiga-green text-2xl mr-3">🚌</span>
+                                <div>
+                                    <strong>Otobüsle:</strong> Trabzon-Uzungöl seferleri günde 5 kez. 
+                                    Durağımız merkeze 200m mesafede.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-forest-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-serif text-2xl font-bold text-gradient mb-4">Layiga</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Uzungöl'ün nefes kesen doğasında adrenalin dolu maceralar. 
+                        Güvenli, eğlenceli ve unutulmaz deneyimler.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-4" data-tr="Sosyal Medya" data-en="Social Media" data-ar="وسائل التواصل الاجتماعي">Sosyal Medya</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="https://instagram.com/layigasalincak" target="_blank" class="text-gray-300 hover:text-pink-400 transition-colors flex items-center">
+                                <i class="fab fa-instagram mr-3 text-lg"></i>
+                                <span>@layigasalincak</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://tiktok.com/@layiga.salincak.z" target="_blank" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                                <i class="fab fa-tiktok mr-3 text-lg"></i>
+                                <span>@layiga.salincak.z</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/905378738398" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors flex items-center">
+                                <i class="fab fa-whatsapp mr-3 text-lg"></i>
+                                <span data-tr="WhatsApp İletişim" data-en="WhatsApp Contact" data-ar="واتساب اتصال">WhatsApp İletişim</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="mt-6">
+                        <h5 class="font-medium text-white mb-2" data-tr="Deneyimlerinizi Paylaşın" data-en="Share Your Experiences" data-ar="شارك تجاربك">Deneyimlerinizi Paylaşın</h5>
+                        <p class="text-gray-400 text-sm" data-tr="Parkta yaşadığınız muhteşem anları sosyal medyada paylaşmayı unutmayın!" data-en="Don't forget to share your amazing moments at the park on social media!" data-ar="لا تنس مشاركة لحظاتك المذهلة في المنتزه على وسائل التواصل الاجتماعي!">
+                            Parkta yaşadığınız muhteşem anları sosyal medyada paylaşmayı unutmayın!
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-4" data-tr="İletişim" data-en="Contact" data-ar="اتصل بنا">İletişim</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-user-tie mr-3 text-layiga-orange"></i>
+                            <div>
+                                <div class="font-semibold">Özgür Karatay</div>
+                                <div class="text-sm opacity-80" data-tr="Park Müdürü" data-en="Park Manager" data-ar="مدير المنتزه">Park Müdürü</div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-layiga-green"></i>
+                            <span>+90 537 873 83 98</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-layiga-orange"></i>
+                            <span data-tr="08:00 - 20:00 (Her gün)" data-en="08:00 - 20:00 (Daily)" data-ar="08:00 - 20:00 (يومياً)">08:00 - 20:00 (Her gün)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-layiga-green"></i>
+                            <span data-tr="Uzungöl, Çaykara/Trabzon" data-en="Uzungöl, Çaykara/Trabzon" data-ar="أوزونغول، تشايكارا/طرابزون">Uzungöl, Çaykara/Trabzon</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-certificate mr-3 text-yellow-500"></i>
+                            <span data-tr="ISO CE Sertifikalı" data-en="ISO CE Certified" data-ar="معتمد ISO CE">ISO CE Sertifikalı</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 Layiga Salıncak & Zipline. Tüm hakları saklıdır.
+                </p>
+                <p class="text-gray-500 text-sm mt-2" data-tr="2019'dan bu yana güvenilir macera deneyimi" data-en="Trusted adventure experience since 2019" data-ar="خبرة مغامرة موثوقة منذ 2019">
+                    2019'dan bu yana güvenilir macera deneyimi
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced JavaScript with Language Support -->
+    <script>
+        // Language System
+        class LanguageManager {
+            constructor() {
+                this.currentLang = this.detectLanguage();
+                this.init();
+            }
+
+            detectLanguage() {
+                // Check saved preference first
+                const saved = localStorage.getItem('layiga-language');
+                if (saved) return saved;
+
+                // Auto-detect based on browser language
+                const browserLang = navigator.language.toLowerCase();
+                if (browserLang.startsWith('tr')) return 'tr';
+                if (browserLang.startsWith('ar')) return 'ar';
+                return 'en'; // Default to English
+            }
+
+            init() {
+                this.setupLanguageSelector();
+                this.setLanguage(this.currentLang);
+                this.updateUI();
+            }
+
+            setupLanguageSelector() {
+                const toggle = document.getElementById('languageToggle');
+                const dropdown = document.getElementById('languageDropdown');
+                const options = document.querySelectorAll('.language-option');
+
+                toggle?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                options.forEach(option => {
+                    option.addEventListener('click', () => {
+                        const lang = option.dataset.lang;
+                        this.setLanguage(lang);
+                        dropdown.classList.remove('active');
+                    });
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+
+            setLanguage(lang) {
+                this.currentLang = lang;
+                localStorage.setItem('layiga-language', lang);
+                
+                // Update text content
+                document.querySelectorAll('[data-tr]').forEach(element => {
+                    const text = element.dataset[lang];
+                    if (text) {
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.placeholder = text;
+                        } else {
+                            element.innerHTML = text;
+                        }
+                    }
+                });
+
+                // Update RTL for Arabic
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                document.body.classList.toggle('rtl', lang === 'ar');
+
+                this.updateUI();
+            }
+
+            updateUI() {
+                const currentLangSpan = document.getElementById('currentLang');
+                const langMap = { tr: 'TR', en: 'EN', ar: 'AR' };
+                if (currentLangSpan) {
+                    currentLangSpan.textContent = langMap[this.currentLang];
+                }
+            }
+        }
+
+        // Initialize Language Manager
+        const languageManager = new LanguageManager();
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 64;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced navbar behavior
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/95', 'backdrop-blur-md');
+                nav.classList.remove('bg-white/90');
+            } else {
+                nav.classList.add('bg-white/90');
+                nav.classList.remove('bg-white/95', 'backdrop-blur-md');
+            }
+        });
+
+        // Ultra-Premium Animation System
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const premiumObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Staggered animations for premium effect
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                        entry.target.style.filter = 'blur(0)';
+                        entry.target.classList.add('animate-slide-up');
+                        
+                        // Add shimmer effect on reveal
+                        entry.target.classList.add('loading-shimmer');
+                        setTimeout(() => {
+                            entry.target.classList.remove('loading-shimmer');
+                        }, 1000);
+                    }, index * 150);
+                }
+            });
+        }, observerOptions);
+
+        // Observe premium elements
+        document.querySelectorAll('.card-hover, .glass-card, .glass-effect').forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(40px) scale(0.95)';
+            element.style.filter = 'blur(5px)';
+            element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            premiumObserver.observe(element);
+        });
+
+        // Premium Parallax Effects
+        let ticking = false;
+        
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero-bg');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+            
+            ticking = false;
+        }
+
+        function requestParallaxTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestParallaxTick, { passive: true });
+
+        // Premium Cursor Effects
+        let cursor = null;
+        let cursorFollower = null;
+
+        function createCursor() {
+            cursor = document.createElement('div');
+            cursor.className = 'fixed w-4 h-4 bg-layiga-orange rounded-full pointer-events-none z-50 transition-all duration-200 ease-out';
+            cursor.style.transform = 'translate(-50%, -50%)';
+            
+            cursorFollower = document.createElement('div');
+            cursorFollower.className = 'fixed w-8 h-8 border border-layiga-orange/50 rounded-full pointer-events-none z-40 transition-all duration-500 ease-out';
+            cursorFollower.style.transform = 'translate(-50%, -50%)';
+            
+            document.body.appendChild(cursor);
+            document.body.appendChild(cursorFollower);
+        }
+
+        // Only create cursor on desktop
+        if (window.innerWidth > 768) {
+            createCursor();
+            
+            document.addEventListener('mousemove', (e) => {
+                if (cursor && cursorFollower) {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                    
+                    setTimeout(() => {
+                        cursorFollower.style.left = e.clientX + 'px';
+                        cursorFollower.style.top = e.clientY + 'px';
+                    }, 100);
+                }
+            });
+
+            // Cursor interactions
+            document.querySelectorAll('button, a, .card-hover').forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    if (cursor && cursorFollower) {
+                        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                        cursorFollower.style.transform = 'translate(-50%, -50%) scale(2)';
+                        cursorFollower.style.borderColor = 'var(--layiga-orange)';
+                    }
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    if (cursor && cursorFollower) {
+                        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                        cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+                        cursorFollower.style.borderColor = 'rgba(255, 107, 53, 0.5)';
+                    }
+                });
+            });
+        }
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking on links
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+        
+        // Mobile language toggle
+        const languageToggleMobile = document.getElementById('languageToggleMobile');
+        const languageMenuMobile = document.getElementById('languageMenuMobile');
+        const currentLangMobile = document.getElementById('currentLangMobile');
+        
+        if (languageToggleMobile && languageMenuMobile) {
+            languageToggleMobile.addEventListener('click', () => {
+                languageMenuMobile.classList.toggle('hidden');
+            });
+            
+            languageMenuMobile.querySelectorAll('.lang-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    const lang = e.target.dataset.lang;
+                    currentLangMobile.textContent = lang.toUpperCase();
+                    languageMenuMobile.classList.add('hidden');
+                    setLanguage(lang);
+                });
+            });
+        }
+        
+        // Mobile theme toggle
+        const themeToggleMobile = document.getElementById('themeToggleMobile');
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', () => {
+                const html = document.documentElement;
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                // Sync with desktop toggle
+                const desktopToggle = document.getElementById('themeToggle');
+                if (desktopToggle) {
+                    const track = desktopToggle.querySelector('.theme-switch-track');
+                    if (newTheme === 'dark') {
+                        track.classList.add('dark');
+                    } else {
+                        track.classList.remove('dark');
+                    }
+                }
+            });
+        }
+
+        // Activity card interactions
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Price animation on scroll
+        const priceElements = document.querySelectorAll('[class*="text-"][class*="font-bold"]:not(.animate-price)');
+        priceElements.forEach(price => {
+            observer.observe(price);
+            price.addEventListener('animationend', () => {
+                price.classList.add('animate-price');
+            });
+        });
+
+        // Premium Performance Optimizations
+        function optimizePerformance() {
+            // Lazy load images
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('loading-shimmer');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                img.classList.add('loading-shimmer');
+                imageObserver.observe(img);
+            });
+
+            // Preload critical resources
+            const criticalImages = ['images/IMG_6855.jpg'];
+            criticalImages.forEach(src => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = src;
+                document.head.appendChild(link);
+            });
+        }
+
+        // Advanced Button Interactions
+        function enhanceButtons() {
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.className = 'ripple';
+                    
+                    // Add ripple styles
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                    ripple.style.pointerEvents = 'none';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+        }
+
+        // Add ripple animation
+        const rippleStyles = document.createElement('style');
+        rippleStyles.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            button {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(rippleStyles);
+
+        // Premium Loading Experience
+        function createLoadingExperience() {
+            const loader = document.createElement('div');
+            loader.className = 'fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-forest-dark via-layiga-green to-layiga-orange';
+            loader.innerHTML = `
+                <div class="text-center">
+                    <div class="w-20 h-20 border-4 border-white/20 border-t-white rounded-full animate-spin mb-8 mx-auto"></div>
+                    <h2 class="text-3xl font-bold text-white mb-4">Layiga</h2>
+                    <p class="text-white/80">Macera sizi bekliyor...</p>
+                </div>
+            `;
+            
+            document.body.appendChild(loader);
+            
+            // Remove loader after page load
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    loader.style.transform = 'scale(1.1)';
+                    setTimeout(() => loader.remove(), 500);
+                }, 1000);
+            });
+        }
+
+        // Enhanced Scroll Indicators
+        function createScrollIndicator() {
+            const indicator = document.createElement('div');
+            indicator.className = 'fixed top-0 left-0 h-1 bg-gradient-to-r from-layiga-orange to-layiga-green z-50 transition-all duration-300';
+            indicator.style.width = '0%';
+            document.body.appendChild(indicator);
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                indicator.style.width = scrolled + '%';
+            });
+        }
+
+        // Premium Text Animations
+        function animateText() {
+            const textElements = document.querySelectorAll('h1, h2, h3');
+            textElements.forEach(element => {
+                if (element.dataset.animated) return;
+                element.dataset.animated = 'true';
+                
+                const text = element.textContent;
+                element.innerHTML = '';
+                
+                text.split('').forEach((char, i) => {
+                    const span = document.createElement('span');
+                    span.textContent = char === ' ' ? '\u00A0' : char;
+                    span.style.display = 'inline-block';
+                    span.style.opacity = '0';
+                    span.style.transform = 'translateY(20px)';
+                    span.style.transition = `all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${i * 50}ms`;
+                    element.appendChild(span);
+                });
+                
+                // Trigger animation when in view
+                premiumObserver.observe(element);
+                element.addEventListener('animationstart', () => {
+                    element.querySelectorAll('span').forEach(span => {
+                        span.style.opacity = '1';
+                        span.style.transform = 'translateY(0)';
+                    });
+                });
+            });
+        }
+
+        // Initialize all premium features
+        document.addEventListener('DOMContentLoaded', () => {
+            createLoadingExperience();
+            createScrollIndicator();
+            optimizePerformance();
+            enhanceButtons();
+            // animateText(); // Uncomment for text animations
+        });
+
+        // Console branding
+        console.log('%c🏔️ Layiga Adventure Park', 'color: #FF6B35; font-size: 32px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
+        console.log('%c⚡ Ultra-Premium Experience Loaded', 'color: #16A085; font-size: 16px; font-weight: bold;');
+        console.log('%c🚀 Built with cutting-edge web technologies', 'color: #667eea; font-size: 12px;');
+        console.log('%c🎯 Optimized for performance and accessibility', 'color: #2C5530; font-size: 12px;');
+    </script>
+
+    <!-- Dark Mode & Background Effects Script -->
+    <script>
+        // Theme Management
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Load saved theme or default to light
+        const savedTheme = localStorage.getItem('layiga-theme') || 'light';
+        body.setAttribute('data-theme', savedTheme);
+        
+        // Theme toggle functionality
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('layiga-theme', newTheme);
+            
+            // Add smooth transition effect
+            body.style.transition = 'background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            setTimeout(() => {
+                body.style.transition = '';
+            }, 600);
+        });
+
+        // Particle System
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const colors = ['#FF6B35', '#16A085', '#667eea'];
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random position and properties
+                const startX = Math.random() * window.innerWidth;
+                const endX = startX + (Math.random() - 0.5) * 200;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const size = Math.random() * 4 + 2;
+                const duration = Math.random() * 15 + 15;
+                
+                particle.style.left = startX + 'px';
+                particle.style.background = color;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.animationDuration = duration + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                
+                // Set custom CSS property for end position
+                particle.style.setProperty('--end-x', endX + 'px');
+                
+                particlesContainer.appendChild(particle);
+                
+                // Remove particle after animation
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, (duration + 5) * 1000);
+            }
+            
+            // Create initial particles
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => createParticle(), i * 2000);
+            }
+            
+            // Continuously create new particles
+            setInterval(createParticle, 3000);
+        }
+
+        // Enhanced Theme Initialization
+        function initializeTheme() {
+            // Auto-detect user's preferred theme on first visit
+            if (!localStorage.getItem('layiga-theme')) {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const initialTheme = prefersDark ? 'dark' : 'light';
+                body.setAttribute('data-theme', initialTheme);
+                localStorage.setItem('layiga-theme', initialTheme);
+            }
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (!localStorage.getItem('layiga-theme-manual')) {
+                    const systemTheme = e.matches ? 'dark' : 'light';
+                    body.setAttribute('data-theme', systemTheme);
+                    localStorage.setItem('layiga-theme', systemTheme);
+                }
+            });
+
+            // Mark theme as manually changed when user clicks toggle
+            themeToggle.addEventListener('click', () => {
+                localStorage.setItem('layiga-theme-manual', 'true');
+            });
+            
+            // Apply theme-aware classes to existing elements
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                card.classList.add('glass-card');
+            });
+            
+            const nav = document.querySelector('nav');
+            if (nav) {
+                nav.classList.add('nav-blur');
+            }
+        }
+
+        // Initialize effects when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initializeTheme();
+        });
+    </script>
+</body>
+</html> 

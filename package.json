@@ -1,0 +1,27 @@
+{
+  "name": "layiga-adventure-park",
+  "version": "1.0.0",
+  "description": "Immersive website for Layiga Salıncak & Zipline Adventure Park in Uzungöl, Turkey",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "NODE_ENV=production vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "gsap": "^3.12.2",
+    "aos": "^2.3.4",
+    "swiper": "^11.0.5"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
+    "gh-pages": "^6.1.0"
+  },
+  "keywords": ["adventure", "zipline", "turkey", "outdoor", "nature"],
+  "author": "Layiga Adventure Park",
+  "license": "ISC"
+} 
