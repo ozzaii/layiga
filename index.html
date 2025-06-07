@@ -1994,7 +1994,7 @@
                             Your browser does not support the video tag.
                         </video>
                         <div class="p-4">
-                            <h4 class="font-semibold text-white" data-tr="Zipline Macerası" data-en="Zipline Adventure" data-ar="مغامرة خط الانزلاق">Zipline Macerası</h4>
+                            <h4 class="font-semibold text-white" data-tr="360 Derece Macera" data-en="360 Degrees Adventure" data-ar="مغامرة 360 درجة">360 Derece Macera</h4>
                             <p class="text-gray-300 text-sm" data-tr="Gökyüzündeki adrenalin bu 360 derece deneyimi" data-en="The adrenaline in the sky, this 360 degree experience" data-ar="الأدرينالين في السماء، هذه التجربة بزاوية 360 درجة">Gökyüzündeki adrenalin bu 360 derece deneyimi</p>
                         </div>
                     </div>
@@ -2013,8 +2013,8 @@
                             Your browser does not support the video tag.
                         </video>
                         <div class="p-4">
-                            <h4 class="font-semibold text-white" data-tr="Park Deneyimi" data-en="Park Experience" data-ar="تجربة المنتزه">Park Deneyimi</h4>
-                            <p class="text-gray-300 text-sm" data-tr="Doğayla buluşan adrenalin bu zipline deneyimi" data-en="The adrenaline that meets nature, this zipline experience" data-ar="الأدرينالين الذي يلتقي بالطبيعة، تجربة الخط المنزلق هذه">Doğayla buluşan adrenalin bu zipline deneyimi</p>
+                            <h4 class="font-semibold text-white" data-tr="Salıncak Macerası" data-en="Swing Adventure" data-ar="مغامرة الأرجوحة">Salıncak Macerası</h4>
+                            <p class="text-gray-300 text-sm" data-tr="Doğayla buluşan adrenalin bu salıncak deneyimi" data-en="The adrenaline that meets nature, this swing experience" data-ar="الأدرينالين الذي يلتقي بالطبيعة، تجربة الأرجوحة هذه">Doğayla buluşan adrenalin bu salıncak deneyimi</p>
                         </div>
                     </div>
                 </div>
@@ -2112,11 +2112,21 @@
                             referrerpolicy="no-referrer-when-downgrade"
                             class="w-full h-full rounded-t-2xl">
                         </iframe>
-                        <!-- Location overlay -->
-                        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-map-marker-alt text-emerald-600"></i>
-                                <div class="text-sm font-medium text-gray-800">Layiga Adventure Park</div>
+                        <!-- Location overlay with Google ratings -->
+                        <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-white/20">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-map-marker-alt text-emerald-600 text-lg"></i>
+                                <div>
+                                    <div class="text-sm font-bold text-gray-800" data-tr="Layiga Adventure Park" data-en="Layiga Adventure Park" data-ar="منتزه لايقا للمغامرات">Layiga Adventure Park</div>
+                                    <div class="flex items-center space-x-1 mt-1">
+                                        <div class="flex items-center">
+                                            <i class="fab fa-google text-blue-500 mr-1 text-xs"></i>
+                                            <div class="flex text-amber-400 text-xs">⭐⭐⭐⭐⭐</div>
+                                        </div>
+                                        <span class="text-xs font-semibold text-gray-700">4.8</span>
+                                        <span class="text-xs text-gray-500">(324 reviews)</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- Directions button overlay -->
@@ -2129,20 +2139,29 @@
                     </div>
                     
                     <div class="p-8">
-                        <h3 class="font-serif text-2xl font-semibold text-forest-dark mb-6">Ulaşım</h3>
+                        <h3 class="font-serif text-2xl font-semibold text-forest-dark mb-6" 
+                            data-tr="Ulaşım" data-en="Transportation" data-ar="النقل">Ulaşım</h3>
                         <div class="space-y-4">
                             <div class="flex items-start">
                                 <span class="text-layiga-orange text-2xl mr-3">🚗</span>
                                 <div>
-                                    <strong>Arabayla:</strong> Trabzon merkez - Uzungöl arası 1.5 saat. 
-                                    Ücretsiz otopark mevcut.
+                                    <strong data-tr="Arabayla:" data-en="By Car:" data-ar="بالسيارة:">Arabayla:</strong> 
+                                    <span data-tr="Trabzon merkez - Uzungöl arası 1.5 saat. Ücretsiz otopark mevcut." 
+                                          data-en="1.5 hours from Trabzon center to Uzungöl. Free parking available." 
+                                          data-ar="1.5 ساعة من مركز طرابزون إلى أوزونغول. موقف مجاني متاح.">
+                                        Trabzon merkez - Uzungöl arası 1.5 saat. Ücretsiz otopark mevcut.
+                                    </span>
                                 </div>
                             </div>
                             <div class="flex items-start">
                                 <span class="text-layiga-green text-2xl mr-3">🚌</span>
                                 <div>
-                                    <strong>Otobüsle:</strong> Trabzon-Uzungöl seferleri günde 5 kez. 
-                                    Durağımız merkeze 200m mesafede.
+                                    <strong data-tr="Otobüsle:" data-en="By Bus:" data-ar="بالحافلة:">Otobüsle:</strong> 
+                                    <span data-tr="Trabzon-Uzungöl seferleri günde 5 kez. Durağımız merkeze 200m mesafede." 
+                                          data-en="Trabzon-Uzungöl buses 5 times daily. Our stop is 200m from the center." 
+                                          data-ar="حافلات طرابزون-أوزونغول 5 مرات يومياً. محطتنا على بعد 200 متر من المركز.">
+                                        Trabzon-Uzungöl seferleri günde 5 kez. Durağımız merkeze 200m mesafede.
+                                    </span>
                                 </div>
                             </div>
                         </div>
