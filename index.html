@@ -2459,30 +2459,19 @@
 
                 // Mobile language toggle with enhanced touch support
                 toggleMobile?.addEventListener('click', (e) => {
-                    e.preventDefault();
                     e.stopPropagation();
                     console.log('Mobile language toggle clicked'); // Debug log
-                    dropdownMobile.classList.toggle('hidden');
+                    dropdownMobile?.classList.toggle('hidden');
                     // Close desktop if open
                     dropdown?.classList.remove('active');
                     // Close mobile menu if open
                     mobileMenu?.classList.add('hidden');
                 });
 
-                // Add touch events for mobile language toggle
-                toggleMobile?.addEventListener('touchend', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    console.log('Mobile language toggle touched'); // Debug log
-                    dropdownMobile.classList.toggle('hidden');
-                    dropdown?.classList.remove('active');
-                    mobileMenu?.classList.add('hidden');
-                });
-
                 // Mobile menu toggle
                 mobileMenuToggle?.addEventListener('click', (e) => {
-                    e.preventDefault();
                     e.stopPropagation();
+                    console.log('Mobile menu toggle clicked'); // Debug log
                     mobileMenu?.classList.toggle('hidden');
                     // Close language dropdown if open
                     dropdownMobile?.classList.add('hidden');
@@ -2500,24 +2489,12 @@
 
                 // Mobile options with enhanced touch support
                 optionsMobile.forEach(option => {
-                    // Click events
                     option.addEventListener('click', (e) => {
-                        e.preventDefault();
                         e.stopPropagation();
                         const lang = option.dataset.lang;
                         console.log('Language option clicked:', lang); // Debug log
                         this.setLanguage(lang);
-                        dropdownMobile.classList.add('hidden');
-                    });
-
-                    // Touch events for mobile
-                    option.addEventListener('touchend', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        const lang = option.dataset.lang;
-                        console.log('Language option touched:', lang); // Debug log
-                        this.setLanguage(lang);
-                        dropdownMobile.classList.add('hidden');
+                        dropdownMobile?.classList.add('hidden');
                     });
                 });
 
@@ -2534,15 +2511,7 @@
                     }
                 });
 
-                // Close dropdowns on touch outside for mobile
-                document.addEventListener('touchend', (e) => {
-                    if (!toggleMobile?.contains(e.target) && !dropdownMobile?.contains(e.target)) {
-                        dropdownMobile?.classList.add('hidden');
-                    }
-                    if (!mobileMenuToggle?.contains(e.target) && !mobileMenu?.contains(e.target)) {
-                        mobileMenu?.classList.add('hidden');
-                    }
-                });
+
             }
 
             setLanguage(lang) {
