@@ -1244,11 +1244,38 @@
                     </div>
                 </div>
                 
-                <button class="md:hidden p-2 mobile-menu-button">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+                <!-- Mobile Language Selector & Menu Button -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <!-- Mobile Language Selector -->
+                    <div class="language-selector relative">
+                        <button id="languageToggleMobile" class="flex items-center space-x-1 px-3 py-2 rounded-lg transition-all duration-300" style="color: var(--text-primary); background: var(--card-bg);">
+                            <i class="fas fa-globe text-sm"></i>
+                            <span id="currentLangMobile" class="text-sm font-medium">TR</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="languageDropdownMobile" class="language-dropdown absolute right-0 top-full mt-2 py-2 rounded-lg shadow-xl z-50 hidden" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                            <div class="language-option-mobile px-4 py-2 cursor-pointer transition-colors hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="tr">
+                                <span class="text-lg mr-2">🇹🇷</span>
+                                <span class="text-sm">TR</span>
+                            </div>
+                            <div class="language-option-mobile px-4 py-2 cursor-pointer transition-colors hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="en">
+                                <span class="text-lg mr-2">🇺🇸</span>
+                                <span class="text-sm">EN</span>
+                            </div>
+                            <div class="language-option-mobile px-4 py-2 cursor-pointer transition-colors hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="ar">
+                                <span class="text-lg mr-2">🇸🇦</span>
+                                <span class="text-sm">AR</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hamburger Menu Button -->
+                    <button class="p-2 mobile-menu-button">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
         
@@ -1260,33 +1287,12 @@
                 <a href="#galeri" class="block py-3 font-medium transition-all duration-300" style="color: var(--text-primary);" data-tr="Galeri" data-en="Gallery" data-ar="المعرض">Galeri</a>
                 <a href="#iletisim" class="block py-3 font-medium transition-all duration-300" style="color: var(--text-primary);" data-tr="İletişim" data-en="Contact" data-ar="اتصل بنا">İletişim</a>
                 
-                <!-- Mobile Language & Theme Toggle -->
+                <!-- Mobile WhatsApp Button -->
                 <div class="pt-4 border-t" style="border-color: var(--border-color);">
-                    <div class="flex items-center justify-between">
-                        <div class="language-selector">
-                            <button id="languageToggleMobile" class="flex items-center space-x-2 font-medium" style="color: var(--text-primary);">
-                                <i class="fas fa-globe"></i>
-                                <span id="currentLangMobile">TR</span>
-                                <i class="fas fa-chevron-down text-xs"></i>
-                            </button>
-                            <div id="languageMenuMobile" class="language-menu hidden mt-2 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-                                <button class="lang-option block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="tr">🇹🇷 Türkçe</button>
-                                <button class="lang-option block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="en">🇺🇸 English</button>
-                                <button class="lang-option block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="ar">🇸🇦 العربية</button>
-                            </div>
-                        </div>
-                        
-                        <button id="themeToggleMobile" class="theme-toggle-mobile p-2">
-                            <div class="theme-switch">
-                                <div class="theme-switch-track">
-                                    <div class="theme-switch-thumb">
-                                        <i class="fas fa-sun text-yellow-500"></i>
-                                        <i class="fas fa-moon text-blue-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
+                    <a href="https://wa.me/905378738398?text=Merhaba, Layiga Adventure Park hakkında bilgi almak istiyorum." target="_blank" class="whatsapp-btn text-white px-6 py-3 rounded-lg font-medium flex items-center space-x-2 transition-all duration-300 w-full justify-center" data-tr="WhatsApp İletişim" data-en="WhatsApp Contact" data-ar="واتساب اتصال">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span data-tr="WhatsApp İletişim" data-en="WhatsApp Contact" data-ar="واتساب اتصال">WhatsApp İletişim</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -2292,13 +2298,31 @@
             detectLanguage() {
                 // Check saved preference first
                 const saved = localStorage.getItem('layiga-language');
-                if (saved) return saved;
+                if (saved && ['tr', 'en', 'ar'].includes(saved)) return saved;
 
-                // Auto-detect based on browser language
+                // Auto-detect based on browser language with more comprehensive detection
                 const browserLang = navigator.language.toLowerCase();
-                if (browserLang.startsWith('tr')) return 'tr';
-                if (browserLang.startsWith('ar')) return 'ar';
-                return 'en'; // Default to English
+                const browserLangs = navigator.languages?.map(lang => lang.toLowerCase()) || [browserLang];
+                
+                // Check all browser languages for Turkish
+                if (browserLangs.some(lang => lang.startsWith('tr'))) return 'tr';
+                
+                // Check for Arabic languages
+                const arabicLangs = ['ar', 'ar-sa', 'ar-ae', 'ar-eg', 'ar-jo', 'ar-lb', 'ar-sy', 'ar-ma', 'ar-dz', 'ar-tn'];
+                if (browserLangs.some(lang => arabicLangs.includes(lang) || lang.startsWith('ar'))) return 'ar';
+                
+                // Check for English languages  
+                if (browserLangs.some(lang => lang.startsWith('en'))) return 'en';
+                
+                // Default based on region (Türkiye visitors likely prefer Turkish)
+                try {
+                    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                    if (timezone === 'Europe/Istanbul') return 'tr';
+                } catch (e) {
+                    console.log('Timezone detection not available');
+                }
+                
+                return 'tr'; // Default to Turkish since it's a Turkish business
             }
 
             init() {
@@ -2308,15 +2332,33 @@
             }
 
             setupLanguageSelector() {
+                // Desktop language selector
                 const toggle = document.getElementById('languageToggle');
                 const dropdown = document.getElementById('languageDropdown');
                 const options = document.querySelectorAll('.language-option');
 
+                // Mobile language selector
+                const toggleMobile = document.getElementById('languageToggleMobile');
+                const dropdownMobile = document.getElementById('languageDropdownMobile');
+                const optionsMobile = document.querySelectorAll('.language-option-mobile');
+
+                // Desktop toggle
                 toggle?.addEventListener('click', (e) => {
                     e.stopPropagation();
                     dropdown.classList.toggle('active');
+                    // Close mobile if open
+                    dropdownMobile?.classList.add('hidden');
                 });
 
+                // Mobile toggle
+                toggleMobile?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdownMobile.classList.toggle('hidden');
+                    // Close desktop if open
+                    dropdown?.classList.remove('active');
+                });
+
+                // Desktop options
                 options.forEach(option => {
                     option.addEventListener('click', () => {
                         const lang = option.dataset.lang;
@@ -2325,9 +2367,19 @@
                     });
                 });
 
-                // Close dropdown when clicking outside
+                // Mobile options
+                optionsMobile.forEach(option => {
+                    option.addEventListener('click', () => {
+                        const lang = option.dataset.lang;
+                        this.setLanguage(lang);
+                        dropdownMobile.classList.add('hidden');
+                    });
+                });
+
+                // Close dropdowns when clicking outside
                 document.addEventListener('click', () => {
-                    dropdown.classList.remove('active');
+                    dropdown?.classList.remove('active');
+                    dropdownMobile?.classList.add('hidden');
                 });
             }
 
@@ -2356,9 +2408,14 @@
 
             updateUI() {
                 const currentLangSpan = document.getElementById('currentLang');
+                const currentLangMobile = document.getElementById('currentLangMobile');
                 const langMap = { tr: 'TR', en: 'EN', ar: 'AR' };
+                
                 if (currentLangSpan) {
                     currentLangSpan.textContent = langMap[this.currentLang];
+                }
+                if (currentLangMobile) {
+                    currentLangMobile.textContent = langMap[this.currentLang];
                 }
             }
         }
@@ -2522,48 +2579,7 @@
             });
         }
         
-        // Mobile language toggle
-        const languageToggleMobile = document.getElementById('languageToggleMobile');
-        const languageMenuMobile = document.getElementById('languageMenuMobile');
-        const currentLangMobile = document.getElementById('currentLangMobile');
-        
-        if (languageToggleMobile && languageMenuMobile) {
-            languageToggleMobile.addEventListener('click', () => {
-                languageMenuMobile.classList.toggle('hidden');
-            });
-            
-            languageMenuMobile.querySelectorAll('.lang-option').forEach(option => {
-                option.addEventListener('click', (e) => {
-                    const lang = e.target.dataset.lang;
-                    currentLangMobile.textContent = lang.toUpperCase();
-                    languageMenuMobile.classList.add('hidden');
-                    setLanguage(lang);
-                });
-            });
-        }
-        
-        // Mobile theme toggle
-        const themeToggleMobile = document.getElementById('themeToggleMobile');
-        if (themeToggleMobile) {
-            themeToggleMobile.addEventListener('click', () => {
-                const html = document.documentElement;
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                
-                // Sync with desktop toggle
-                const desktopToggle = document.getElementById('themeToggle');
-                if (desktopToggle) {
-                    const track = desktopToggle.querySelector('.theme-switch-track');
-                    if (newTheme === 'dark') {
-                        track.classList.add('dark');
-                    } else {
-                        track.classList.remove('dark');
-                    }
-                }
-            });
-        }
+
 
         // Activity card interactions
         document.querySelectorAll('.card-hover').forEach(card => {
