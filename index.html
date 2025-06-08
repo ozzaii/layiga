@@ -379,6 +379,221 @@
             --shadow-colored-green: 0 20px 40px -12px rgba(22, 160, 133, 0.4);
         }
 
+        /* Enhanced Mobile Touch Interactions */
+        .touch-manipulation {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu-button,
+        .language-option-mobile,
+        #languageToggleMobile,
+        #mobileMenuToggle,
+        .mobile-theme-toggle {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        /* Mobile theme toggle specific styling */
+        .mobile-theme-toggle {
+            transform: scale(0.8);
+        }
+
+        .mobile-theme-toggle:active {
+            transform: scale(0.75);
+        }
+
+        .mobile-menu-button:active,
+        .language-option-mobile:active,
+        #languageToggleMobile:active,
+        #mobileMenuToggle:active {
+            transform: scale(0.95);
+            opacity: 0.8;
+        }
+
+        /* Mobile menu improvements */
+        .mobile-menu {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 768px) {
+            .language-option-mobile {
+                padding: 16px;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .language-option-mobile:last-child {
+                border-bottom: none;
+            }
+            
+            .mobile-menu a {
+                padding: 16px 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .mobile-menu a:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* Premium Professional Park Manager Styling */
+        .professional-manager-card {
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .professional-manager-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.12), 0 8px 32px rgba(255, 107, 53, 0.15);
+        }
+
+        .premium-profile-border {
+            background: linear-gradient(135deg, #ff6b35, #f59e0b, #10b981, #3b82f6);
+            background-size: 300% 300%;
+            animation: premium-gradient 4s ease-in-out infinite;
+            padding: 5px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .premium-profile-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f59e0b, #10b981, #3b82f6);
+            background-size: 300% 300%;
+            animation: premium-gradient 4s ease-in-out infinite reverse;
+            filter: blur(8px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .premium-profile-image {
+            border-radius: 50%;
+            background: white;
+            padding: 3px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .premium-profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+
+        @keyframes premium-gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .professional-stat-card {
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .professional-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .professional-stat-card:hover::before {
+            left: 100%;
+        }
+
+        .premium-contact-btn {
+            position: relative;
+            overflow: hidden;
+            background-size: 200% 200%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .premium-contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .premium-contact-btn:hover::before {
+            left: 100%;
+        }
+
+        .premium-contact-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Enhanced Glass Effect */
+        .professional-manager-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+            border-radius: 24px 24px 0 0;
+            pointer-events: none;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .premium-profile-border {
+                width: 120px !important;
+                height: 120px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .professional-manager-card {
+                margin: 0 16px;
+            }
+            
+            .premium-profile-border {
+                width: 100px !important;
+                height: 100px !important;
+            }
+        }
+
+        /* Enhanced hover effects for contact items */
+        .contact-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-item:hover {
+            transform: translateX(8px);
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        [data-theme="dark"] .contact-item:hover {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
         /* Global Header Styling */
         h1, h2, h3, h4, h5, h6, 
         .font-serif,
@@ -1396,8 +1611,23 @@
                 <a href="#galeri" class="block py-3 font-medium transition-all duration-300" style="color: var(--text-primary);" data-tr="Galeri" data-en="Gallery" data-ar="المعرض">Galeri</a>
                 <a href="#iletisim" class="block py-3 font-medium transition-all duration-300" style="color: var(--text-primary);" data-tr="İletişim" data-en="Contact" data-ar="اتصل بنا">İletişim</a>
                 
+                <!-- Mobile Dark Mode Toggle -->
+                <div class="py-3 border-t border-b" style="border-color: var(--border-color);">
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium" style="color: var(--text-primary);" data-tr="Karanlık Mod" data-en="Dark Mode" data-ar="الوضع المظلم">Karanlık Mod</span>
+                        <div class="mobile-theme-toggle premium-theme-toggle" id="mobileThemeToggle">
+                            <div class="toggle-track">
+                                <div class="toggle-thumb">
+                                    <div class="theme-toggle-icon sun-icon">☀️</div>
+                                    <div class="theme-toggle-icon moon-icon">🌙</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Mobile WhatsApp Button -->
-                <div class="pt-4 border-t" style="border-color: var(--border-color);">
+                <div class="pt-4">
                     <a href="https://wa.me/905378738398?text=Merhaba, Layiga Adventure Park hakkında bilgi almak istiyorum." target="_blank" class="whatsapp-btn text-white px-6 py-3 rounded-lg font-medium flex items-center space-x-2 transition-all duration-300 w-full justify-center" data-tr="WhatsApp İletişim" data-en="WhatsApp Contact" data-ar="واتساب اتصال">
                         <i class="fab fa-whatsapp text-lg"></i>
                         <span data-tr="WhatsApp İletişim" data-en="WhatsApp Contact" data-ar="واتساب اتصال">WhatsApp İletişim</span>
@@ -1810,26 +2040,26 @@
                                 Uzungöl'ün geleneksel tatlarını modern sunumla buluşturan menümüzle doğanın tadını çıkarın.
                             </p>
 
-                            <div class="bg-amber-50 rounded-lg p-4 mb-6">
-                                <h4 class="font-semibold text-forest-dark mb-3" 
+                            <div class="rounded-lg p-4 mb-6 shadow-sm" style="background: var(--card-bg); border: 2px solid var(--layiga-orange); opacity: 0.95;">
+                                <h4 class="font-bold mb-3 text-lg" style="color: var(--layiga-orange);" 
                                     data-tr="Özel Lezzetler" data-en="Special Delicacies" data-ar="المأكولات الخاصة">
                                     Özel Lezzetler
                                 </h4>
-                                <div class="grid grid-cols-2 gap-3 text-sm">
-                                    <div class="flex items-center" style="color: var(--text-primary);">
-                                        <i class="fas fa-coffee text-amber-600 mr-2"></i>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="flex items-center font-semibold" style="color: var(--text-primary);">
+                                        <i class="fas fa-coffee mr-2 text-lg" style="color: var(--layiga-orange);"></i>
                                         <span data-tr="Türk kahvesi" data-en="Turkish coffee" data-ar="قهوة تركية">Türk kahvesi</span>
                                     </div>
-                                    <div class="flex items-center" style="color: var(--text-primary);">
-                                        <i class="fas fa-leaf text-amber-600 mr-2"></i>
+                                    <div class="flex items-center font-semibold" style="color: var(--text-primary);">
+                                        <i class="fas fa-leaf mr-2 text-lg" style="color: var(--layiga-orange);"></i>
                                         <span data-tr="Yayla çayı" data-en="Highland tea" data-ar="شاي المرتفعات">Yayla çayı</span>
                                     </div>
-                                    <div class="flex items-center" style="color: var(--text-primary);">
-                                        <i class="fas fa-cookie-bite text-amber-600 mr-2"></i>
+                                    <div class="flex items-center font-semibold" style="color: var(--text-primary);">
+                                        <i class="fas fa-cookie-bite mr-2 text-lg" style="color: var(--layiga-orange);"></i>
                                         <span data-tr="Ev yapımı pasta" data-en="Homemade cake" data-ar="كعكة منزلية">Ev yapımı pasta</span>
                                     </div>
-                                    <div class="flex items-center" style="color: var(--text-primary);">
-                                        <i class="fas fa-cheese text-amber-600 mr-2"></i>
+                                    <div class="flex items-center font-semibold" style="color: var(--text-primary);">
+                                        <i class="fas fa-cheese mr-2 text-lg" style="color: var(--layiga-orange);"></i>
                                         <span data-tr="Yöresel peynir" data-en="Local cheese" data-ar="جبن محلي">Yöresel peynir</span>
                                     </div>
                                 </div>
@@ -2301,6 +2531,87 @@
         </div>
     </section>
 
+    <!-- Park Manager Section -->
+    <section class="py-12" style="background: var(--bg-primary);">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-2" style="color: var(--layiga-orange);" 
+                    data-tr="Park Müdürümüz" data-en="Our Park Manager" data-ar="مدير المنتزه">
+                    Park Müdürümüz
+                </h2>
+                <p class="text-lg" style="color: var(--text-secondary);" 
+                   data-tr="Güvenliğiniz bizim önceliğimiz" 
+                   data-en="Your safety is our priority" 
+                   data-ar="سلامتكم أولويتنا">
+                    Güvenliğiniz bizim önceliğimiz
+                </p>
+            </div>
+            
+                        <!-- Park Manager Profile Card -->
+            <div class="max-w-2xl mx-auto">
+                <div class="glass-card rounded-3xl p-8 text-center group hover:scale-105 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-layiga-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <!-- Profile Photo -->
+                        <div class="relative mx-auto mb-6">
+                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-layiga-orange to-layiga-orange-dark rounded-full overflow-hidden flex items-center justify-center shadow-xl">
+                                <img src="images/IMG_4655.jpg" alt="Umut Karatay - Park Müdürü" class="w-full h-full object-cover">
+                            </div>
+                            <!-- Verification Badge -->
+                            <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center shadow-md">
+                                <i class="fas fa-check text-white text-xs"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Rating -->
+                        <div class="flex justify-center mb-4">
+                            <div class="flex text-amber-400 text-xl">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                        
+                        <!-- Name and Title -->
+                        <h3 class="text-2xl font-bold mb-2" style="color: var(--text-primary);">
+                            Umut Karatay
+                        </h3>
+                        <p class="text-lg font-semibold mb-2" style="color: var(--text-secondary);" data-tr="Park Müdürü • Güvenlik Uzmanı" data-en="Park Manager • Safety Expert" data-ar="مدير المنتزه • خبير سلامة">
+                            Park Müdürü • Güvenlik Uzmanı
+                        </p>
+                        <div class="flex items-center justify-center space-x-2 mb-6">
+                            <span class="text-sm font-medium" style="color: var(--text-secondary);" data-tr="4.9/5" data-en="4.9/5" data-ar="4.9/5">4.9/5</span>
+                            <span class="text-sm">•</span>
+                            <span class="text-sm font-medium text-emerald-600" data-tr="Kalite Garantili" data-en="Quality Guaranteed" data-ar="جودة مضمونة">Kalite Garantili</span>
+                        </div>
+                        
+                        <!-- Quote -->
+                        <blockquote class="text-lg font-medium mb-6 italic" style="color: var(--text-primary);" 
+                                   data-tr="&quot;Uzungöl'ün büyüleyici doğasında misafirlerimize en güvenli ve unutulmaz macera deneyimini sunmak için buradayım. Her misafirimizin güvenliği ve memnuniyeti benim önceliğim.&quot;" 
+                                   data-en="&quot;I'm here to provide our guests with the safest and most unforgettable adventure experience in the enchanting nature of Uzungöl. The safety and satisfaction of every guest is my priority.&quot;" 
+                                   data-ar="&quot;أنا هنا لتقديم أكثر تجربة مغامرة آمنة ولا تُنسى لضيوفنا في طبيعة أوزونغول الساحرة. سلامة ورضا كل ضيف هو أولويتي.&quot;">
+                            "Uzungöl'ün büyüleyici doğasında misafirlerimize en güvenli ve unutulmaz macera deneyimini sunmak için buradayım. Her misafirimizin güvenliği ve memnuniyeti benim önceliğim."
+                        </blockquote>
+                        
+                        <!-- Statistics -->
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-layiga-orange">5+</div>
+                                <div class="text-sm" style="color: var(--text-secondary);" data-tr="Yıl Deneyim" data-en="Years Experience" data-ar="سنوات خبرة">Yıl Deneyim</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-layiga-green">25K+</div>
+                                <div class="text-sm" style="color: var(--text-secondary);" data-tr="Misafir" data-en="Guests" data-ar="ضيف">Misafir</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-yellow-500">✓</div>
+                                <div class="text-sm" style="color: var(--text-secondary);" data-tr="Kalite Garantili" data-en="Quality Guaranteed" data-ar="جودة مضمونة">Kalite Garantili</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="py-12" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -2346,13 +2657,6 @@
                 <div>
                     <h4 class="font-semibold text-lg mb-4" style="color: var(--text-primary);" data-tr="İletişim" data-en="Contact" data-ar="اتصل بنا">İletişim</h4>
                     <ul class="space-y-3" style="color: var(--text-secondary);">
-                        <li class="flex items-center">
-                            <i class="fas fa-user-tie mr-3 text-layiga-orange"></i>
-                            <div>
-                                <div class="font-semibold">Özgür Karatay</div>
-                                <div class="text-sm opacity-80" data-tr="Park Müdürü" data-en="Park Manager" data-ar="مدير المنتزه">Park Müdürü</div>
-                            </div>
-                        </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone mr-3 text-layiga-green"></i>
                             <span>+90 537 873 83 98</span>
@@ -2458,15 +2762,26 @@
                 });
 
                 // Mobile language toggle with enhanced touch support
-                toggleMobile?.addEventListener('click', (e) => {
+                function toggleMobileLanguage(e) {
+                    e.preventDefault();
                     e.stopPropagation();
                     console.log('Mobile language toggle clicked'); // Debug log
-                    dropdownMobile?.classList.toggle('hidden');
+                    if (dropdownMobile) {
+                        const isHidden = dropdownMobile.classList.contains('hidden');
+                        if (isHidden) {
+                            dropdownMobile.classList.remove('hidden');
+                        } else {
+                            dropdownMobile.classList.add('hidden');
+                        }
+                    }
                     // Close desktop if open
                     dropdown?.classList.remove('active');
                     // Close mobile menu if open
                     mobileMenu?.classList.add('hidden');
-                });
+                }
+                
+                toggleMobile?.addEventListener('click', toggleMobileLanguage);
+                toggleMobile?.addEventListener('touchstart', toggleMobileLanguage);
 
                 // Mobile menu toggle
                 mobileMenuToggle?.addEventListener('click', (e) => {
@@ -2489,13 +2804,17 @@
 
                 // Mobile options with enhanced touch support
                 optionsMobile.forEach(option => {
-                    option.addEventListener('click', (e) => {
+                    function selectLanguage(e) {
+                        e.preventDefault();
                         e.stopPropagation();
                         const lang = option.dataset.lang;
                         console.log('Language option clicked:', lang); // Debug log
                         this.setLanguage(lang);
                         dropdownMobile?.classList.add('hidden');
-                    });
+                    }
+                    
+                    option.addEventListener('click', selectLanguage.bind(this));
+                    option.addEventListener('touchstart', selectLanguage.bind(this));
                 });
 
                 // Close dropdowns when clicking outside
@@ -2561,6 +2880,24 @@
 
         // Initialize Language Manager
         const languageManager = new LanguageManager();
+        
+        // Enhanced language switcher debugging
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Language Manager initialized');
+            console.log('Current language:', languageManager.currentLang);
+            
+            // Test mobile language options
+            const mobileOptions = document.querySelectorAll('.language-option-mobile');
+            console.log('Mobile language options found:', mobileOptions.length);
+            
+            // Test mobile toggle
+            const mobileToggle = document.getElementById('languageToggleMobile');
+            console.log('Mobile language toggle found:', !!mobileToggle);
+            
+            // Test mobile dropdown
+            const mobileDropdown = document.getElementById('languageDropdownMobile');
+            console.log('Mobile language dropdown found:', !!mobileDropdown);
+        });
 
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2701,20 +3038,54 @@
             });
         }
 
-        // Mobile menu toggle
+        // Enhanced Mobile menu toggle with debugging
         const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const mobileMenu = document.querySelector('.mobile-menu');
         
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+        // Mobile menu functionality
+        function toggleMobileMenu(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Mobile menu toggle clicked');
             
-            // Close mobile menu when clicking on links
+            if (mobileMenu) {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    console.log('Mobile menu opened');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    console.log('Mobile menu closed');
+                }
+            }
+        }
+        
+        // Attach event listeners to mobile menu buttons
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            mobileMenuButton.addEventListener('touchstart', toggleMobileMenu);
+        }
+        
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+            mobileMenuToggle.addEventListener('touchstart', toggleMobileMenu);
+        }
+        
+        // Close mobile menu when clicking on links
+        if (mobileMenu) {
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
+                    console.log('Mobile menu closed via link click');
                 });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuButton?.contains(e.target) && !mobileMenuToggle?.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                }
             });
         }
         
@@ -2951,6 +3322,7 @@
     <script>
         // Theme Management
         const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
         const body = document.body;
         
         // Load saved theme or default to light
@@ -2958,19 +3330,33 @@
         body.setAttribute('data-theme', savedTheme);
         
         // Theme toggle functionality
-        themeToggle.addEventListener('click', () => {
+        function toggleTheme() {
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('layiga-theme', newTheme);
+            localStorage.setItem('layiga-theme-manual', 'true');
+            
+            console.log('Theme switched to:', newTheme);
             
             // Add smooth transition effect
             body.style.transition = 'background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             setTimeout(() => {
                 body.style.transition = '';
             }, 600);
-        });
+        }
+        
+        // Desktop theme toggle
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+        
+        // Mobile theme toggle
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+            mobileThemeToggle.addEventListener('touchstart', toggleTheme);
+        }
 
         // Particle System
         function createParticles() {
@@ -3034,11 +3420,6 @@
                     body.setAttribute('data-theme', systemTheme);
                     localStorage.setItem('layiga-theme', systemTheme);
                 }
-            });
-
-            // Mark theme as manually changed when user clicks toggle
-            themeToggle.addEventListener('click', () => {
-                localStorage.setItem('layiga-theme-manual', 'true');
             });
             
             // Apply theme-aware classes to existing elements
