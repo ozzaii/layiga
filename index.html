@@ -2795,8 +2795,11 @@
 
                 // Desktop options
                 options.forEach(option => {
-                    option.addEventListener('click', () => {
+                    option.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
                         const lang = option.dataset.lang;
+                        console.log('Desktop language option clicked:', lang); // Debug log
                         this.setLanguage(lang);
                         dropdown.classList.remove('active');
                     });
@@ -2804,17 +2807,17 @@
 
                 // Mobile options with enhanced touch support
                 optionsMobile.forEach(option => {
-                    function selectLanguage(e) {
+                    const selectLanguage = (e) => {
                         e.preventDefault();
                         e.stopPropagation();
                         const lang = option.dataset.lang;
                         console.log('Language option clicked:', lang); // Debug log
                         this.setLanguage(lang);
                         dropdownMobile?.classList.add('hidden');
-                    }
+                    };
                     
-                    option.addEventListener('click', selectLanguage.bind(this));
-                    option.addEventListener('touchstart', selectLanguage.bind(this));
+                    option.addEventListener('click', selectLanguage);
+                    option.addEventListener('touchstart', selectLanguage);
                 });
 
                 // Close dropdowns when clicking outside
@@ -2889,6 +2892,9 @@
             // Test mobile language options
             const mobileOptions = document.querySelectorAll('.language-option-mobile');
             console.log('Mobile language options found:', mobileOptions.length);
+            mobileOptions.forEach((option, index) => {
+                console.log(`Mobile option ${index}:`, option.dataset.lang);
+            });
             
             // Test mobile toggle
             const mobileToggle = document.getElementById('languageToggleMobile');
@@ -2897,6 +2903,20 @@
             // Test mobile dropdown
             const mobileDropdown = document.getElementById('languageDropdownMobile');
             console.log('Mobile language dropdown found:', !!mobileDropdown);
+            
+            // Test desktop language options
+            const desktopOptions = document.querySelectorAll('.language-option');
+            console.log('Desktop language options found:', desktopOptions.length);
+            desktopOptions.forEach((option, index) => {
+                console.log(`Desktop option ${index}:`, option.dataset.lang);
+            });
+            
+            // Add click test for mobile language toggle
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
+                    console.log('Mobile language toggle clicked (test listener)');
+                });
+            }
         });
 
         // Smooth scrolling for navigation
