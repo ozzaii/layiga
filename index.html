@@ -1826,7 +1826,11 @@
                                 <span class="text-3xl font-bold text-layiga-orange">250₺</span>
                                 <p class="text-sm text-gray-500" data-tr="kişi başı" data-en="per person" data-ar="للشخص الواحد">kişi başı</p>
                             </div>
-
+                            <button onclick="openWhatsAppForActivity('zipline')" class="whatsapp-btn text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2 transition-all duration-300" 
+                                    data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">
+                                <i class="fab fa-whatsapp text-lg"></i>
+                                <span data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">Bilgi Al</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1890,7 +1894,11 @@
                                 <span class="text-3xl font-bold text-layiga-green">200₺</span>
                                 <p class="text-sm text-gray-500" data-tr="kişi başı" data-en="per person" data-ar="للشخص الواحد">kişi başı</p>
                             </div>
-
+                            <button onclick="openWhatsAppForActivity('swing')" class="whatsapp-btn text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2 transition-all duration-300" 
+                                    data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">
+                                <i class="fab fa-whatsapp text-lg"></i>
+                                <span data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">Bilgi Al</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1930,7 +1938,11 @@
                                 <span class="text-2xl font-bold text-orange-600">200₺</span>
                                 <p class="text-xs text-gray-500" data-tr="40 atış" data-en="40 shots" data-ar="40 رصاصة">40 atış</p>
                             </div>
-
+                            <button onclick="openWhatsAppForActivity('shooting')" class="whatsapp-btn text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-1 transition-all duration-300" 
+                                    data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">
+                                <i class="fab fa-whatsapp text-sm"></i>
+                                <span data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">Bilgi Al</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2009,9 +2021,10 @@
                             <div>
                                 <span class="text-lg font-bold text-green-600" data-tr="Ücretsiz" data-en="Free" data-ar="مجاني">Ücretsiz</span>
                             </div>
-                            <button class="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-all" 
+                            <button onclick="openWhatsAppForActivity('photography')" class="whatsapp-btn text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-1 transition-all duration-300" 
                                     data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">
-                                Bilgi Al
+                                <i class="fab fa-whatsapp text-sm"></i>
+                                <span data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">Bilgi Al</span>
                             </button>
                         </div>
                     </div>
@@ -2896,6 +2909,41 @@
 
         // Initialize Language Manager
         const languageManager = new LanguageManager();
+
+        // Language-aware WhatsApp function for activities
+        function openWhatsAppForActivity(activityType) {
+            const currentLang = languageManager.currentLang;
+            const phone = "905378738398";
+            
+            const messages = {
+                zipline: {
+                    tr: "Merhaba! Zipline aktivitesi hakkında bilgi almak ve rezervasyon yapmak istiyorum. 250₺ fiyat için detayları öğrenebilir miyim?",
+                    en: "Hello! I would like to get information about the zipline activity and make a reservation. Can I learn the details for the 250₺ price?",
+                    ar: "مرحبا! أرغب في الحصول على معلومات حول نشاط خط الانزلاق وإجراء حجز. هل يمكنني معرفة التفاصيل لسعر 250 ليرة تركية؟"
+                },
+                swing: {
+                    tr: "Merhaba! Dev salıncak aktivitesi hakkında bilgi almak ve rezervasyon yapmak istiyorum. 200₺ fiyat için detayları öğrenebilir miyim?",
+                    en: "Hello! I would like to get information about the giant swing activity and make a reservation. Can I learn the details for the 200₺ price?",
+                    ar: "مرحبا! أرغب في الحصول على معلومات حول نشاط الأرجوحة العملاقة وإجراء حجز. هل يمكنني معرفة التفاصيل لسعر 200 ليرة تركية؟"
+                },
+                shooting: {
+                    tr: "Merhaba! Atış poligonu aktivitesi hakkında bilgi almak ve rezervasyon yapmak istiyorum. 200₺ (40 atış) fiyat için detayları öğrenebilir miyim?",
+                    en: "Hello! I would like to get information about the shooting range activity and make a reservation. Can I learn the details for the 200₺ (40 shots) price?",
+                    ar: "مرحبا! أرغب في الحصول على معلومات حول نشاط ساحة الرماية وإجراء حجز. هل يمكنني معرفة التفاصيل لسعر 200 ليرة تركية (40 رصاصة)؟"
+                },
+                photography: {
+                    tr: "Merhaba! Profesyonel fotoğraf çekimi hakkında bilgi almak istiyorum. Ücretsiz olan bu hizmet için detayları öğrenebilir miyim?",
+                    en: "Hello! I would like to get information about professional photography. Can I learn the details for this free service?",
+                    ar: "مرحبا! أرغب في الحصول على معلومات حول التصوير الاحترافي. هل يمكنني معرفة التفاصيل لهذه الخدمة المجانية؟"
+                }
+            };
+            
+            const message = messages[activityType][currentLang] || messages[activityType]['tr'];
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
         
         // Enhanced language switcher debugging
         document.addEventListener('DOMContentLoaded', () => {
