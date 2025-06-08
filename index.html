@@ -1404,6 +1404,15 @@
             visibility: visible;
             transform: translateY(0);
         }
+
+        .language-dropdown-mobile {
+            transition: all 0.3s ease;
+            transform: translateY(-10px);
+        }
+        
+        .language-dropdown-mobile:not(.hidden) {
+            transform: translateY(0);
+        }
         
         .language-option {
             padding: 8px 16px;
@@ -1520,6 +1529,10 @@
                             direction: inherit;
                             z-index: 1000 !important;
                         }
+                        
+                        .language-dropdown-mobile {
+                            direction: inherit;
+                        }
                     </style>
                 </div>
                 
@@ -1577,7 +1590,7 @@
                             <span id="currentLangMobile" class="text-sm font-medium pointer-events-none">TR</span>
                             <i class="fas fa-chevron-down text-xs pointer-events-none"></i>
                         </button>
-                        <div id="languageDropdownMobile" class="language-dropdown absolute right-0 top-full mt-2 py-2 rounded-lg shadow-xl z-[65] hidden min-w-[100px]" style="background: var(--card-bg); border: 1px solid var(--border-color);">
+                        <div id="languageDropdownMobile" class="language-dropdown-mobile absolute right-0 top-full mt-2 py-2 rounded-lg shadow-xl z-[65] hidden min-w-[100px]" style="background: var(--card-bg); border: 1px solid var(--border-color);">
                             <div class="language-option-mobile px-4 py-3 cursor-pointer transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 touch-manipulation" data-lang="tr" style="-webkit-tap-highlight-color: transparent;">
                                 <span class="text-lg mr-2 pointer-events-none">🇹🇷</span>
                                 <span class="text-sm pointer-events-none">TR</span>
