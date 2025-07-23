@@ -2035,7 +2035,7 @@
                     <div class="aspect-w-16 aspect-h-10 relative">
                         <video autoplay loop muted playsinline class="w-full h-48 object-cover">
                             <source src="videos/trampoline.mp4" type="video/mp4">
-                            <img src="images/trampoline-fallback.jpg" alt="Trampolin" class="w-full h-48 object-cover">
+                            Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="p-6">
@@ -3236,7 +3236,7 @@
         // Price animation on scroll
         const priceElements = document.querySelectorAll('[class*="text-"][class*="font-bold"]:not(.animate-price)');
         priceElements.forEach(price => {
-            observer.observe(price);
+            premiumObserver.observe(price);
             price.addEventListener('animationend', () => {
                 price.classList.add('animate-price');
             });
