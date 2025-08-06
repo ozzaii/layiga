@@ -790,7 +790,7 @@
                 radial-gradient(circle at 80% 20%, rgba(22, 160, 133, 0.4) 0%, transparent 60%),
                 radial-gradient(circle at 50% 50%, rgba(103, 126, 234, 0.2) 0%, transparent 40%),
                 linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(22, 160, 133, 0.5) 30%, rgba(255, 107, 53, 0.4) 70%, rgba(30, 41, 59, 0.8) 100%),
-                url('images/IMG_6855.jpg');
+                url('images/hero.jpg');
             background-size: cover, cover, cover, cover, cover;
             background-position: center;
             background-attachment: fixed;
@@ -3276,7 +3276,7 @@
             });
 
             // Preload critical resources
-            const criticalImages = ['images/IMG_6855.jpg'];
+            const criticalImages = ['images/hero.jpg'];
             criticalImages.forEach(src => {
                 const link = document.createElement('link');
                 link.rel = 'preload';
@@ -3403,7 +3403,7 @@
 
         // Initialize all premium features
         document.addEventListener('DOMContentLoaded', () => {
-            createLoadingExperience();
+            // createLoadingExperience(); // Disabled loading screen
             createScrollIndicator();
             optimizePerformance();
             enhanceButtons();
