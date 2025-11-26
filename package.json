@@ -10,18 +10,24 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
-    "gsap": "^3.12.2",
     "aos": "^2.3.4",
-    "swiper": "^11.0.5"
+    "gsap": "^3.13.0"
   },
   "devDependencies": {
-    "vite": "^5.0.8",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.3.6",
-    "gh-pages": "^6.1.0"
+    "autoprefixer": "^10.4.22",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.6",
+    "swiper": "^12.0.3",
+    "tailwindcss": "^4.1.17",
+    "vite": "^7.2.4"
   },
-  "keywords": ["adventure", "zipline", "turkey", "outdoor", "nature"],
+  "keywords": [
+    "adventure",
+    "zipline",
+    "turkey",
+    "outdoor",
+    "nature"
+  ],
   "author": "Layiga Adventure Park",
   "license": "ISC"
-} 
+}

@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   root: '.',
   publicDir: 'assets',
-  base: process.env.NODE_ENV === 'production' ? '/LayigaWebsite/' : '/',
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
