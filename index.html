@@ -1,2353 +1,804 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layiga Adventure Park | Uzungöl Zipline & Dev Salıncak | Turkey's Best Adventure</title>
-    <meta name="description" content="Turkey's best zipline experience in Uzungöl! 300m zipline adventure, giant swing, outdoor activities. Trabzon's premier adventure park with stunning Black Sea views.">
-    <meta name="keywords" content="Uzungöl Zipline, Layiga Adventure Park, Turkey zipline, Trabzon zipline, Uzungöl adventure, giant swing Turkey, Black Sea adventure">
-    <meta name="author" content="Layiga Adventure Park">
-    <meta name="robots" content="index, follow">
+    <title>Layiga Adventure Park | Uzungöl Zipline & Dev Salıncak</title>
+    <meta name="description" content="Turkey's best zipline experience in Uzungöl! 300m zipline, giant swing, outdoor activities. Trabzon's premier adventure park.">
+    <meta name="keywords" content="Uzungöl Zipline, Layiga Adventure Park, Turkey zipline, Trabzon adventure">
     <link rel="canonical" href="https://layiga.com">
-
-    <!-- Geo Targeting -->
-    <meta name="geo.region" content="TR-61">
-    <meta name="geo.placename" content="Uzungöl, Trabzon">
-    <meta name="geo.position" content="40.6202638;40.2401023">
 
     <!-- Open Graph -->
     <meta property="og:type" content="business.business">
     <meta property="og:url" content="https://layiga.com">
-    <meta property="og:title" content="Layiga Adventure Park | Uzungöl's Premium Adventure Experience">
-    <meta property="og:description" content="Experience Turkey's most thrilling 300m zipline in stunning Uzungöl! Giant swing, adventure activities & beautiful Black Sea views.">
+    <meta property="og:title" content="Layiga Adventure Park | Uzungöl">
+    <meta property="og:description" content="Experience Turkey's most thrilling 300m zipline in stunning Uzungöl!">
     <meta property="og:image" content="https://layiga.com/images/zipline2.jpg">
-    <meta property="og:site_name" content="Layiga Adventure Park">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Layiga Adventure Park - Uzungöl Zipline & Salıncak">
-    <meta name="twitter:description" content="Uzungöl'de 300m zipline, dev salıncak! Trabzon'un en iyi adventure parkı!">
-    <meta name="twitter:image" content="https://layiga.com/images/zipline2.jpg">
-
-    <!-- Theme -->
     <meta name="theme-color" content="#FF6B35">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛰️</text></svg>">
+    <link rel="icon" href="images/logo.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "TouristAttraction",
-        "name": "Layiga Adventure Park",
-        "description": "Uzungöl'de zipline ve dev salıncak deneyimi",
-        "url": "https://layiga.com",
-        "telephone": "+905378738398",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Çaykara",
-            "addressRegion": "Trabzon",
-            "addressCountry": "TR"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 40.6202638,
-            "longitude": 40.2401023
-        },
-        "openingHours": "Mo-Su 08:00-20:00",
-        "priceRange": "150₺-300₺"
-    }
+    {"@context":"https://schema.org","@type":"TouristAttraction","name":"Layiga Adventure Park","url":"https://layiga.com","telephone":"+905378738398","address":{"@type":"PostalAddress","addressLocality":"Çaykara","addressRegion":"Trabzon","addressCountry":"TR"},"geo":{"@type":"GeoCoordinates","latitude":40.6202638,"longitude":40.2401023},"openingHours":"Mo-Su 08:00-20:00","priceRange":"150₺-300₺"}
     </script>
 
-    <!-- Premium Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
+    <!-- Icons & Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- GSAP & Particles -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#FF6B35',
-                        'primary-dark': '#E55A2B',
-                        'secondary': '#0D1117',
-                        'accent': '#10B981',
-                    },
-                    fontFamily: {
-                        'display': ['Outfit', 'sans-serif'],
-                        'body': ['Inter', 'sans-serif'],
-                        'serif': ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* ============================================
-           LAYIGA ADVENTURE PARK - ULTIMATE EDITION
-           ============================================ */
-
-        :root {
-            --primary: #FF6B35;
-            --primary-dark: #E55A2B;
-            --primary-light: #FF8A5C;
-            --secondary: #0D1117;
-            --accent: #10B981;
-            --bg-dark: #0D1117;
-            --bg-darker: #010409;
-            --bg-card: #161B22;
-            --text-primary: #F0F6FC;
-            --text-secondary: #8B949E;
-            --border: rgba(255, 255, 255, 0.1);
-        }
-
-        [data-theme="light"] {
-            --bg-dark: #FFFFFF;
-            --bg-darker: #F6F8FA;
-            --bg-card: #FFFFFF;
-            --text-primary: #1F2937;
-            --text-secondary: #6B7280;
-            --border: rgba(0, 0, 0, 0.1);
-            --secondary: #F6F8FA;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            transition: background 0.5s ease, color 0.5s ease;
-        }
-
-        /* ============================================
-           60FPS PERFORMANCE OPTIMIZATIONS
-           ============================================ */
-
-        /* GPU acceleration for animated elements */
-        .hero-title-word,
-        .activity-card,
-        .pricing-card,
-        .testimonial-card,
-        .gallery-item,
-        .stat-card,
-        .btn-primary,
-        .btn-secondary,
-        .nav-link::after,
-        .loader,
-        .whatsapp-float {
-            will-change: transform, opacity;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-        }
-
-        /* Contain layout paint for performance */
-        .section {
-            contain: layout style;
-        }
-
-        .activity-card,
-        .pricing-card,
-        .testimonial-card {
-            contain: layout style paint;
-        }
-
-        /* Smooth animations at 60fps */
-        @media (prefers-reduced-motion: no-preference) {
-            .activity-card,
-            .pricing-card,
-            .testimonial-card,
-            .gallery-item img,
-            .stat-card {
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-        }
-
-        /* Disable animations for reduced motion preference */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            html {
-                scroll-behavior: auto;
-            }
-
-            .hero-title-word {
-                transform: none !important;
-                opacity: 1 !important;
-            }
-        }
-
-        /* Optimize image rendering */
-        img, video {
-            content-visibility: auto;
-            contain-intrinsic-size: 300px 200px;
-        }
-
-        /* Hardware acceleration for transforms */
-        .hero-video-container,
-        .activity-card-image img,
-        .gallery-item img {
-            transform: translate3d(0, 0, 0);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: var(--bg-darker); }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 5px;
-        }
-
-        ::selection {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* ============================================
-           LOADING SCREEN
-           ============================================ */
-
-        .loader {
-            position: fixed;
-            inset: 0;
-            background: var(--bg-darker);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-logo {
-            width: 120px;
-            height: 120px;
-            animation: logoFloat 2s ease-in-out infinite;
-        }
-
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.05); }
-        }
-
-        .loader-text {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary) 0%, #FFB347 50%, var(--primary) 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 2s linear infinite;
-            margin-top: 1.5rem;
-        }
-
-        .loader-bar {
-            width: 200px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            margin-top: 2rem;
-            overflow: hidden;
-        }
-
-        .loader-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
-            background-size: 200% 100%;
-            animation: loadingBar 1.5s ease-in-out infinite;
-            border-radius: 2px;
-        }
-
-        @keyframes loadingBar {
-            0% { width: 0%; background-position: 0% 0%; }
-            50% { width: 70%; background-position: 100% 0%; }
-            100% { width: 100%; background-position: 0% 0%; }
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
-
-        /* ============================================
-           PARTICLES BACKGROUND
-           ============================================ */
-
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* ============================================
-           NAVIGATION - GLASSMORPHISM
-           ============================================ */
-
-        .nav-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-container.scrolled {
-            background: rgba(13, 17, 23, 0.85);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--border);
-            padding: 0.75rem 0;
-        }
-
-        [data-theme="light"] .nav-container.scrolled {
-            background: rgba(255, 255, 255, 0.85);
-        }
-
-        .nav-link {
-            position: relative;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 0.02em;
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
-            padding: 0.5rem 0;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .nav-link:hover {
-            color: var(--text-primary);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* ============================================
-           THEME TOGGLE
-           ============================================ */
-
-        .theme-toggle {
-            position: relative;
-            width: 60px;
-            height: 30px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.5s ease;
-            border: 2px solid var(--border);
-            overflow: hidden;
-        }
-
-        [data-theme="light"] .theme-toggle {
-            background: linear-gradient(135deg, #87CEEB 0%, #FDB813 100%);
-        }
-
-        .theme-toggle-ball {
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 22px;
-            height: 22px;
-            background: white;
-            border-radius: 50%;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        [data-theme="light"] .theme-toggle-ball {
-            left: calc(100% - 26px);
-            background: #FDB813;
-        }
-
-        /* ============================================
-           HERO SECTION - CINEMATIC VIDEO
-           ============================================ */
-
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-video-container {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-
-        .hero-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 30%;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                180deg,
-                rgba(13, 17, 23, 0.4) 0%,
-                rgba(13, 17, 23, 0.2) 40%,
-                rgba(13, 17, 23, 0.6) 80%,
-                rgba(13, 17, 23, 1) 100%
-            );
-            z-index: 1;
-        }
-
-        [data-theme="light"] .hero-overlay {
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.2) 0%,
-                rgba(255, 255, 255, 0.1) 40%,
-                rgba(255, 255, 255, 0.5) 80%,
-                rgba(246, 248, 250, 1) 100%
-            );
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 0 1.5rem;
-            max-width: 1200px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(255, 107, 53, 0.15);
-            border: 1px solid rgba(255, 107, 53, 0.3);
-            border-radius: 100px;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .hero-badge-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7); }
-            50% { opacity: 0.8; transform: scale(1.2); box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
-        }
-
-        .hero-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(3.5rem, 12vw, 9rem);
-            font-weight: 900;
-            line-height: 0.9;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
-        }
-
-        .hero-title-line {
-            display: block;
-            overflow: hidden;
-        }
-
-        .hero-title-word {
-            display: inline-block;
-            transform: translateY(100%);
-            opacity: 0;
-        }
-
-        .hero-title-gradient {
-            background: linear-gradient(135deg, #FF6B35 0%, #FFB347 30%, #FF6B35 60%, #FFD700 100%);
-            background-size: 300% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 4s linear infinite;
-        }
-
-        .hero-subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(1rem, 2.5vw, 1.35rem);
-            font-weight: 400;
-            color: var(--text-secondary);
-            max-width: 650px;
-            margin: 0 auto 3rem;
-            line-height: 1.7;
-            letter-spacing: 0.01em;
-        }
-
-        .hero-cta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.25rem;
-            justify-content: center;
-        }
-
-        /* ============================================
-           PREMIUM BUTTONS
-           ============================================ */
-
-        .btn-primary {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1.1rem 2.25rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.02em;
-            border-radius: 100px;
-            border: none;
-            cursor: pointer;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.4);
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1.1rem 2.25rem;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-primary);
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.02em;
-            border-radius: 100px;
-            border: 2px solid var(--border);
-            cursor: pointer;
-            transition: all 0.4s ease;
-            text-decoration: none;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
-            transform: translateY(-4px);
-        }
-
-        /* ============================================
-           ANIMATED COUNTERS
-           ============================================ */
-
-        .stats-section {
-            position: relative;
-            padding: 6rem 0;
-            background: var(--bg-darker);
-            overflow: hidden;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            transition: all 0.4s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.15);
-        }
-
-        .stat-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            margin: 0 auto 1.25rem;
-        }
-
-        .stat-number {
-            font-family: 'Outfit', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* ============================================
-           SECTION STYLES
-           ============================================ */
-
-        .section {
-            position: relative;
-            padding: 8rem 0;
-            z-index: 1;
-        }
-
-        .section-dark {
-            background: var(--bg-dark);
-        }
-
-        .section-darker {
-            background: var(--bg-darker);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.25rem;
-            background: rgba(255, 107, 53, 0.1);
-            border: 1px solid rgba(255, 107, 53, 0.2);
-            border-radius: 100px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .section-subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        /* ============================================
-           3D TILT ACTIVITY CARDS
-           ============================================ */
-
-        .activity-card {
-            position: relative;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-
-        .activity-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 30px 60px rgba(255, 107, 53, 0.2);
-        }
-
-        .activity-card-image {
-            position: relative;
-            height: 280px;
-            overflow: hidden;
-        }
-
-        .activity-card-image img,
-        .activity-card-image video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease;
-        }
-
-        .activity-card:hover .activity-card-image img,
-        .activity-card:hover .activity-card-image video {
-            transform: scale(1.1);
-        }
-
-        .activity-card-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 0%, var(--bg-card) 100%);
-        }
-
-        .activity-card-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            padding: 0.5rem 1rem;
-            background: var(--primary);
-            color: white;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            border-radius: 100px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .activity-card-content {
-            padding: 2rem;
-            transform: translateZ(20px);
-        }
-
-        .activity-card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
-        }
-
-        .activity-card-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .activity-card-desc {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .activity-card-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 107, 53, 0.1);
-            border-radius: 100px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .feature-tag i {
-            color: var(--accent);
-            font-size: 0.75rem;
-        }
-
-        .activity-card-price {
-            display: flex;
-            align-items: baseline;
-            gap: 0.5rem;
-        }
-
-        .price-value {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .price-unit {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* ============================================
-           PRICING TABLE
-           ============================================ */
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 968px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                max-width: 450px;
-            }
-        }
-
-        .pricing-card {
-            position: relative;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            transition: all 0.4s ease;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary);
-            transform: scale(1.05);
-            box-shadow: 0 30px 60px rgba(255, 107, 53, 0.2);
-        }
-
-        .pricing-card.featured::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 24px 24px 0 0;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.5rem 1.5rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            border-radius: 100px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .pricing-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .pricing-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .pricing-desc {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .pricing-price {
-            margin-bottom: 2rem;
-        }
-
-        .pricing-price-value {
-            font-family: 'Outfit', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .pricing-price-unit {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border);
-            font-family: 'Inter', sans-serif;
-            color: var(--text-secondary);
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-features li i {
-            color: var(--accent);
-            font-size: 0.875rem;
-        }
-
-        /* ============================================
-           TESTIMONIALS
-           ============================================ */
-
-        .testimonial-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2rem;
-            transition: all 0.4s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .testimonial-stars {
-            display: flex;
-            gap: 0.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-stars i {
-            color: #FDB813;
-            font-size: 1rem;
-        }
-
-        .testimonial-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .testimonial-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
-
-        .testimonial-name {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .testimonial-location {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        /* ============================================
-           GALLERY - MASONRY
-           ============================================ */
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 280px);
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .gallery-item:nth-child(1) {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            display: flex;
-            align-items: flex-end;
-            padding: 1.5rem;
-        }
-
-        .gallery-item:hover .gallery-item-overlay {
-            opacity: 1;
-        }
-
-        .gallery-item-title {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            color: white;
-        }
-
-        @media (max-width: 1024px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: auto;
-            }
-            .gallery-item { height: 250px; }
-            .gallery-item:nth-child(1) {
-                grid-column: span 2;
-                grid-row: span 1;
-                height: 300px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            .gallery-item:nth-child(1) {
-                grid-column: span 1;
-            }
-        }
-
-        /* ============================================
-           CONTACT CARDS
-           ============================================ */
-
-        .contact-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.15);
-        }
-
-        .contact-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.3);
-        }
-
-        .contact-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .contact-text {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* ============================================
-           MAP
-           ============================================ */
-
-        .map-container {
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            height: 400px;
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-
-        .footer {
-            background: var(--bg-darker);
-            padding: 5rem 0 2rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-logo {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--primary) 0%, #FFB347 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .footer-desc {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 350px;
-        }
-
-        .footer-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .social-link {
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 107, 53, 0.1);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 1.25rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-copyright {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* ============================================
-           FLOATING WHATSAPP
-           ============================================ */
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 999;
-        }
-
-        .whatsapp-float a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            border-radius: 50%;
-            color: white;
-            font-size: 2rem;
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
-            transition: all 0.4s ease;
-            animation: whatsappPulse 2s infinite;
-        }
-
-        @keyframes whatsappPulse {
-            0%, 100% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5); }
-            50% { box-shadow: 0 6px 40px rgba(37, 211, 102, 0.8), 0 0 0 15px rgba(37, 211, 102, 0.1); }
-        }
-
-        .whatsapp-float a:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        /* ============================================
-           LANGUAGE SELECTOR
-           ============================================ */
-
-        .lang-selector {
-            position: relative;
-        }
-
-        .lang-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.1rem;
-            background: rgba(255, 107, 53, 0.1);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            color: var(--text-primary);
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .lang-btn:hover {
-            background: rgba(255, 107, 53, 0.2);
-            border-color: var(--primary);
-        }
-
-        .lang-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 0.5rem;
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            min-width: 150px;
-        }
-
-        .lang-selector:hover .lang-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .lang-option {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.85rem 1.25rem;
-            color: var(--text-secondary);
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .lang-option:hover {
-            background: rgba(255, 107, 53, 0.1);
-            color: var(--text-primary);
-        }
-
-        /* ============================================
-           MOBILE MENU
-           ============================================ */
-
-        .mobile-menu {
-            position: fixed;
-            inset: 0;
-            background: var(--bg-dark);
-            z-index: 9998;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .mobile-menu.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-menu-link {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-link:hover {
-            color: var(--primary);
-            transform: scale(1.1);
-        }
-
-        .menu-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 2rem;
-            color: var(--text-primary);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .menu-close:hover {
-            color: var(--primary);
-            transform: rotate(90deg);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .hamburger span {
-            width: 28px;
-            height: 2px;
-            background: var(--text-primary);
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            .nav-links { display: none; }
-            .section { padding: 5rem 0; }
-        }
-
-        /* ============================================
-           REVEAL ANIMATIONS
-           ============================================ */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(60px);
-        }
-
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-60px);
-        }
-
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(60px);
-        }
-
-        .reveal-scale {
-            opacity: 0;
-            transform: scale(0.8);
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/ultra.css">
+    <link rel="stylesheet" href="styles/ultra2.css">
 </head>
 <body>
-    <!-- ============================================
-         LOADING SCREEN
-         ============================================ -->
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Aurora Background -->
+    <div class="aurora"></div>
+    <div class="noise"></div>
+
+    <!-- Loader -->
     <div class="loader" id="loader">
         <img src="images/logo.png" alt="Layiga" class="loader-logo">
         <div class="loader-text">LAYIGA</div>
-        <div class="loader-bar">
-            <div class="loader-bar-fill"></div>
-        </div>
+        <div class="loader-progress"></div>
     </div>
 
-    <!-- ============================================
-         PARTICLES BACKGROUND
-         ============================================ -->
-    <div id="particles-js"></div>
-
-    <!-- ============================================
-         NAVIGATION
-         ============================================ -->
-    <nav class="nav-container" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3">
-                <img src="images/logo.png" alt="Layiga" class="h-10 w-auto">
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="images/logo.png" alt="Layiga">
+                <span class="nav-logo-text">LAYIGA</span>
             </a>
 
-            <div class="hidden md:flex items-center gap-10 nav-links">
-                <a href="#home" class="nav-link" data-tr="Ana Sayfa" data-en="Home" data-ar="الرئيسية">Ana Sayfa</a>
-                <a href="#activities" class="nav-link" data-tr="Aktiviteler" data-en="Activities" data-ar="الأنشطة">Aktiviteler</a>
-                <a href="#pricing" class="nav-link" data-tr="Fiyatlar" data-en="Pricing" data-ar="الأسعار">Fiyatlar</a>
-                <a href="#gallery" class="nav-link" data-tr="Galeri" data-en="Gallery" data-ar="المعرض">Galeri</a>
-                <a href="#contact" class="nav-link" data-tr="İletişim" data-en="Contact" data-ar="اتصال">İletişim</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link" data-tr="nav_home">Ana Sayfa</a>
+                <a href="#activities" class="nav-link" data-tr="nav_activities">Aktiviteler</a>
+                <a href="#pricing" class="nav-link" data-tr="nav_pricing">Fiyatlar</a>
+                <a href="#gallery" class="nav-link" data-tr="nav_gallery">Galeri</a>
+                <a href="#contact" class="nav-link" data-tr="nav_contact">İletişim</a>
+
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">AR</button>
+                </div>
+
+                <a href="https://wa.me/905378738398" class="nav-cta" target="_blank">
+                    <span><i class="fab fa-whatsapp"></i> Rezervasyon</span>
+                </a>
             </div>
 
-            <div class="flex items-center gap-4">
-                <!-- Theme Toggle -->
-                <div class="theme-toggle" id="themeToggle">
-                    <div class="theme-toggle-ball">
-                        <span id="themeIcon">🌙</span>
-                    </div>
-                </div>
-
-                <!-- Language Selector -->
-                <div class="lang-selector">
-                    <button class="lang-btn">
-                        <i class="fas fa-globe"></i>
-                        <span id="currentLang">TR</span>
-                    </button>
-                    <div class="lang-dropdown">
-                        <div class="lang-option" data-lang="tr">🇹🇷 Türkçe</div>
-                        <div class="lang-option" data-lang="en">🇺🇸 English</div>
-                        <div class="lang-option" data-lang="ar">🇸🇦 العربية</div>
-                    </div>
-                </div>
-
-                <a href="https://wa.me/905378738398" target="_blank" class="btn-primary hidden sm:flex">
-                    <i class="fab fa-whatsapp"></i>
-                    <span data-tr="Rezervasyon" data-en="Book Now" data-ar="احجز">Rezervasyon</span>
-                </a>
-
-                <div class="hamburger" id="hamburger">
-                    <span></span><span></span><span></span>
-                </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="menu-close" id="menuClose"><i class="fas fa-times"></i></div>
-        <a href="#home" class="mobile-menu-link">Ana Sayfa</a>
-        <a href="#activities" class="mobile-menu-link">Aktiviteler</a>
-        <a href="#pricing" class="mobile-menu-link">Fiyatlar</a>
-        <a href="#gallery" class="mobile-menu-link">Galeri</a>
-        <a href="#contact" class="mobile-menu-link">İletişim</a>
-    </div>
-
-    <!-- ============================================
-         HERO SECTION
-         ============================================ -->
+    <!-- Hero -->
     <section class="hero" id="home">
-        <div class="hero-video-container">
-            <video class="hero-video" autoplay muted loop playsinline poster="images/hero.jpg">
-                <source src="videos/hero.mp4" type="video/mp4">
-            </video>
-            <img src="images/hero.jpg" alt="Layiga Adventure" class="hero-image" style="display: none;">
+        <div class="hero-media">
+            <img src="images/hero.jpg" alt="Layiga Adventure">
         </div>
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
             <div class="hero-badge">
-                <div class="hero-badge-dot"></div>
-                <span class="text-sm font-medium" data-tr="Uzungöl'ün Premium Macera Parkı" data-en="Uzungöl's Premium Adventure Park" data-ar="منتزه المغامرات المتميز">Uzungöl'ün Premium Macera Parkı</span>
+                <span class="hero-badge-dot"></span>
+                <span class="hero-badge-text" data-tr="hero_badge">Uzungöl'ün En İyi Macera Parkı</span>
             </div>
 
             <h1 class="hero-title">
                 <span class="hero-title-line">
-                    <span class="hero-title-word" data-tr="Gökyüzünde" data-en="Freedom" data-ar="الحرية">Gökyüzünde</span>
+                    <span class="hero-title-word" data-tr="hero_title1">MACERA</span>
                 </span>
                 <span class="hero-title-line">
-                    <span class="hero-title-word hero-title-gradient" data-tr="Özgürlük" data-en="In The Sky" data-ar="في السماء">Özgürlük</span>
+                    <span class="hero-title-word hero-title-gradient" data-tr="hero_title2">BAŞLIYOR</span>
                 </span>
             </h1>
 
-            <p class="hero-subtitle" data-tr="Uzungöl'ün büyüleyici doğasında cesaret ve heyecanın buluşma noktası. 300m zipline, dev salıncak ve daha fazlası sizi bekliyor!" data-en="Where courage meets excitement in the enchanting nature of Uzungöl. 300m zipline, giant swing and more await you!" data-ar="حيث تلتقي الشجاعة بالإثارة في طبيعة أوزونغول الساحرة!">
-                Uzungöl'ün büyüleyici doğasında cesaret ve heyecanın buluşma noktası. 300m zipline, dev salıncak ve daha fazlası sizi bekliyor!
+            <p class="hero-subtitle" data-tr="hero_subtitle">
+                300 metre zipline, dev salıncak ve unutulmaz doğa deneyimi. Karadeniz'in eşsiz manzarasında adrenalin dolu anlar sizi bekliyor.
             </p>
 
             <div class="hero-cta">
-                <a href="https://wa.me/905378738398?text=Merhaba! Layiga Adventure Park için rezervasyon yapmak istiyorum." target="_blank" class="btn-primary">
-                    <i class="fab fa-whatsapp text-xl"></i>
-                    <span data-tr="Hemen Rezervasyon Yap" data-en="Book Now" data-ar="احجز الآن">Hemen Rezervasyon Yap</span>
+                <a href="https://wa.me/905378738398" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-tr="hero_cta1">Hemen Rezervasyon</span>
                 </a>
-                <a href="#activities" class="btn-secondary">
-                    <span data-tr="Aktiviteleri Keşfet" data-en="Explore Activities" data-ar="استكشف">Aktiviteleri Keşfet</span>
-                    <i class="fas fa-arrow-down"></i>
+                <a href="#activities" class="btn btn-secondary">
+                    <span data-tr="hero_cta2">Aktiviteleri Keşfet</span>
+                    <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-mouse"></div>
+            <span class="scroll-text">Scroll</span>
+        </div>
     </section>
 
-    <!-- ============================================
-         STATS SECTION
-         ============================================ -->
-    <section class="stats-section">
+    <!-- Stats -->
+    <section class="stats">
         <div class="stats-grid">
             <div class="stat-card reveal">
-                <div class="stat-icon"><i class="fas fa-mountain"></i></div>
-                <div class="stat-number" data-target="300">0</div>
-                <div class="stat-label" data-tr="Metre Zipline" data-en="Meter Zipline" data-ar="متر زيبلاين">Metre Zipline</div>
+                <div class="stat-icon"><i class="fas fa-route"></i></div>
+                <div class="stat-number" data-count="300">0</div>
+                <div class="stat-label" data-tr="stat_zipline">Metre Zipline</div>
             </div>
             <div class="stat-card reveal">
-                <div class="stat-icon" style="background: linear-gradient(135deg, var(--accent) 0%, #059669 100%);"><i class="fas fa-users"></i></div>
-                <div class="stat-number" data-target="25000">0</div>
-                <div class="stat-label" data-tr="Mutlu Misafir" data-en="Happy Guests" data-ar="ضيوف سعداء">Mutlu Misafir</div>
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-number" data-count="25000">0</div>
+                <div class="stat-label" data-tr="stat_guests">Mutlu Misafir</div>
             </div>
             <div class="stat-card reveal">
-                <div class="stat-icon" style="background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);"><i class="fas fa-star"></i></div>
-                <div class="stat-number" data-target="4.9" data-decimal="true">0</div>
-                <div class="stat-label" data-tr="Puan Ortalaması" data-en="Average Rating" data-ar="متوسط التقييم">Puan Ortalaması</div>
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-number" data-count="4.9">0</div>
+                <div class="stat-label" data-tr="stat_rating">Puan</div>
             </div>
             <div class="stat-card reveal">
-                <div class="stat-icon" style="background: linear-gradient(135deg, #A855F7 0%, #7C3AED 100%);"><i class="fas fa-calendar"></i></div>
-                <div class="stat-number" data-target="6">0</div>
-                <div class="stat-label" data-tr="Yıllık Deneyim" data-en="Years Experience" data-ar="سنوات الخبرة">Yıllık Deneyim</div>
+                <div class="stat-icon"><i class="fas fa-calendar"></i></div>
+                <div class="stat-number" data-count="6">0</div>
+                <div class="stat-label" data-tr="stat_years">Yıllık Deneyim</div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         ACTIVITIES SECTION
-         ============================================ -->
-    <section class="section section-dark" id="activities">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="section-header reveal">
-                <div class="section-badge">
-                    <i class="fas fa-fire"></i>
-                    <span data-tr="Popüler Aktiviteler" data-en="Popular Activities" data-ar="أنشطة شائعة">Popüler Aktiviteler</span>
-                </div>
-                <h2 class="section-title" data-tr="Macera Seni Bekliyor" data-en="Adventure Awaits" data-ar="المغامرة تنتظرك">Macera Seni Bekliyor</h2>
-                <p class="section-subtitle" data-tr="Uzungöl'ün nefes kesen doğasında adrenalin dolu aktiviteler" data-en="Adrenaline-filled activities in the breathtaking nature of Uzungöl" data-ar="أنشطة مليئة بالأدرينالين في طبيعة أوزونغول">Uzungöl'ün nefes kesen doğasında adrenalin dolu aktiviteler</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <!-- Zipline Card -->
-                <div class="activity-card reveal-left" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
-                    <div class="activity-card-image">
-                        <img src="images/zipline2.jpg" alt="Zipline">
-                        <div class="activity-card-overlay"></div>
-                        <div class="activity-card-badge" data-tr="En Popüler" data-en="Most Popular" data-ar="الأكثر شعبية">En Popüler</div>
-                    </div>
-                    <div class="activity-card-content">
-                        <div class="activity-card-icon"><i class="fas fa-mountain"></i></div>
-                        <h3 class="activity-card-title">Zipline</h3>
-                        <p class="activity-card-desc" data-tr="300 metre uzunluğundaki zipline ile gökyüzünde uçmanın keyfini çıkarın. Uzungöl manzarası eşliğinde unutulmaz bir deneyim." data-en="Enjoy flying in the sky with our 300-meter zipline. An unforgettable experience with the Uzungöl view." data-ar="استمتع بالطيران في السماء مع خط الانزلاق بطول 300 متر.">
-                            300 metre uzunluğundaki zipline ile gökyüzünde uçmanın keyfini çıkarın. Uzungöl manzarası eşliğinde unutulmaz bir deneyim.
-                        </p>
-                        <div class="activity-card-features">
-                            <span class="feature-tag"><i class="fas fa-check"></i> 300m</span>
-                            <span class="feature-tag"><i class="fas fa-check"></i> 25m Yükseklik</span>
-                            <span class="feature-tag"><i class="fas fa-check"></i> ISO Sertifikalı</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="activity-card-price">
-                                <span class="price-value">300₺</span>
-                                <span class="price-unit" data-tr="/ kişi" data-en="/ person" data-ar="/ شخص">/ kişi</span>
-                            </div>
-                            <a href="https://wa.me/905378738398?text=Merhaba! Zipline için bilgi almak istiyorum." target="_blank" class="btn-primary">
-                                <span data-tr="Rezervasyon" data-en="Book" data-ar="احجز">Rezervasyon</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Giant Swing Card -->
-                <div class="activity-card reveal-right" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
-                    <div class="activity-card-image">
-                        <img src="images/swing.JPG" alt="Dev Salıncak">
-                        <div class="activity-card-overlay"></div>
-                        <div class="activity-card-badge" style="background: var(--accent);" data-tr="Aileler İçin" data-en="For Families" data-ar="للعائلات">Aileler İçin</div>
-                    </div>
-                    <div class="activity-card-content">
-                        <div class="activity-card-icon" style="background: linear-gradient(135deg, var(--accent) 0%, #059669 100%);"><i class="fas fa-wind"></i></div>
-                        <h3 class="activity-card-title" data-tr="Dev Salıncak" data-en="Giant Swing" data-ar="الأرجوحة العملاقة">Dev Salıncak</h3>
-                        <p class="activity-card-desc" data-tr="8 metre yükseklikten sallanarak Uzungöl'ün 360° panoramik manzarasının tadını çıkarın. Çift kişilik salıncak ile arkadaşlarınızla birlikte!" data-en="Swing from 8 meters and enjoy the 360° panoramic view of Uzungöl. With double seat swing together with your friends!" data-ar="تأرجح من 8 أمتار واستمتع بالمنظر البانورامي 360°">
-                            8 metre yükseklikten sallanarak Uzungöl'ün 360° panoramik manzarasının tadını çıkarın. Çift kişilik salıncak ile arkadaşlarınızla birlikte!
-                        </p>
-                        <div class="activity-card-features">
-                            <span class="feature-tag"><i class="fas fa-check"></i> 8m</span>
-                            <span class="feature-tag"><i class="fas fa-check"></i> 360° Manzara</span>
-                            <span class="feature-tag"><i class="fas fa-check"></i> Çift Kişilik</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="activity-card-price">
-                                <span class="price-value" style="color: var(--accent);">250₺</span>
-                                <span class="price-unit">/ kişi</span>
-                            </div>
-                            <a href="https://wa.me/905378738398?text=Merhaba! Dev salıncak için bilgi almak istiyorum." target="_blank" class="btn-primary" style="background: linear-gradient(135deg, var(--accent) 0%, #059669 100%); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">
-                                <span>Rezervasyon</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Other Activities Grid -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="activity-card reveal" data-tilt data-tilt-max="10" data-tilt-speed="400">
-                    <div class="activity-card-image" style="height: 180px;">
-                        <img src="images/shooting.jpg" alt="Atış Poligonu">
-                        <div class="activity-card-overlay"></div>
-                    </div>
-                    <div class="activity-card-content" style="padding: 1.5rem;">
-                        <div class="activity-card-icon" style="width: 50px; height: 50px; font-size: 1.25rem; margin-bottom: 1rem;"><i class="fas fa-bullseye"></i></div>
-                        <h3 class="text-xl font-bold mb-2 font-display" data-tr="Atış Poligonu" data-en="Shooting Range" data-ar="ساحة الرماية">Atış Poligonu</h3>
-                        <p class="text-sm mb-4" style="color: var(--text-secondary);" data-tr="40 atışlık profesyonel deneyim" data-en="Professional 40-shot experience" data-ar="تجربة احترافية 40 رصاصة">40 atışlık profesyonel deneyim</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold font-display" style="color: var(--primary);">200₺</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="activity-card reveal" data-tilt data-tilt-max="10" data-tilt-speed="400">
-                    <div class="activity-card-image" style="height: 180px;">
-                        <img src="images/car.jpg" alt="Akülü Araç">
-                        <div class="activity-card-overlay"></div>
-                    </div>
-                    <div class="activity-card-content" style="padding: 1.5rem;">
-                        <div class="activity-card-icon" style="width: 50px; height: 50px; font-size: 1.25rem; margin-bottom: 1rem; background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);"><i class="fas fa-car"></i></div>
-                        <h3 class="text-xl font-bold mb-2 font-display" data-tr="Akülü Araç" data-en="Electric Vehicle" data-ar="مركبة كهربائية">Akülü Araç</h3>
-                        <p class="text-sm mb-4" style="color: var(--text-secondary);" data-tr="5 dakikalık eğlenceli tur" data-en="5-minute fun tour" data-ar="جولة ممتعة 5 دقائق">5 dakikalık eğlenceli tur</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold font-display" style="color: #3B82F6;">150₺</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="activity-card reveal" data-tilt data-tilt-max="10" data-tilt-speed="400">
-                    <div class="activity-card-image" style="height: 180px;">
-                        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                            <source src="videos/trampoline.mp4" type="video/mp4">
-                        </video>
-                        <div class="activity-card-overlay"></div>
-                    </div>
-                    <div class="activity-card-content" style="padding: 1.5rem;">
-                        <div class="activity-card-icon" style="width: 50px; height: 50px; font-size: 1.25rem; margin-bottom: 1rem; background: linear-gradient(135deg, #A855F7 0%, #7C3AED 100%);"><i class="fas fa-child"></i></div>
-                        <h3 class="text-xl font-bold mb-2 font-display" data-tr="Trambolin" data-en="Trampoline" data-ar="الترامبولين">Trambolin</h3>
-                        <p class="text-sm mb-4" style="color: var(--text-secondary);" data-tr="7 dakikalık zıplama keyfi" data-en="7-minute jumping fun" data-ar="متعة القفز 7 دقائق">7 dakikalık zıplama keyfi</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold font-display" style="color: #A855F7;">200₺</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="activity-card reveal" data-tilt data-tilt-max="10" data-tilt-speed="400">
-                    <div class="activity-card-image" style="height: 180px;">
-                        <img src="images/cafe.JPG" alt="ÖZSE Café">
-                        <div class="activity-card-overlay"></div>
-                    </div>
-                    <div class="activity-card-content" style="padding: 1.5rem;">
-                        <div class="activity-card-icon" style="width: 50px; height: 50px; font-size: 1.25rem; margin-bottom: 1rem; background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);"><i class="fas fa-coffee"></i></div>
-                        <h3 class="text-xl font-bold mb-2 font-display">ÖZSE Café</h3>
-                        <p class="text-sm mb-4" style="color: var(--text-secondary);" data-tr="Türk kahvesi, çay ve lezzetler" data-en="Turkish coffee, tea and treats" data-ar="قهوة تركية وشاي">Türk kahvesi, çay ve lezzetler</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm" style="color: var(--text-secondary);" data-tr="Lezzetli molalar" data-en="Delicious breaks" data-ar="استراحات لذيذة">Lezzetli molalar</span>
-                            <i class="fas fa-arrow-right" style="color: #F59E0B;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Activities -->
+    <section class="section activities" id="activities">
+        <div class="section-header">
+            <span class="section-badge"><i class="fas fa-bolt"></i> <span data-tr="activities_badge">Aktiviteler</span></span>
+            <h2 class="section-title">
+                <span class="section-title-gradient" data-tr="activities_title">Macera Seni Bekliyor</span>
+            </h2>
+            <p class="section-subtitle" data-tr="activities_subtitle">
+                Uzungöl'ün muhteşem doğasında adrenalin dolu aktiviteler
+            </p>
         </div>
-    </section>
 
-    <!-- ============================================
-         PRICING SECTION
-         ============================================ -->
-    <section class="section section-darker" id="pricing">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="section-header reveal">
-                <div class="section-badge">
-                    <i class="fas fa-tag"></i>
-                    <span data-tr="Fiyatlandırma" data-en="Pricing" data-ar="التسعير">Fiyatlandırma</span>
+        <div class="activities-grid">
+            <!-- Zipline -->
+            <div class="activity-card reveal">
+                <div class="activity-image">
+                    <img src="images/zipline2.jpg" alt="Zipline">
+                    <div class="activity-image-overlay"></div>
+                    <span class="activity-badge" data-tr="popular">Popüler</span>
                 </div>
-                <h2 class="section-title" data-tr="Paketlerimiz" data-en="Our Packages" data-ar="باقاتنا">Paketlerimiz</h2>
-                <p class="section-subtitle" data-tr="Her bütçeye uygun macera seçenekleri" data-en="Adventure options for every budget" data-ar="خيارات مغامرة لكل ميزانية">Her bütçeye uygun macera seçenekleri</p>
-            </div>
-
-            <div class="pricing-grid">
-                <!-- Basic Package -->
-                <div class="pricing-card reveal">
-                    <div class="pricing-icon" style="background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);"><i class="fas fa-bolt"></i></div>
-                    <h3 class="pricing-title" data-tr="Başlangıç" data-en="Starter" data-ar="المبتدئ">Başlangıç</h3>
-                    <p class="pricing-desc" data-tr="İlk deneyim için ideal" data-en="Perfect for first experience" data-ar="مثالي للتجربة الأولى">İlk deneyim için ideal</p>
-                    <div class="pricing-price">
-                        <span class="pricing-price-value">250₺</span>
-                        <span class="pricing-price-unit" data-tr="/ kişi" data-en="/ person" data-ar="/ شخص">/ kişi</span>
+                <div class="activity-content">
+                    <div class="activity-icon"><i class="fas fa-wind"></i></div>
+                    <h3 class="activity-title" data-tr="zipline_title">Zipline</h3>
+                    <p class="activity-desc" data-tr="zipline_desc">300 metre uzunluğunda, Uzungöl manzaralı zipline deneyimi. Göl üzerinde uçmanın keyfini çıkarın.</p>
+                    <div class="activity-features">
+                        <span class="feature-tag"><i class="fas fa-check"></i> 300m</span>
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="safe">Güvenli</span></span>
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="allages">Her Yaş</span></span>
                     </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> <span data-tr="Dev Salıncak" data-en="Giant Swing" data-ar="الأرجوحة العملاقة">Dev Salıncak</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="360° Manzara" data-en="360° View" data-ar="منظر 360°">360° Manzara</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="Fotoğraf Çekimi" data-en="Photo Shoot" data-ar="التقاط الصور">Fotoğraf Çekimi</span></li>
-                    </ul>
-                    <a href="https://wa.me/905378738398?text=Merhaba! Başlangıç paketi hakkında bilgi almak istiyorum." target="_blank" class="btn-secondary w-full justify-center">
-                        <span data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">Bilgi Al</span>
-                    </a>
-                </div>
-
-                <!-- Popular Package -->
-                <div class="pricing-card featured reveal">
-                    <div class="pricing-badge" data-tr="En Popüler" data-en="Most Popular" data-ar="الأكثر شعبية">En Popüler</div>
-                    <div class="pricing-icon"><i class="fas fa-mountain"></i></div>
-                    <h3 class="pricing-title" data-tr="Macera" data-en="Adventure" data-ar="المغامرة">Macera</h3>
-                    <p class="pricing-desc" data-tr="Tam adrenalin deneyimi" data-en="Full adrenaline experience" data-ar="تجربة أدرينالين كاملة">Tam adrenalin deneyimi</p>
-                    <div class="pricing-price">
-                        <span class="pricing-price-value">500₺</span>
-                        <span class="pricing-price-unit">/ kişi</span>
+                    <div class="activity-price">
+                        <span class="price-value">200₺</span>
+                        <span class="price-unit" data-tr="perperson">/ kişi</span>
                     </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> <span data-tr="300m Zipline" data-en="300m Zipline" data-ar="زيبلاين 300 متر">300m Zipline</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="Dev Salıncak" data-en="Giant Swing" data-ar="الأرجوحة العملاقة">Dev Salıncak</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="Profesyonel Fotoğraf" data-en="Pro Photography" data-ar="تصوير احترافي">Profesyonel Fotoğraf</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="Video Kaydı" data-en="Video Recording" data-ar="تسجيل فيديو">Video Kaydı</span></li>
-                    </ul>
-                    <a href="https://wa.me/905378738398?text=Merhaba! Macera paketi için rezervasyon yapmak istiyorum." target="_blank" class="btn-primary w-full justify-center">
-                        <span data-tr="Hemen Rezervasyon" data-en="Book Now" data-ar="احجز الآن">Hemen Rezervasyon</span>
-                    </a>
-                </div>
-
-                <!-- Premium Package -->
-                <div class="pricing-card reveal">
-                    <div class="pricing-icon" style="background: linear-gradient(135deg, #A855F7 0%, #7C3AED 100%);"><i class="fas fa-crown"></i></div>
-                    <h3 class="pricing-title" data-tr="Premium" data-en="Premium" data-ar="المميز">Premium</h3>
-                    <p class="pricing-desc" data-tr="Tüm aktiviteler dahil" data-en="All activities included" data-ar="جميع الأنشطة مشمولة">Tüm aktiviteler dahil</p>
-                    <div class="pricing-price">
-                        <span class="pricing-price-value">800₺</span>
-                        <span class="pricing-price-unit">/ kişi</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> <span data-tr="Tüm Aktiviteler" data-en="All Activities" data-ar="جميع الأنشطة">Tüm Aktiviteler</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="VIP Hizmet" data-en="VIP Service" data-ar="خدمة VIP">VIP Hizmet</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="Café İkramı" data-en="Café Treat" data-ar="ضيافة المقهى">Café İkramı</span></li>
-                        <li><i class="fas fa-check"></i> <span data-tr="Özel Rehber" data-en="Private Guide" data-ar="مرشد خاص">Özel Rehber</span></li>
-                    </ul>
-                    <a href="https://wa.me/905378738398?text=Merhaba! Premium paket hakkında bilgi almak istiyorum." target="_blank" class="btn-secondary w-full justify-center" style="border-color: #A855F7; color: #A855F7;">
-                        <span data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">Bilgi Al</span>
-                    </a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ============================================
-         TESTIMONIALS SECTION
-         ============================================ -->
-    <section class="section section-dark">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="section-header reveal">
-                <div class="section-badge">
-                    <i class="fas fa-heart"></i>
-                    <span data-tr="Müşteri Yorumları" data-en="Testimonials" data-ar="آراء العملاء">Müşteri Yorumları</span>
+            <!-- Giant Swing -->
+            <div class="activity-card reveal">
+                <div class="activity-image">
+                    <img src="images/swing.JPG" alt="Dev Salıncak">
+                    <div class="activity-image-overlay"></div>
+                    <span class="activity-badge" data-tr="thrill">Heyecan</span>
                 </div>
-                <h2 class="section-title" data-tr="Misafirlerimiz Ne Diyor?" data-en="What Our Guests Say?" data-ar="ماذا يقول ضيوفنا؟">Misafirlerimiz Ne Diyor?</h2>
+                <div class="activity-content">
+                    <div class="activity-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3 class="activity-title" data-tr="swing_title">Dev Salıncak</h3>
+                    <p class="activity-desc" data-tr="swing_desc">Uçurumun kenarında dev salıncak deneyimi. Adrenalin tutkunları için muhteşem manzara.</p>
+                    <div class="activity-features">
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="cliffedge">Uçurum Kenarı</span></span>
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="panoramic">Panoramik</span></span>
+                    </div>
+                    <div class="activity-price">
+                        <span class="price-value">150₺</span>
+                        <span class="price-unit" data-tr="perperson">/ kişi</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <!-- ATV -->
+            <div class="activity-card reveal">
+                <div class="activity-image">
+                    <img src="images/car.jpg" alt="ATV Safari">
+                    <div class="activity-image-overlay"></div>
+                    <span class="activity-badge" data-tr="adventure">Macera</span>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-icon"><i class="fas fa-car"></i></div>
+                    <h3 class="activity-title" data-tr="atv_title">ATV Safari</h3>
+                    <p class="activity-desc" data-tr="atv_desc">Doğa içinde ATV turu. Orman yollarında heyecan dolu bir macera sizi bekliyor.</p>
+                    <div class="activity-features">
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="forest">Orman</span></span>
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="guided">Rehberli</span></span>
                     </div>
-                    <p class="testimonial-text" data-tr="Zipline deneyimi muhteşemdi! Uzungöl manzarası eşliğinde unutulmaz bir macera yaşadık. Personel çok ilgili ve profesyoneldi." data-en="The zipline experience was amazing! We had an unforgettable adventure with the Uzungöl view. Staff was very helpful and professional." data-ar="كانت تجربة الزيبلاين مذهلة! قضينا مغامرة لا تُنسى مع منظر أوزونغول.">"Zipline deneyimi muhteşemdi! Uzungöl manzarası eşliğinde unutulmaz bir macera yaşadık. Personel çok ilgili ve profesyoneldi."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">AY</div>
-                        <div>
-                            <div class="testimonial-name">Ahmet Yılmaz</div>
-                            <div class="testimonial-location">İstanbul, Türkiye</div>
-                        </div>
+                    <div class="activity-price">
+                        <span class="price-value">300₺</span>
+                        <span class="price-unit" data-tr="perperson">/ kişi</span>
                     </div>
                 </div>
+            </div>
 
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <!-- Shooting -->
+            <div class="activity-card reveal">
+                <div class="activity-image">
+                    <img src="images/shooting.jpg" alt="Atış Poligonu">
+                    <div class="activity-image-overlay"></div>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3 class="activity-title" data-tr="shooting_title">Atış Poligonu</h3>
+                    <p class="activity-desc" data-tr="shooting_desc">Profesyonel eğitmenler eşliğinde güvenli atış deneyimi.</p>
+                    <div class="activity-features">
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="instructor">Eğitmen</span></span>
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="equipment">Ekipman</span></span>
                     </div>
-                    <p class="testimonial-text" data-tr="Çocuklarımla birlikte harika vakit geçirdik. Dev salıncak ve trambolin onların favorisi oldu. Kesinlikle tekrar geleceğiz!" data-en="Had a wonderful time with my kids. The giant swing and trampoline became their favorites. We'll definitely come again!" data-ar="قضينا وقتًا رائعًا مع أطفالي. أصبحت الأرجوحة العملاقة والترامبولين المفضلة لديهم.">"Çocuklarımla birlikte harika vakit geçirdik. Dev salıncak ve trambolin onların favorisi oldu. Kesinlikle tekrar geleceğiz!"</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">SK</div>
-                        <div>
-                            <div class="testimonial-name">Sarah K.</div>
-                            <div class="testimonial-location">Berlin, Germany</div>
-                        </div>
+                    <div class="activity-price">
+                        <span class="price-value">100₺</span>
+                        <span class="price-unit" data-tr="perperson">/ kişi</span>
                     </div>
                 </div>
+            </div>
 
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <!-- Trampoline -->
+            <div class="activity-card reveal">
+                <div class="activity-image">
+                    <video src="videos/trampoline.mp4" autoplay muted loop playsinline></video>
+                    <div class="activity-image-overlay"></div>
+                    <span class="activity-badge" data-tr="fun">Eğlence</span>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-icon"><i class="fas fa-child"></i></div>
+                    <h3 class="activity-title" data-tr="trampoline_title">Trambolin Park</h3>
+                    <p class="activity-desc" data-tr="trampoline_desc">Çocuklar ve yetişkinler için eğlenceli trambolin deneyimi.</p>
+                    <div class="activity-features">
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="family">Aile</span></span>
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="safe">Güvenli</span></span>
                     </div>
-                    <p class="testimonial-text" data-tr="Best adventure park in Trabzon! The 300m zipline is thrilling and the views are breathtaking. Highly recommended for adrenaline seekers." data-en="Best adventure park in Trabzon! The 300m zipline is thrilling and the views are breathtaking. Highly recommended for adrenaline seekers." data-ar="أفضل منتزه مغامرات في طرابزون! خط الانزلاق بطول 300 متر مثير والمناظر خلابة.">"Best adventure park in Trabzon! The 300m zipline is thrilling and the views are breathtaking. Highly recommended!"</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">MA</div>
-                        <div>
-                            <div class="testimonial-name">Mohammed A.</div>
-                            <div class="testimonial-location">Dubai, UAE</div>
-                        </div>
+                    <div class="activity-price">
+                        <span class="price-value">75₺</span>
+                        <span class="price-unit" data-tr="perperson">/ kişi</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cafe -->
+            <div class="activity-card reveal">
+                <div class="activity-image">
+                    <img src="images/cafe.JPG" alt="Panoramik Kafe">
+                    <div class="activity-image-overlay"></div>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-icon"><i class="fas fa-coffee"></i></div>
+                    <h3 class="activity-title" data-tr="cafe_title">Panoramik Kafe</h3>
+                    <p class="activity-desc" data-tr="cafe_desc">Uzungöl manzarasında kahve keyfi. Organik ve yerel lezzetler.</p>
+                    <div class="activity-features">
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="organic">Organik</span></span>
+                        <span class="feature-tag"><i class="fas fa-check"></i> <span data-tr="view">Manzara</span></span>
+                    </div>
+                    <div class="activity-price">
+                        <span class="price-value" data-tr="free">Ücretsiz</span>
+                        <span class="price-unit" data-tr="entry">Giriş</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         GALLERY SECTION
-         ============================================ -->
-    <section class="section section-darker" id="gallery">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="section-header reveal">
-                <div class="section-badge">
-                    <i class="fas fa-camera"></i>
-                    <span data-tr="Galeri" data-en="Gallery" data-ar="المعرض">Galeri</span>
+    <!-- Pricing -->
+    <section class="section pricing" id="pricing">
+        <div class="section-header">
+            <span class="section-badge"><i class="fas fa-tag"></i> <span data-tr="pricing_badge">Paketler</span></span>
+            <h2 class="section-title">
+                <span class="section-title-gradient" data-tr="pricing_title">Macera Paketleri</span>
+            </h2>
+            <p class="section-subtitle" data-tr="pricing_subtitle">Size en uygun paketi seçin</p>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Basic -->
+            <div class="pricing-card reveal">
+                <div class="pricing-icon"><i class="fas fa-feather"></i></div>
+                <h3 class="pricing-title" data-tr="basic_title">Başlangıç</h3>
+                <p class="pricing-desc" data-tr="basic_desc">İlk macera deneyimi için ideal</p>
+                <div class="pricing-price">
+                    <span class="pricing-amount">150₺</span>
+                    <span class="pricing-period" data-tr="perperson">/ kişi</span>
                 </div>
-                <h2 class="section-title" data-tr="Macera Anları" data-en="Adventure Moments" data-ar="لحظات المغامرة">Macera Anları</h2>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> <span data-tr="basic_f1">Dev Salıncak</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="basic_f2">Fotoğraf Çekimi</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="basic_f3">Kafe İndirimi %10</span></li>
+                </ul>
+                <button class="pricing-btn" onclick="window.open('https://wa.me/905378738398?text=Başlangıç paketi için rezervasyon yapmak istiyorum','_blank')" data-tr="book_now">Rezervasyon</button>
             </div>
 
-            <div class="gallery-grid reveal">
-                <div class="gallery-item">
-                    <img src="images/swinguzungol.jpg" alt="Uzungöl">
-                    <div class="gallery-item-overlay">
-                        <span class="gallery-item-title">Uzungöl Manzarası</span>
+            <!-- Pro -->
+            <div class="pricing-card featured reveal">
+                <span class="pricing-popular" data-tr="most_popular">En Popüler</span>
+                <div class="pricing-icon"><i class="fas fa-fire"></i></div>
+                <h3 class="pricing-title" data-tr="pro_title">Adrenalin</h3>
+                <p class="pricing-desc" data-tr="pro_desc">Tam macera deneyimi</p>
+                <div class="pricing-price">
+                    <span class="pricing-amount">300₺</span>
+                    <span class="pricing-period" data-tr="perperson">/ kişi</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> <span data-tr="pro_f1">Zipline 300m</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="pro_f2">Dev Salıncak</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="pro_f3">Profesyonel Fotoğraf</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="pro_f4">Ücretsiz İçecek</span></li>
+                </ul>
+                <button class="pricing-btn" onclick="window.open('https://wa.me/905378738398?text=Adrenalin paketi için rezervasyon yapmak istiyorum','_blank')" data-tr="book_now">Rezervasyon</button>
+            </div>
+
+            <!-- VIP -->
+            <div class="pricing-card reveal">
+                <div class="pricing-icon"><i class="fas fa-crown"></i></div>
+                <h3 class="pricing-title" data-tr="vip_title">VIP</h3>
+                <p class="pricing-desc" data-tr="vip_desc">Eksiksiz premium deneyim</p>
+                <div class="pricing-price">
+                    <span class="pricing-amount">500₺</span>
+                    <span class="pricing-period" data-tr="perperson">/ kişi</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> <span data-tr="vip_f1">Tüm Aktiviteler</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="vip_f2">VIP Kafe Hizmeti</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="vip_f3">Video + Fotoğraf</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="vip_f4">Özel Rehber</span></li>
+                </ul>
+                <button class="pricing-btn" onclick="window.open('https://wa.me/905378738398?text=VIP paketi için rezervasyon yapmak istiyorum','_blank')" data-tr="book_now">Rezervasyon</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section gallery" id="gallery">
+        <div class="section-header">
+            <span class="section-badge"><i class="fas fa-images"></i> <span data-tr="gallery_badge">Galeri</span></span>
+            <h2 class="section-title">
+                <span class="section-title-gradient" data-tr="gallery_title">Anılarınız</span>
+            </h2>
+            <p class="section-subtitle" data-tr="gallery_subtitle">Misafirlerimizin unutulmaz anları</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="images/swinguzungol.jpg" alt="Uzungöl Manzarası">
+                <div class="gallery-overlay">
+                    <span class="gallery-title">Uzungöl Manzarası</span>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/zipline3.jpg" alt="Zipline">
+                <div class="gallery-overlay">
+                    <span class="gallery-title">Zipline</span>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/swing.JPG" alt="Dev Salıncak">
+                <div class="gallery-overlay">
+                    <span class="gallery-title">Dev Salıncak</span>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/cafe.JPG" alt="Panoramik Kafe">
+                <div class="gallery-overlay">
+                    <span class="gallery-title">Panoramik Kafe</span>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/shooting.jpg" alt="Aktiviteler">
+                <div class="gallery-overlay">
+                    <span class="gallery-title">Aktiviteler</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="section-header">
+            <span class="section-badge"><i class="fas fa-quote-left"></i> <span data-tr="testimonials_badge">Yorumlar</span></span>
+            <h2 class="section-title">
+                <span class="section-title-gradient" data-tr="testimonials_title">Misafir Yorumları</span>
+            </h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text" data-tr="review1">"Hayatımda yaşadığım en güzel deneyimdi! Zipline muhteşemdi, personel çok ilgili ve güler yüzlüydü."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AY</div>
+                    <div class="testimonial-info">
+                        <h4>Ayşe Yılmaz</h4>
+                        <span>İstanbul</span>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/zipline3.jpg" alt="Zipline">
-                    <div class="gallery-item-overlay">
-                        <span class="gallery-item-title">Zipline Macerası</span>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text" data-tr="review2">"Dev salıncak inanılmazdı! Manzara nefes kesici. Kesinlikle tekrar geleceğiz."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MK</div>
+                    <div class="testimonial-info">
+                        <h4>Mehmet Kaya</h4>
+                        <span>Ankara</span>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/hero.jpg" alt="Doğa">
-                    <div class="gallery-item-overlay">
-                        <span class="gallery-item-title">Doğanın Kalbinde</span>
-                    </div>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/swing.JPG" alt="Salıncak">
-                    <div class="gallery-item-overlay">
-                        <span class="gallery-item-title">Dev Salıncak</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/cafe.JPG" alt="Café">
-                    <div class="gallery-item-overlay">
-                        <span class="gallery-item-title">ÖZSE Café</span>
+                <p class="testimonial-text" data-tr="review3">"Ailece geldik, hem çocuklar hem biz çok eğlendik. Trambolin ve kafe harika!"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">FK</div>
+                    <div class="testimonial-info">
+                        <h4>Fatma Koç</h4>
+                        <span>İzmir</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         CONTACT SECTION
-         ============================================ -->
-    <section class="section section-dark" id="contact">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="section-header reveal">
-                <div class="section-badge">
-                    <i class="fas fa-paper-plane"></i>
-                    <span data-tr="İletişim" data-en="Contact" data-ar="اتصل بنا">İletişim</span>
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+        <div class="section-header">
+            <span class="section-badge"><i class="fas fa-map-marker-alt"></i> <span data-tr="contact_badge">İletişim</span></span>
+            <h2 class="section-title">
+                <span class="section-title-gradient" data-tr="contact_title">Bize Ulaşın</span>
+            </h2>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3 data-tr="contact_heading">Maceraya Hazır mısınız?</h3>
+                <p data-tr="contact_text">Sorularınız için bize ulaşın veya hemen rezervasyon yapın. Size en uygun zamanı birlikte belirleyelim.</p>
+
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-item-text">
+                            <h4 data-tr="phone">Telefon</h4>
+                            <a href="tel:+905378738398">+90 537 873 83 98</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-item-text">
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/905378738398" target="_blank">+90 537 873 83 98</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-item-text">
+                            <h4 data-tr="address">Adres</h4>
+                            <span>Uzungöl, Çaykara, Trabzon</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-item-text">
+                            <h4 data-tr="hours">Çalışma Saatleri</h4>
+                            <span data-tr="hours_text">Her gün 08:00 - 20:00</span>
+                        </div>
+                    </div>
                 </div>
-                <h2 class="section-title" data-tr="Bize Ulaşın" data-en="Get In Touch" data-ar="تواصل معنا">Bize Ulaşın</h2>
-                <p class="section-subtitle" data-tr="Maceraya hazır mısınız? Hemen iletişime geçin!" data-en="Ready for adventure? Contact us now!" data-ar="مستعد للمغامرة؟ تواصل معنا الآن!">Maceraya hazır mısınız? Hemen iletişime geçin!</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="contact-card reveal">
-                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                    <h3 class="contact-title">WhatsApp</h3>
-                    <p class="contact-text">+90 537 873 83 98</p>
-                    <a href="https://wa.me/905378738398" target="_blank" class="btn-primary mt-6 w-full justify-center">
-                        <span data-tr="Mesaj Gönder" data-en="Send Message" data-ar="إرسال رسالة">Mesaj Gönder</span>
-                    </a>
-                </div>
-
-                <div class="contact-card reveal">
-                    <div class="contact-icon" style="background: linear-gradient(135deg, var(--accent) 0%, #059669 100%);"><i class="fas fa-clock"></i></div>
-                    <h3 class="contact-title" data-tr="Çalışma Saatleri" data-en="Working Hours" data-ar="ساعات العمل">Çalışma Saatleri</h3>
-                    <p class="contact-text" data-tr="Her gün 08:00 - 20:00" data-en="Daily 08:00 - 20:00" data-ar="يومياً 08:00 - 20:00">Her gün 08:00 - 20:00</p>
-                    <p class="text-sm mt-2" style="color: var(--text-secondary);" data-tr="Yılın her günü açığız" data-en="Open every day" data-ar="مفتوح كل يوم">Yılın her günü açığız</p>
-                </div>
-
-                <div class="contact-card reveal">
-                    <div class="contact-icon" style="background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);"><i class="fas fa-map-marker-alt"></i></div>
-                    <h3 class="contact-title" data-tr="Konum" data-en="Location" data-ar="الموقع">Konum</h3>
-                    <p class="contact-text">Uzungöl, Çaykara/Trabzon</p>
-                    <a href="https://maps.google.com/?q=40.6202638,40.2401023" target="_blank" class="btn-secondary mt-6 w-full justify-center">
-                        <span data-tr="Yol Tarifi" data-en="Directions" data-ar="الاتجاهات">Yol Tarifi</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="map-container reveal">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024!2d40.2813017!3d40.6202711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406595d1cbcc65e5%3A0xff6bf16003f6f218!2sUzung%C3%B6l!5e0!3m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3012.1234!2d40.2879!3d40.6175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDM3JzAzLjAiTiA0MMKwMTcnMTYuNCJF!5e0!3m2!1str!2str!4v1699999999999!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         FOOTER
-         ============================================ -->
+    <!-- Footer -->
     <footer class="footer">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12">
-                <div class="md:col-span-2">
-                    <div class="footer-logo mb-4">Layiga</div>
-                    <p class="footer-desc mb-6" data-tr="Uzungöl'ün nefes kesen doğasında adrenalin dolu maceralar. 2019'dan beri güvenli, eğlenceli ve unutulmaz deneyimler sunuyoruz." data-en="Adrenaline-filled adventures in the breathtaking nature of Uzungöl. Since 2019, we offer safe, fun and unforgettable experiences." data-ar="مغامرات مليئة بالأدرينالين في طبيعة أوزونغول. منذ 2019، نقدم تجارب آمنة وممتعة ولا تُنسى.">
-                        Uzungöl'ün nefes kesen doğasında adrenalin dolu maceralar. 2019'dan beri güvenli, eğlenceli ve unutulmaz deneyimler sunuyoruz.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://instagram.com/layigasalincak" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://tiktok.com/@layiga.salincak.z" target="_blank" class="social-link"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://wa.me/905378738398" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="footer-title" data-tr="Hızlı Linkler" data-en="Quick Links" data-ar="روابط سريعة">Hızlı Linkler</h4>
-                    <ul class="footer-links">
-                        <li><a href="#activities" data-tr="Aktiviteler" data-en="Activities" data-ar="الأنشطة">Aktiviteler</a></li>
-                        <li><a href="#pricing" data-tr="Fiyatlar" data-en="Pricing" data-ar="الأسعار">Fiyatlar</a></li>
-                        <li><a href="#gallery" data-tr="Galeri" data-en="Gallery" data-ar="المعرض">Galeri</a></li>
-                        <li><a href="#contact" data-tr="İletişim" data-en="Contact" data-ar="اتصال">İletişim</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="footer-title" data-tr="İletişim" data-en="Contact" data-ar="اتصال">İletişim</h4>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone mr-2" style="color: var(--primary);"></i> +90 537 873 83 98</li>
-                        <li><i class="fas fa-map-marker-alt mr-2" style="color: var(--primary);"></i> Uzungöl, Trabzon</li>
-                        <li><i class="fas fa-clock mr-2" style="color: var(--primary);"></i> 08:00 - 20:00</li>
-                        <li><i class="fas fa-certificate mr-2" style="color: var(--primary);"></i> ISO CE Sertifikalı</li>
-                    </ul>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Layiga">
+                <p data-tr="footer_desc">Uzungöl'ün kalbinde, doğayla iç içe macera deneyimi. 2018'den beri binlerce misafire unutulmaz anlar yaşatıyoruz.</p>
+                <div class="footer-social">
+                    <a href="https://instagram.com/layigazipline" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/905378738398" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p class="footer-copyright">© 2024 Layiga Adventure Park. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">Tüm hakları saklıdır.</span></p>
-                <p class="footer-copyright" data-tr="2019'dan beri güvenilir macera deneyimi" data-en="Trusted adventure since 2019" data-ar="مغامرة موثوقة منذ 2019">2019'dan beri güvenilir macera deneyimi</p>
+            <div class="footer-col">
+                <h4 data-tr="footer_links">Hızlı Linkler</h4>
+                <ul>
+                    <li><a href="#home" data-tr="nav_home">Ana Sayfa</a></li>
+                    <li><a href="#activities" data-tr="nav_activities">Aktiviteler</a></li>
+                    <li><a href="#pricing" data-tr="nav_pricing">Fiyatlar</a></li>
+                    <li><a href="#gallery" data-tr="nav_gallery">Galeri</a></li>
+                </ul>
             </div>
+
+            <div class="footer-col">
+                <h4 data-tr="footer_activities">Aktiviteler</h4>
+                <ul>
+                    <li><a href="#activities">Zipline</a></li>
+                    <li><a href="#activities" data-tr="swing_title">Dev Salıncak</a></li>
+                    <li><a href="#activities">ATV Safari</a></li>
+                    <li><a href="#activities" data-tr="cafe_title">Panoramik Kafe</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-tr="footer_contact">İletişim</h4>
+                <ul>
+                    <li><a href="tel:+905378738398">+90 537 873 83 98</a></li>
+                    <li><a href="https://wa.me/905378738398">WhatsApp</a></li>
+                    <li><a href="https://instagram.com/layigazipline">@layigazipline</a></li>
+                    <li><a href="https://maps.google.com" target="_blank">Uzungöl, Trabzon</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Layiga Adventure Park. <span data-tr="rights">Tüm hakları saklıdır.</span></p>
+            <p data-tr="made_with">Sevgiyle yapıldı</p>
         </div>
     </footer>
 
     <!-- WhatsApp Float -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/905378738398" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/905378738398" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
 
-    <!-- ============================================
-         JAVASCRIPT
-         ============================================ -->
+    <!-- Scripts -->
     <script>
-        // ============================================
-        // LOADING SCREEN
-        // ============================================
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-                // Start animations after loader
-                animateHero();
-            }, 2000);
-        });
+    // Translations
+    const translations = {
+        tr: {
+            nav_home: 'Ana Sayfa', nav_activities: 'Aktiviteler', nav_pricing: 'Fiyatlar', nav_gallery: 'Galeri', nav_contact: 'İletişim',
+            hero_badge: "Uzungöl'ün En İyi Macera Parkı", hero_title1: 'MACERA', hero_title2: 'BAŞLIYOR',
+            hero_subtitle: '300 metre zipline, dev salıncak ve unutulmaz doğa deneyimi. Karadeniz\'in eşsiz manzarasında adrenalin dolu anlar sizi bekliyor.',
+            hero_cta1: 'Hemen Rezervasyon', hero_cta2: 'Aktiviteleri Keşfet',
+            stat_zipline: 'Metre Zipline', stat_guests: 'Mutlu Misafir', stat_rating: 'Puan', stat_years: 'Yıllık Deneyim',
+            activities_badge: 'Aktiviteler', activities_title: 'Macera Seni Bekliyor', activities_subtitle: "Uzungöl'ün muhteşem doğasında adrenalin dolu aktiviteler",
+            popular: 'Popüler', thrill: 'Heyecan', adventure: 'Macera', fun: 'Eğlence',
+            zipline_title: 'Zipline', zipline_desc: '300 metre uzunluğunda, Uzungöl manzaralı zipline deneyimi. Göl üzerinde uçmanın keyfini çıkarın.',
+            swing_title: 'Dev Salıncak', swing_desc: 'Uçurumun kenarında dev salıncak deneyimi. Adrenalin tutkunları için muhteşem manzara.',
+            atv_title: 'ATV Safari', atv_desc: 'Doğa içinde ATV turu. Orman yollarında heyecan dolu bir macera sizi bekliyor.',
+            shooting_title: 'Atış Poligonu', shooting_desc: 'Profesyonel eğitmenler eşliğinde güvenli atış deneyimi.',
+            trampoline_title: 'Trambolin Park', trampoline_desc: 'Çocuklar ve yetişkinler için eğlenceli trambolin deneyimi.',
+            cafe_title: 'Panoramik Kafe', cafe_desc: 'Uzungöl manzarasında kahve keyfi. Organik ve yerel lezzetler.',
+            safe: 'Güvenli', allages: 'Her Yaş', perperson: '/ kişi', cliffedge: 'Uçurum Kenarı', panoramic: 'Panoramik',
+            forest: 'Orman', guided: 'Rehberli', instructor: 'Eğitmen', equipment: 'Ekipman', family: 'Aile',
+            organic: 'Organik', view: 'Manzara', free: 'Ücretsiz', entry: 'Giriş',
+            pricing_badge: 'Paketler', pricing_title: 'Macera Paketleri', pricing_subtitle: 'Size en uygun paketi seçin',
+            basic_title: 'Başlangıç', basic_desc: 'İlk macera deneyimi için ideal',
+            basic_f1: 'Dev Salıncak', basic_f2: 'Fotoğraf Çekimi', basic_f3: 'Kafe İndirimi %10',
+            pro_title: 'Adrenalin', pro_desc: 'Tam macera deneyimi', most_popular: 'En Popüler',
+            pro_f1: 'Zipline 300m', pro_f2: 'Dev Salıncak', pro_f3: 'Profesyonel Fotoğraf', pro_f4: 'Ücretsiz İçecek',
+            vip_title: 'VIP', vip_desc: 'Eksiksiz premium deneyim',
+            vip_f1: 'Tüm Aktiviteler', vip_f2: 'VIP Kafe Hizmeti', vip_f3: 'Video + Fotoğraf', vip_f4: 'Özel Rehber',
+            book_now: 'Rezervasyon',
+            gallery_badge: 'Galeri', gallery_title: 'Anılarınız', gallery_subtitle: 'Misafirlerimizin unutulmaz anları',
+            testimonials_badge: 'Yorumlar', testimonials_title: 'Misafir Yorumları',
+            review1: '"Hayatımda yaşadığım en güzel deneyimdi! Zipline muhteşemdi, personel çok ilgili ve güler yüzlüydü."',
+            review2: '"Dev salıncak inanılmazdı! Manzara nefes kesici. Kesinlikle tekrar geleceğiz."',
+            review3: '"Ailece geldik, hem çocuklar hem biz çok eğlendik. Trambolin ve kafe harika!"',
+            contact_badge: 'İletişim', contact_title: 'Bize Ulaşın', contact_heading: 'Maceraya Hazır mısınız?',
+            contact_text: 'Sorularınız için bize ulaşın veya hemen rezervasyon yapın. Size en uygun zamanı birlikte belirleyelim.',
+            phone: 'Telefon', address: 'Adres', hours: 'Çalışma Saatleri', hours_text: 'Her gün 08:00 - 20:00',
+            footer_desc: "Uzungöl'ün kalbinde, doğayla iç içe macera deneyimi. 2018'den beri binlerce misafire unutulmaz anlar yaşatıyoruz.",
+            footer_links: 'Hızlı Linkler', footer_activities: 'Aktiviteler', footer_contact: 'İletişim',
+            rights: 'Tüm hakları saklıdır.', made_with: 'Sevgiyle yapıldı'
+        },
+        en: {
+            nav_home: 'Home', nav_activities: 'Activities', nav_pricing: 'Pricing', nav_gallery: 'Gallery', nav_contact: 'Contact',
+            hero_badge: "Uzungöl's Best Adventure Park", hero_title1: 'ADVENTURE', hero_title2: 'AWAITS',
+            hero_subtitle: '300m zipline, giant swing and unforgettable nature experience. Adrenaline-filled moments await you with unique Black Sea views.',
+            hero_cta1: 'Book Now', hero_cta2: 'Explore Activities',
+            stat_zipline: 'Meter Zipline', stat_guests: 'Happy Guests', stat_rating: 'Rating', stat_years: 'Years Experience',
+            activities_badge: 'Activities', activities_title: 'Adventure Awaits You', activities_subtitle: 'Adrenaline-filled activities in the magnificent nature of Uzungöl',
+            popular: 'Popular', thrill: 'Thrill', adventure: 'Adventure', fun: 'Fun',
+            zipline_title: 'Zipline', zipline_desc: '300 meters long zipline experience with Uzungöl view. Enjoy flying over the lake.',
+            swing_title: 'Giant Swing', swing_desc: 'Giant swing experience at the edge of the cliff. Amazing view for adrenaline lovers.',
+            atv_title: 'ATV Safari', atv_desc: 'ATV tour in nature. An exciting adventure awaits you on forest roads.',
+            shooting_title: 'Shooting Range', shooting_desc: 'Safe shooting experience with professional instructors.',
+            trampoline_title: 'Trampoline Park', trampoline_desc: 'Fun trampoline experience for children and adults.',
+            cafe_title: 'Panoramic Cafe', cafe_desc: 'Coffee with Uzungöl view. Organic and local flavors.',
+            safe: 'Safe', allages: 'All Ages', perperson: '/ person', cliffedge: 'Cliff Edge', panoramic: 'Panoramic',
+            forest: 'Forest', guided: 'Guided', instructor: 'Instructor', equipment: 'Equipment', family: 'Family',
+            organic: 'Organic', view: 'View', free: 'Free', entry: 'Entry',
+            pricing_badge: 'Packages', pricing_title: 'Adventure Packages', pricing_subtitle: 'Choose the best package for you',
+            basic_title: 'Starter', basic_desc: 'Ideal for first adventure experience',
+            basic_f1: 'Giant Swing', basic_f2: 'Photo Shoot', basic_f3: '10% Cafe Discount',
+            pro_title: 'Adrenaline', pro_desc: 'Full adventure experience', most_popular: 'Most Popular',
+            pro_f1: 'Zipline 300m', pro_f2: 'Giant Swing', pro_f3: 'Professional Photos', pro_f4: 'Free Drinks',
+            vip_title: 'VIP', vip_desc: 'Complete premium experience',
+            vip_f1: 'All Activities', vip_f2: 'VIP Cafe Service', vip_f3: 'Video + Photo', vip_f4: 'Private Guide',
+            book_now: 'Book Now',
+            gallery_badge: 'Gallery', gallery_title: 'Your Memories', gallery_subtitle: 'Unforgettable moments of our guests',
+            testimonials_badge: 'Reviews', testimonials_title: 'Guest Reviews',
+            review1: '"The best experience of my life! The zipline was amazing, the staff was very attentive and friendly."',
+            review2: '"The giant swing was incredible! Breathtaking view. We will definitely come again."',
+            review3: '"We came as a family, both kids and us had a great time. Trampoline and cafe are great!"',
+            contact_badge: 'Contact', contact_title: 'Get in Touch', contact_heading: 'Ready for Adventure?',
+            contact_text: 'Contact us for questions or book now. Let\'s find the best time for you together.',
+            phone: 'Phone', address: 'Address', hours: 'Working Hours', hours_text: 'Every day 08:00 - 20:00',
+            footer_desc: "Adventure experience in the heart of Uzungöl, in harmony with nature. Since 2018, we've been creating unforgettable moments for thousands of guests.",
+            footer_links: 'Quick Links', footer_activities: 'Activities', footer_contact: 'Contact',
+            rights: 'All rights reserved.', made_with: 'Made with love'
+        },
+        ar: {
+            nav_home: 'الرئيسية', nav_activities: 'الأنشطة', nav_pricing: 'الأسعار', nav_gallery: 'المعرض', nav_contact: 'اتصل بنا',
+            hero_badge: 'أفضل حديقة مغامرات في أوزنجول', hero_title1: 'المغامرة', hero_title2: 'تنتظرك',
+            hero_subtitle: 'زيب لاين 300 متر، أرجوحة عملاقة وتجربة طبيعية لا تُنسى. لحظات مليئة بالأدرينالين تنتظرك مع إطلالات البحر الأسود الفريدة.',
+            hero_cta1: 'احجز الآن', hero_cta2: 'اكتشف الأنشطة',
+            stat_zipline: 'متر زيب لاين', stat_guests: 'ضيف سعيد', stat_rating: 'تقييم', stat_years: 'سنوات خبرة',
+            activities_badge: 'الأنشطة', activities_title: 'المغامرة تنتظرك', activities_subtitle: 'أنشطة مليئة بالأدرينالين في طبيعة أوزنجول الرائعة',
+            popular: 'شائع', thrill: 'إثارة', adventure: 'مغامرة', fun: 'متعة',
+            zipline_title: 'زيب لاين', zipline_desc: 'تجربة زيب لاين بطول 300 متر مع إطلالة على أوزنجول. استمتع بالطيران فوق البحيرة.',
+            swing_title: 'الأرجوحة العملاقة', swing_desc: 'تجربة الأرجوحة العملاقة على حافة الجرف. منظر رائع لعشاق الأدرينالين.',
+            book_now: 'احجز الآن', perperson: '/ شخص',
+            contact_badge: 'اتصل بنا', contact_title: 'تواصل معنا', contact_heading: 'مستعد للمغامرة؟',
+            rights: 'جميع الحقوق محفوظة.', made_with: 'صنع بحب'
+        }
+    };
 
-        // ============================================
-        // PARTICLES.JS CONFIG
-        // ============================================
-        tsParticles.load("particles-js", {
-            particles: {
-                number: { value: 50, density: { enable: true, value_area: 800 } },
-                color: { value: ["#FF6B35", "#10B981", "#3B82F6"] },
-                shape: { type: "circle" },
-                opacity: { value: 0.3, random: true },
-                size: { value: 3, random: true },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    random: true,
-                    out_mode: "out"
-                },
-                links: {
-                    enable: true,
-                    distance: 150,
-                    color: "#FF6B35",
-                    opacity: 0.1,
-                    width: 1
-                }
-            },
-            interactivity: {
-                events: {
-                    onhover: { enable: true, mode: "grab" },
-                    onclick: { enable: true, mode: "push" }
-                },
-                modes: {
-                    grab: { distance: 140, links: { opacity: 0.3 } },
-                    push: { quantity: 4 }
-                }
+    // Set language
+    function setLang(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.querySelectorAll('[data-tr]').forEach(el => {
+            const key = el.getAttribute('data-tr');
+            if (translations[lang] && translations[lang][key]) {
+                el.textContent = translations[lang][key];
             }
         });
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+        localStorage.setItem('lang', lang);
+    }
 
-        // ============================================
-        // GSAP ANIMATIONS
-        // ============================================
-        gsap.registerPlugin(ScrollTrigger);
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+        // Language
+        const savedLang = localStorage.getItem('lang') || 'tr';
+        setLang(savedLang);
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLang(btn.dataset.lang));
+        });
 
-        function animateHero() {
-            gsap.to('.hero-title-word', {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                stagger: 0.2,
-                ease: 'power4.out'
+        // Loader
+        setTimeout(() => document.getElementById('loader').classList.add('done'), 2000);
+
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+        if (cursor && cursorDot) {
+            document.addEventListener('mousemove', e => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                cursorDot.style.left = e.clientX + 'px';
+                cursorDot.style.top = e.clientY + 'px';
+            });
+            document.querySelectorAll('a, button, .activity-card, .pricing-card').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
             });
         }
 
-        // Reveal animations
-        gsap.utils.toArray('.reveal').forEach(elem => {
-            gsap.to(elem, {
-                scrollTrigger: {
-                    trigger: elem,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                },
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'power3.out'
-            });
-        });
-
-        gsap.utils.toArray('.reveal-left').forEach(elem => {
-            gsap.to(elem, {
-                scrollTrigger: {
-                    trigger: elem,
-                    start: 'top 85%'
-                },
-                x: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'power3.out'
-            });
-        });
-
-        gsap.utils.toArray('.reveal-right').forEach(elem => {
-            gsap.to(elem, {
-                scrollTrigger: {
-                    trigger: elem,
-                    start: 'top 85%'
-                },
-                x: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'power3.out'
-            });
-        });
-
-        // ============================================
-        // ANIMATED COUNTERS
-        // ============================================
-        const counters = document.querySelectorAll('.stat-number');
-        counters.forEach(counter => {
-            const target = parseFloat(counter.getAttribute('data-target'));
-            const isDecimal = counter.hasAttribute('data-decimal');
-
-            ScrollTrigger.create({
-                trigger: counter,
-                start: 'top 85%',
-                onEnter: () => {
-                    gsap.to(counter, {
-                        innerHTML: target,
-                        duration: 2,
-                        ease: 'power2.out',
-                        snap: { innerHTML: isDecimal ? 0.1 : 1 },
-                        onUpdate: function() {
-                            if (isDecimal) {
-                                counter.innerHTML = parseFloat(counter.innerHTML).toFixed(1);
-                            } else if (target >= 1000) {
-                                counter.innerHTML = Math.floor(counter.innerHTML).toLocaleString() + '+';
-                            }
-                        }
-                    });
-                },
-                once: true
-            });
-        });
-
-        // ============================================
-        // 3D TILT CARDS
-        // ============================================
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-            max: 8,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.2,
-        });
-
-        // ============================================
-        // NAVIGATION
-        // ============================================
-        const navbar = document.getElementById('navbar');
+        // Nav scroll
+        const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            nav.classList.toggle('scrolled', window.scrollY > 100);
         });
 
         // Mobile menu
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuClose = document.getElementById('menuClose');
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        menuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        document.querySelectorAll('.mobile-menu-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
+        // Reveal animations
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
             });
-        });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => revealObserver.observe(el));
 
-        // ============================================
-        // THEME TOGGLE
-        // ============================================
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        let isDark = true;
-
-        themeToggle.addEventListener('click', () => {
-            isDark = !isDark;
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            themeIcon.textContent = isDark ? '🌙' : '☀️';
-        });
-
-        // ============================================
-        // LANGUAGE SYSTEM
-        // ============================================
-        const langOptions = document.querySelectorAll('.lang-option');
-        const currentLangEl = document.getElementById('currentLang');
-        let currentLang = localStorage.getItem('layiga-lang') || 'tr';
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('layiga-lang', lang);
-            currentLangEl.textContent = lang.toUpperCase();
-
-            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-                const text = el.getAttribute('data-' + lang);
-                if (text) el.innerHTML = text;
+        // Counter animation
+        const counters = document.querySelectorAll('.stat-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseFloat(entry.target.dataset.count);
+                    const isDecimal = target % 1 !== 0;
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            clearInterval(timer);
+                            current = target;
+                        }
+                        entry.target.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString();
+                        if (target >= 1000) entry.target.textContent += '+';
+                        if (target === 300) entry.target.textContent += 'm';
+                    }, 30);
+                    counterObserver.unobserve(entry.target);
+                }
             });
+        }, { threshold: 0.5 });
+        counters.forEach(c => counterObserver.observe(c));
 
-            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-        }
-
-        langOptions.forEach(opt => opt.addEventListener('click', () => setLanguage(opt.dataset.lang)));
-        setLanguage(currentLang);
-
-        // ============================================
-        // SMOOTH SCROLL
-        // ============================================
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(a.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    navLinks.classList.remove('open');
                 }
             });
         });
 
-        // ============================================
-        // VIDEO FALLBACK
-        // ============================================
-        const heroVideo = document.querySelector('.hero-video');
-        const heroImage = document.querySelector('.hero-image');
+        // GSAP animations (if loaded)
+        if (typeof gsap !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
 
-        heroVideo.addEventListener('error', () => {
-            heroVideo.style.display = 'none';
-            heroImage.style.display = 'block';
-        });
+            // Hero title animation
+            gsap.to('.hero-title-word', {
+                y: 0, opacity: 1,
+                duration: 1.2, ease: 'power4.out',
+                stagger: 0.2, delay: 2.2
+            });
+
+            // Parallax hero
+            gsap.to('.hero-media img', {
+                yPercent: 30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+        }
+    });
     </script>
 </body>
 </html>
