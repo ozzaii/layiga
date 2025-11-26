@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx,html}",
-    "./*.html"
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx,html}',
+    './*.html'
   ],
   theme: {
     extend: {
@@ -57,4 +57,4 @@ export default {
     },
   },
   plugins: [],
-} 
+}; 

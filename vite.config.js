@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: '.',
@@ -18,4 +18,4 @@ export default defineConfig({
     open: true
   },
   assetsInclude: ['**/*.mov', '**/*.mp4']
-}) 
+}); 

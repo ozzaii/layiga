@@ -7,6 +7,11 @@
     "dev": "vite",
     "build": "NODE_ENV=production vite build",
     "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
@@ -14,8 +19,13 @@
     "gsap": "^3.13.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.57.0",
     "autoprefixer": "^10.4.22",
+    "eslint": "^9.39.1",
+    "eslint-plugin-html": "^8.1.3",
     "gh-pages": "^6.3.0",
+    "playwright": "^1.57.0",
     "postcss": "^8.5.6",
     "swiper": "^12.0.3",
     "tailwindcss": "^4.1.17",
@@ -29,5 +39,6 @@
     "nature"
   ],
   "author": "Layiga Adventure Park",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }
