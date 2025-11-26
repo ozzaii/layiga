@@ -2,692 +2,962 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layiga ⛰️ Macera Başlıyor!</title>
-    <meta name="description" content="Uzungöl'de zipline, dev salıncak ve macera! Gel, uç, gül!">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏔️</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>LAYIGA | Uzungöl Adventure Park</title>
+    <meta name="description" content="Türkiye'nin en yüksek zipline ve salıncağı. Uzungöl'de eşsiz macera deneyimi.">
+    <meta name="theme-color" content="#050505">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+:root{
+    --black:#050505;
+    --white:#fafafa;
+    --accent:#ff5500;
+    --secondary:#00e5a0;
+    --tertiary:#7c3aed;
+    --gray:#666;
+    --dark:#111;
+    --glow:rgba(255,85,0,.5);
+    --glow-sec:rgba(0,229,160,.4);
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-    font-family:'Nunito',sans-serif;
-    background:#87CEEB;
-    overflow-x:hidden;
-    cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='28' font-size='28'%3E✨%3C/text%3E%3C/svg%3E"),auto;
-}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* === GÖKYÜZÜ === */
-.sky{
-    position:fixed;inset:0;
-    background:linear-gradient(180deg,#87CEEB 0%,#E0F7FA 60%,#C8E6C9 100%);
-    z-index:-2;
-}
+/* ===== EPIC OPENING ANIMATION ===== */
+.opening{position:fixed;inset:0;z-index:99999;background:var(--black);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.opening.done{pointer-events:none}
+.opening.done .opening-content{opacity:0;transform:scale(1.1)}
+.opening.done .cinema-bar{transform:scaleY(0)}
 
-/* === BULUTLAR === */
-.clouds{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.cloud{
-    position:absolute;
-    background:#fff;
-    border-radius:100px;
-    filter:drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-}
-.cloud::before,.cloud::after{content:'';position:absolute;background:#fff;border-radius:50%}
-.c1{width:180px;height:50px;top:8%;animation:float 40s linear infinite}
-.c1::before{width:60px;height:60px;top:-30px;left:30px}
-.c1::after{width:45px;height:45px;top:-20px;left:80px}
-.c2{width:140px;height:40px;top:15%;animation:float 55s linear infinite;animation-delay:-20s}
-.c2::before{width:50px;height:50px;top:-25px;left:20px}
-.c2::after{width:35px;height:35px;top:-15px;left:60px}
-.c3{width:200px;height:55px;top:5%;animation:float 45s linear infinite;animation-delay:-30s}
-.c3::before{width:70px;height:70px;top:-35px;left:40px}
-.c3::after{width:50px;height:50px;top:-25px;left:100px}
-@keyframes float{from{left:-250px}to{left:110vw}}
+.cinema-bar{position:absolute;left:0;right:0;height:12vh;background:var(--black);z-index:10;transform-origin:center;transition:transform 1s cubic-bezier(.77,0,.175,1) .3s}
+.cinema-bar.top{top:0}
+.cinema-bar.bottom{bottom:0}
 
-/* === LOADER === */
-.loader{
-    position:fixed;inset:0;z-index:9999;
-    background:linear-gradient(135deg,#FF6B9D,#FFE566,#00E676);
-    background-size:300% 300%;
-    animation:rainbow 2s ease infinite;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    transition:all 1s cubic-bezier(.68,-0.55,.27,1.55);
-}
-@keyframes rainbow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
-.loader.bye{transform:scale(0) rotate(720deg);opacity:0;pointer-events:none}
-.loader-e{font-size:6rem;animation:bounce .5s ease infinite alternate}
-@keyframes bounce{to{transform:scale(1.3) rotate(10deg)}}
-.loader-t{font-size:2.5rem;font-weight:900;color:#fff;text-shadow:3px 3px 0 rgba(0,0,0,.1);margin-top:1rem}
+.opening-content{position:relative;display:flex;flex-direction:column;align-items:center;gap:2rem;transition:all 1s cubic-bezier(.77,0,.175,1)}
 
-/* === NAV === */
-nav{
-    position:fixed;top:0;left:0;right:0;z-index:1000;
-    padding:1rem 2rem;
-    transition:all .4s cubic-bezier(.68,-0.55,.27,1.55);
-}
-nav.scrolled{
-    background:rgba(255,255,255,.95);
-    backdrop-filter:blur(20px);
-    box-shadow:0 10px 40px rgba(0,0,0,.1);
-    border-radius:0 0 30px 30px;
-}
-.nav-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;transition:transform .3s cubic-bezier(.68,-0.55,.27,1.55)}
-.logo:hover{transform:scale(1.1) rotate(-5deg)}
-.logo img{height:55px;filter:drop-shadow(2px 2px 0 rgba(0,0,0,.1))}
-.logo span{font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,#FF6B35,#FF6B9D);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav-links{display:flex;align-items:center;gap:.5rem}
-.nav-links a{
-    padding:.75rem 1.25rem;
-    font-weight:700;
-    color:#1a1a2e;
-    text-decoration:none;
-    border-radius:50px;
-    transition:all .3s cubic-bezier(.68,-0.55,.27,1.55);
-}
-.nav-links a:hover{background:#FFE566;transform:translateY(-3px) rotate(-2deg)}
-.nav-cta{
-    padding:.75rem 1.5rem;
-    background:linear-gradient(135deg,#00E676,#00C853);
-    color:#fff !important;
-    border-radius:50px;
-    box-shadow:0 4px 0 #00A843;
-    transform:none !important;
-}
-.nav-cta:hover{background:linear-gradient(135deg,#00E676,#00C853) !important;transform:translateY(-2px) !important;box-shadow:0 6px 0 #00A843 !important}
-.menu-btn{display:none;width:50px;height:50px;background:#FFE566;border:none;border-radius:15px;cursor:pointer;font-size:1.5rem;box-shadow:0 4px 0 #FFC107}
+.logo-icon-anim{width:120px;height:120px;opacity:0;animation:logoIconFade .5s ease forwards .3s}
+.logo-icon-anim svg{width:100%;height:100%}
+.logo-icon-anim path{fill:none;stroke:url(#logoGrad);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:300;stroke-dashoffset:300;animation:drawPath 2s ease forwards .5s}
+@keyframes logoIconFade{to{opacity:1}}
+@keyframes drawPath{to{stroke-dashoffset:0}}
+
+.logo-text-reveal{overflow:hidden;height:60px}
+.logo-text-inner{font-family:'Space Grotesk',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:4px;transform:translateY(100%);animation:textReveal .8s cubic-bezier(.77,0,.175,1) forwards 1.8s}
+.logo-text-inner span{background:linear-gradient(135deg,var(--accent),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+@keyframes textReveal{to{transform:translateY(0)}}
+
+.tagline-reveal{overflow:hidden;height:24px}
+.tagline-inner{font-size:.875rem;letter-spacing:6px;text-transform:uppercase;color:var(--gray);transform:translateY(100%);animation:textReveal .6s cubic-bezier(.77,0,.175,1) forwards 2.3s}
+
+.progress-container{position:relative;margin-top:2rem;opacity:0;animation:fadeIn .5s ease forwards .5s}
+@keyframes fadeIn{to{opacity:1}}
+.progress-ring{width:80px;height:80px;transform:rotate(-90deg)}
+.progress-ring circle{fill:none;stroke-width:2}
+.progress-ring .bg{stroke:rgba(255,255,255,.1)}
+.progress-ring .progress{stroke:url(#progressGrad);stroke-linecap:round;stroke-dasharray:226;stroke-dashoffset:226;transition:stroke-dashoffset .1s linear}
+.progress-percent{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600}
+
+.particles-explosion{position:absolute;inset:0;pointer-events:none;opacity:0}
+.particles-explosion.active{opacity:1}
+.explosion-particle{position:absolute;top:50%;left:50%;width:8px;height:8px;border-radius:50%;transform:translate(-50%,-50%)}
+
+/* ===== GRADIENT ORB BG ===== */
+.orb-bg{position:fixed;inset:0;z-index:-2;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;animation:orbFloat 20s ease-in-out infinite}
+.orb-1{width:600px;height:600px;background:var(--accent);top:-200px;left:-200px;animation-delay:0s}
+.orb-2{width:500px;height:500px;background:var(--secondary);bottom:-150px;right:-150px;animation-delay:-7s}
+.orb-3{width:400px;height:400px;background:var(--tertiary);top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-14s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(50px,-30px) scale(1.1)}50%{transform:translate(-30px,50px) scale(.9)}75%{transform:translate(-50px,-20px) scale(1.05)}}
+
+.grid-overlay{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at center,black 0%,transparent 70%)}
+
+.noise{position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ===== CURSOR ===== */
+.cursor{position:fixed;z-index:100000;pointer-events:none;mix-blend-mode:difference}
+.cursor-dot{width:8px;height:8px;background:var(--white);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.cursor-ring{width:40px;height:40px;border:1.5px solid var(--white);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transition:all .15s ease-out}
+.cursor.hover .cursor-ring{width:60px;height:60px;border-color:var(--accent)}
+.cursor.hover .cursor-dot{background:var(--accent);transform:translate(-50%,-50%) scale(2)}
+@media(max-width:768px){.cursor{display:none}}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.5rem 5%;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.scrolled{background:rgba(5,5,5,.85);backdrop-filter:blur(30px);border-bottom:1px solid rgba(255,255,255,.05)}
+
+.logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.logo-mark{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--secondary));border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.logo-mark::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,.2) 50%,transparent 60%);transform:translateX(-100%);transition:transform .6s}
+.logo:hover .logo-mark::before{transform:translateX(100%)}
+.logo-mark svg{width:26px;height:26px;fill:var(--white)}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white);letter-spacing:-.5px}
+.logo-text span{color:var(--accent)}
+
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;position:relative;padding:.5rem 0}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:linear-gradient(90deg,var(--accent),var(--secondary));transition:width .3s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+
+.nav-cta{display:flex;align-items:center;gap:.5rem;padding:.875rem 1.75rem;background:linear-gradient(135deg,var(--accent),#ff7733);border:none;color:var(--white);font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:10px;transition:all .3s;position:relative;overflow:hidden}
+.nav-cta svg{width:18px;height:18px;fill:currentColor;transition:transform .3s}
+.nav-cta:hover svg{transform:translateX(3px)}
+.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--secondary),var(--accent));opacity:0;transition:opacity .3s}
+.nav-cta:hover::before{opacity:1}
+.nav-cta span,.nav-cta svg{position:relative;z-index:1}
+
+.menu-btn{display:none;background:none;border:none;width:28px;height:20px;position:relative;cursor:pointer}
+.menu-btn span{position:absolute;left:0;width:100%;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.menu-btn span:nth-child(1){top:0}
+.menu-btn span:nth-child(2){top:50%;transform:translateY(-50%)}
+.menu-btn span:nth-child(3){bottom:0}
+.menu-btn.active span:nth-child(1){top:50%;transform:translateY(-50%) rotate(45deg)}
+.menu-btn.active span:nth-child(2){opacity:0}
+.menu-btn.active span:nth-child(3){bottom:50%;transform:translateY(50%) rotate(-45deg)}
+
 @media(max-width:900px){
-    .nav-links{display:none;position:absolute;top:100%;left:1rem;right:1rem;background:#fff;padding:1.5rem;border-radius:25px;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,.15)}
-    .nav-links.open{display:flex}
+    nav{padding:1rem 5%}
+    .nav-links,.nav-cta{display:none}
     .menu-btn{display:block}
 }
 
-/* === HERO === */
-.hero{
-    min-height:100vh;
-    display:flex;align-items:center;justify-content:center;
-    padding:8rem 2rem 4rem;
-    position:relative;
-}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(1.05) saturate(1.1)}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(135,206,235,.4) 0%,transparent 40%,rgba(200,230,201,.9) 100%)}
-.hero-c{position:relative;z-index:1;text-align:center;max-width:800px}
-.hero-e{font-size:5rem;animation:heroE 2s ease-in-out infinite}
-@keyframes heroE{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-20px) rotate(10deg)}}
-.hero h1{
-    font-size:clamp(3rem,10vw,6rem);
-    font-weight:900;
-    color:#1a1a2e;
-    line-height:1;
-    margin:1rem 0;
-    text-shadow:4px 4px 0 #FFE566,8px 8px 0 #FF6B35;
-}
-.hero h1 span{display:inline-block;animation:word .6s cubic-bezier(.68,-0.55,.27,1.55) forwards;opacity:0}
-.hero h1 span:nth-child(1){animation-delay:.2s}
-.hero h1 span:nth-child(2){animation-delay:.35s;color:#FF6B35}
-.hero h1 span:nth-child(3){animation-delay:.5s;color:#FF6B9D}
-@keyframes word{to{opacity:1;transform:translateY(0) rotate(0)}}
-.hero p{font-size:clamp(1rem,3vw,1.4rem);font-weight:600;color:#1a1a2e;opacity:.8;max-width:550px;margin:1.5rem auto;line-height:1.6}
-.hero-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem}
-.btn{
-    display:inline-flex;align-items:center;gap:.75rem;
-    padding:1.25rem 2rem;
-    font-family:inherit;font-size:1.1rem;font-weight:800;
-    border:none;border-radius:50px;cursor:pointer;
-    text-decoration:none;
-    transition:all .2s cubic-bezier(.68,-0.55,.27,1.55);
-}
-.btn-p{background:linear-gradient(135deg,#FF6B35,#FF6B9D);color:#fff;box-shadow:0 6px 0 #c44d2a}
-.btn-p:hover{transform:translateY(-4px);box-shadow:0 10px 0 #c44d2a}
-.btn-p:active{transform:translateY(2px);box-shadow:0 2px 0 #c44d2a}
-.btn-s{background:#fff;color:#1a1a2e;box-shadow:0 6px 0 #ddd}
-.btn-s:hover{transform:translateY(-4px);box-shadow:0 10px 0 #ddd}
-.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:scrollHint 2s ease-in-out infinite}
-@keyframes scrollHint{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+/* ===== MOBILE MENU ===== */
+.mobile-menu{position:fixed;inset:0;z-index:999;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;visibility:hidden;transition:all .4s}
+.mobile-menu.active{opacity:1;visibility:visible}
+.mobile-menu a{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:600;color:var(--white);text-decoration:none;opacity:0;transform:translateY(20px);transition:all .4s}
+.mobile-menu.active a{opacity:1;transform:translateY(0)}
+.mobile-menu a:nth-child(1){transition-delay:.1s}
+.mobile-menu a:nth-child(2){transition-delay:.15s}
+.mobile-menu a:nth-child(3){transition-delay:.2s}
+.mobile-menu a:nth-child(4){transition-delay:.25s}
+.mobile-menu a:nth-child(5){transition-delay:.3s}
 
-/* === STATS === */
-.stats{
-    padding:5rem 2rem;
-    background:linear-gradient(180deg,#C8E6C9,#A5D6A7);
-    position:relative;
-}
-.stats::before{content:'';position:absolute;top:-50px;left:0;right:0;height:100px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23C8E6C9' d='M0,50 Q360,100 720,50 T1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") no-repeat center/cover}
-.stats-g{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-@media(max-width:700px){.stats-g{grid-template-columns:repeat(2,1fr)}}
-.stat{
-    background:#fff;
-    border-radius:25px;
-    padding:2rem 1.5rem;
-    text-align:center;
-    box-shadow:0 10px 0 rgba(0,0,0,.05),0 20px 40px rgba(0,0,0,.1);
-    transition:all .3s cubic-bezier(.68,-0.55,.27,1.55);
-}
-.stat:hover{transform:translateY(-10px) rotate(-2deg)}
-.stat-e{font-size:3rem}
-.stat-n{font-size:2.5rem;font-weight:900;color:#FF6B35;margin:.5rem 0}
-.stat-l{font-size:.9rem;font-weight:700;color:#1a1a2e;opacity:.6}
+/* ===== HERO ===== */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;position:relative;padding:120px 5% 80px;overflow:hidden}
 
-/* === SECTION === */
-.section{padding:6rem 2rem;position:relative}
-.sec-blue{background:linear-gradient(180deg,#E3F2FD,#BBDEFB)}
-.sec-orange{background:linear-gradient(180deg,#FFF3E0,#FFE0B2)}
-.sec-green{background:linear-gradient(180deg,#E8F5E9,#C8E6C9)}
-.sec-head{text-align:center;margin-bottom:4rem}
-.sec-head span{font-size:3rem;display:block;margin-bottom:.5rem}
-.sec-head h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:#1a1a2e}
-.sec-head p{font-size:1.1rem;color:#1a1a2e;opacity:.7;max-width:500px;margin:1rem auto 0}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.35;transform:scale(1.05)}
+.hero-gradient{position:absolute;inset:0;background:linear-gradient(180deg,var(--black) 0%,transparent 30%,transparent 60%,var(--black) 100%)}
+.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,var(--black) 80%)}
 
-/* === ACTIVITIES === */
-.acts{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-@media(max-width:900px){.acts{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.acts{grid-template-columns:1fr}}
-.act{
-    background:#fff;
-    border-radius:30px;
-    overflow:hidden;
-    box-shadow:0 10px 0 rgba(0,0,0,.05),0 20px 40px rgba(0,0,0,.1);
-    transition:all .4s cubic-bezier(.68,-0.55,.27,1.55);
-    cursor:pointer;
+.hero-content{max-width:1000px;text-align:center;position:relative;z-index:1}
+
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.625rem 1.25rem;background:rgba(255,85,0,.1);border:1px solid rgba(255,85,0,.3);border-radius:100px;margin-bottom:2rem;opacity:0;transform:translateY(30px);animation:slideUp .8s cubic-bezier(.16,1,.3,1) forwards 3s}
+.hero-badge svg{width:16px;height:16px;fill:var(--accent)}
+.hero-badge span{font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+
+.hero-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(3rem,10vw,7rem);font-weight:800;line-height:1;letter-spacing:-2px;margin-bottom:1.5rem}
+.hero-title .line{display:block;overflow:hidden}
+.hero-title .line-inner{display:block;transform:translateY(100%);opacity:0;animation:slideUp .8s cubic-bezier(.16,1,.3,1) forwards}
+.hero-title .line:nth-child(1) .line-inner{animation-delay:3.1s}
+.hero-title .line:nth-child(2) .line-inner{animation-delay:3.2s}
+.hero-title .gradient-text{background:linear-gradient(135deg,var(--accent) 0%,var(--secondary) 50%,var(--tertiary) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% 200%;animation:gradientMove 5s ease infinite 3.5s}
+@keyframes gradientMove{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes slideUp{to{transform:translateY(0);opacity:1}}
+
+.hero-desc{font-size:1.125rem;color:var(--gray);max-width:600px;margin:0 auto 2.5rem;line-height:1.7;opacity:0;transform:translateY(30px);animation:slideUp .8s cubic-bezier(.16,1,.3,1) forwards 3.4s}
+
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(30px);animation:slideUp .8s cubic-bezier(.16,1,.3,1) forwards 3.6s}
+.btn{display:inline-flex;align-items:center;gap:.625rem;padding:1rem 2rem;font-size:.875rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:12px;cursor:pointer;transition:all .3s}
+.btn svg{width:20px;height:20px;fill:currentColor}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#ff7733);color:var(--white);border:none;position:relative;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--secondary),var(--accent));opacity:0;transition:opacity .3s}
+.btn-primary:hover::before{opacity:1}
+.btn-primary span,.btn-primary svg{position:relative;z-index:1}
+.btn-secondary{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.2)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+
+.hero-stats{display:flex;justify-content:center;gap:4rem;margin-top:4rem;opacity:0;transform:translateY(30px);animation:slideUp .8s cubic-bezier(.16,1,.3,1) forwards 3.8s}
+.hero-stat{text-align:center}
+.hero-stat-value{font-family:'Space Grotesk',sans-serif;font-size:3rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-stat-label{font-size:.75rem;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-top:.25rem}
+
+.scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.75rem;opacity:0;animation:fadeIn .5s ease forwards 4s}
+.scroll-indicator span{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray)}
+.scroll-mouse{width:24px;height:38px;border:2px solid var(--gray);border-radius:12px;position:relative}
+.scroll-mouse::after{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:4px;height:8px;background:var(--accent);border-radius:2px;animation:scrollWheel 2s ease infinite}
+@keyframes scrollWheel{0%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(12px)}}
+
+/* ===== SECTION COMMON ===== */
+section{padding:120px 5%}
+.section-header{text-align:center;max-width:700px;margin:0 auto 5rem}
+.section-label{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.section-label svg{width:16px;height:16px;fill:var(--accent)}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1rem}
+.section-desc{color:var(--gray);font-size:1rem;line-height:1.7}
+
+/* ===== ACTIVITIES ===== */
+.activities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1400px;margin:0 auto}
+.activity-card{background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:2.5rem;position:relative;overflow:hidden;transition:all .5s cubic-bezier(.16,1,.3,1)}
+.activity-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,85,0,.1),transparent);opacity:0;transition:opacity .5s}
+.activity-card:hover{transform:translateY(-10px);border-color:rgba(255,85,0,.3)}
+.activity-card:hover::before{opacity:1}
+
+.activity-icon{width:64px;height:64px;background:linear-gradient(135deg,var(--accent),var(--secondary));border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;position:relative}
+.activity-icon svg{width:32px;height:32px;fill:var(--white)}
+.activity-icon::after{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,var(--accent),var(--secondary));border-radius:18px;z-index:-1;opacity:0;filter:blur(15px);transition:opacity .5s}
+.activity-card:hover .activity-icon::after{opacity:.5}
+
+.activity-title{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:.75rem}
+.activity-desc{color:var(--gray);font-size:.9rem;line-height:1.6;margin-bottom:1.5rem}
+.activity-meta{display:flex;gap:1.5rem}
+.activity-meta-item{display:flex;align-items:center;gap:.375rem;font-size:.75rem;color:var(--gray)}
+.activity-meta-item svg{width:14px;height:14px;fill:var(--accent)}
+
+@media(max-width:1024px){.activities-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.activities-grid{grid-template-columns:1fr}}
+
+/* ===== GALLERY ===== */
+.gallery{background:linear-gradient(180deg,var(--black),var(--dark),var(--black));position:relative;overflow:hidden}
+.gallery-container{max-width:1400px;margin:0 auto;position:relative}
+.gallery-track{display:flex;gap:1.5rem;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.gallery-item{flex:0 0 calc(50% - .75rem);aspect-ratio:16/10;border-radius:20px;overflow:hidden;position:relative}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery-item:hover img{transform:scale(1.05)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6) 0%,transparent 50%);pointer-events:none}
+.gallery-caption{position:absolute;bottom:1.5rem;left:1.5rem;z-index:1}
+.gallery-caption h4{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.25rem}
+.gallery-caption span{font-size:.8rem;color:var(--gray)}
+
+.gallery-nav{display:flex;justify-content:center;gap:1rem;margin-top:2.5rem}
+.gallery-btn{width:52px;height:52px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
+.gallery-btn svg{width:20px;height:20px;fill:var(--white)}
+.gallery-btn:hover{background:var(--accent);border-color:var(--accent)}
+
+@media(max-width:768px){.gallery-item{flex:0 0 85%}}
+
+/* ===== PRICING ===== */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1200px;margin:0 auto}
+.price-card{background:linear-gradient(135deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:2.5rem;text-align:center;position:relative;transition:all .4s}
+.price-card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.15)}
+.price-card.featured{background:linear-gradient(135deg,rgba(255,85,0,.15),rgba(0,229,160,.05));border-color:rgba(255,85,0,.4)}
+.price-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--secondary))}
+
+.price-badge{display:inline-block;padding:.375rem 1rem;background:linear-gradient(135deg,var(--accent),var(--secondary));border-radius:100px;font-size:.65rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem}
+
+.price-icon{width:56px;height:56px;margin:0 auto 1.5rem;background:rgba(255,255,255,.05);border-radius:14px;display:flex;align-items:center;justify-content:center}
+.price-icon svg{width:28px;height:28px;fill:url(#iconGrad)}
+
+.price-name{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
+.price-desc{font-size:.85rem;color:var(--gray);margin-bottom:1.5rem}
+.price-amount{font-family:'Space Grotesk',sans-serif;font-size:3.5rem;font-weight:800;margin-bottom:.25rem}
+.price-amount span{font-size:1rem;font-weight:500;color:var(--gray)}
+.price-period{font-size:.75rem;color:var(--gray);margin-bottom:2rem}
+
+.price-features{list-style:none;text-align:left;margin-bottom:2rem}
+.price-features li{display:flex;align-items:center;gap:.75rem;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:var(--gray)}
+.price-features li:last-child{border-bottom:none}
+.price-features svg{width:18px;height:18px;fill:var(--secondary);flex-shrink:0}
+
+.price-btn{width:100%;padding:1rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--white);font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:12px;cursor:pointer;transition:all .3s}
+.price-btn:hover{background:var(--accent);border-color:var(--accent)}
+.price-card.featured .price-btn{background:linear-gradient(135deg,var(--accent),#ff7733);border:none}
+.price-card.featured .price-btn:hover{filter:brightness(1.1)}
+
+@media(max-width:1024px){.pricing-grid{grid-template-columns:1fr;max-width:400px}}
+
+/* ===== CONTACT ===== */
+.contact{background:var(--dark)}
+.contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1200px;margin:0 auto}
+.contact-info h3{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;margin-bottom:1rem}
+.contact-info p{color:var(--gray);line-height:1.7;margin-bottom:2rem}
+
+.contact-list{display:flex;flex-direction:column;gap:1.5rem}
+.contact-item{display:flex;align-items:center;gap:1rem}
+.contact-item-icon{width:48px;height:48px;background:rgba(255,85,0,.1);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.contact-item-icon svg{width:22px;height:22px;fill:var(--accent)}
+.contact-item-text span{display:block;font-size:.7rem;color:var(--gray);letter-spacing:1px;text-transform:uppercase;margin-bottom:.25rem}
+.contact-item-text a,.contact-item-text p{color:var(--white);text-decoration:none;font-size:1rem;margin:0}
+.contact-item-text a:hover{color:var(--accent)}
+
+.contact-form{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:2.5rem}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-size:.75rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:.5rem}
+.form-group input,.form-group textarea{width:100%;padding:1rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;color:var(--white);font-family:inherit;font-size:.9rem;transition:border-color .3s}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--accent)}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-submit{width:100%;padding:1rem;background:linear-gradient(135deg,var(--accent),#ff7733);border:none;color:var(--white);font-size:.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:12px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.form-submit svg{width:18px;height:18px;fill:currentColor}
+.form-submit:hover{filter:brightness(1.1);transform:translateY(-2px)}
+
+@media(max-width:900px){.contact-wrapper{grid-template-columns:1fr}}
+
+/* ===== FOOTER ===== */
+footer{padding:4rem 5% 2rem;border-top:1px solid rgba(255,255,255,.05)}
+.footer-top{display:flex;justify-content:space-between;align-items:start;gap:4rem;margin-bottom:3rem;flex-wrap:wrap}
+.footer-brand{max-width:300px}
+.footer-brand .logo{margin-bottom:1rem}
+.footer-brand p{font-size:.85rem;color:var(--gray);line-height:1.7}
+.footer-links{display:flex;gap:4rem}
+.footer-col h5{font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.25rem}
+.footer-col a{display:block;color:var(--gray);text-decoration:none;font-size:.875rem;padding:.375rem 0;transition:color .3s}
+.footer-col a:hover{color:var(--accent)}
+.footer-social{display:flex;gap:.75rem;margin-top:1.5rem}
+.footer-social a{width:40px;height:40px;background:rgba(255,255,255,.05);border-radius:10px;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.footer-social a svg{width:18px;height:18px;fill:var(--gray);transition:fill .3s}
+.footer-social a:hover{background:var(--accent)}
+.footer-social a:hover svg{fill:var(--white)}
+
+.footer-bottom{padding-top:2rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.8rem;color:var(--gray)}
+.footer-bottom a{color:var(--accent);text-decoration:none}
+
+@media(max-width:768px){
+    .footer-top{flex-direction:column;align-items:center;text-align:center}
+    .footer-brand{max-width:100%}
+    .footer-links{gap:2rem}
+    .footer-social{justify-content:center}
+    .footer-bottom{flex-direction:column;text-align:center}
 }
-.act:hover{transform:translateY(-15px) rotate(-1deg) scale(1.02)}
-.act:nth-child(even):hover{transform:translateY(-15px) rotate(1deg) scale(1.02)}
-.act-img{height:200px;overflow:hidden;position:relative}
-.act-img img,.act-img video{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.act:hover .act-img img,.act:hover .act-img video{transform:scale(1.1)}
-.act-badge{position:absolute;top:1rem;right:1rem;padding:.5rem 1rem;background:#FFE566;color:#1a1a2e;font-size:.8rem;font-weight:800;border-radius:50px;box-shadow:0 3px 0 #FFC107}
-.act-c{padding:1.5rem}
-.act-c span{font-size:2.5rem}
-.act-c h3{font-size:1.5rem;font-weight:800;color:#1a1a2e;margin:.5rem 0}
-.act-c p{font-size:.95rem;color:#1a1a2e;opacity:.7;line-height:1.5;margin-bottom:1rem}
-.act-price{font-size:1.75rem;font-weight:900;color:#00C853}
 
-/* === PRICING === */
-.prices{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;align-items:end}
-@media(max-width:800px){.prices{grid-template-columns:1fr;max-width:350px}}
-.price{
-    background:#fff;
-    border-radius:30px;
-    padding:2.5rem 2rem;
-    text-align:center;
-    box-shadow:0 10px 0 rgba(0,0,0,.05),0 20px 40px rgba(0,0,0,.1);
-    transition:all .4s cubic-bezier(.68,-0.55,.27,1.55);
-    position:relative;
+/* ===== ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media(prefers-reduced-motion:reduce){
+    *{animation-duration:0s!important;transition-duration:0s!important}
 }
-.price:hover{transform:translateY(-10px)}
-.price.pop{
-    background:linear-gradient(135deg,#FF6B9D,#FF6B35);
-    color:#fff;
-    transform:scale(1.05);
-    z-index:1;
+@media(max-width:768px){
+    .orb{display:none}
+    .grid-overlay{opacity:.5}
+    section{padding:80px 5%}
+    .hero-stats{gap:2rem}
+    .hero-stat-value{font-size:2rem}
 }
-.price.pop:hover{transform:scale(1.05) translateY(-10px)}
-.price.pop h3,.price.pop .price-a,.price.pop li{color:#fff}
-.price-tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:.5rem 1.25rem;background:#FFE566;color:#1a1a2e;font-size:.75rem;font-weight:800;border-radius:50px;box-shadow:0 3px 0 #FFC107}
-.price span{font-size:3rem;display:block}
-.price h3{font-size:1.5rem;font-weight:800;color:#1a1a2e;margin:.5rem 0}
-.price-a{font-size:3rem;font-weight:900;color:#FF6B35}
-.price ul{list-style:none;margin:1.5rem 0;text-align:left}
-.price li{padding:.75rem 0;border-bottom:2px dashed rgba(0,0,0,.1);font-weight:600}
-.price li:last-child{border:none}
-.price li::before{content:'✓ ';color:#00C853}
-.price.pop li::before{color:#FFE566}
-.price-btn{
-    width:100%;padding:1rem;margin-top:1rem;
-    background:linear-gradient(135deg,#00E676,#00C853);
-    color:#fff;font-family:inherit;font-size:1.1rem;font-weight:800;
-    border:none;border-radius:50px;cursor:pointer;
-    box-shadow:0 5px 0 #00A843;
-    transition:all .2s ease;
-}
-.price-btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 #00A843}
-.price.pop .price-btn{background:#fff;color:#FF6B35;box-shadow:0 5px 0 #ddd}
-
-/* === GALLERY === */
-.gallery{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.gallery-i{
-    background:#fff;padding:.75rem;border-radius:15px;
-    box-shadow:0 8px 0 rgba(0,0,0,.03),0 15px 30px rgba(0,0,0,.1);
-    transition:all .4s cubic-bezier(.68,-0.55,.27,1.55);
-    cursor:pointer;
-}
-.gallery-i:nth-child(1){transform:rotate(-2deg)}
-.gallery-i:nth-child(2){transform:rotate(1deg)}
-.gallery-i:nth-child(3){transform:rotate(-1deg)}
-.gallery-i:nth-child(4){transform:rotate(2deg)}
-.gallery-i:nth-child(5){transform:rotate(1deg);grid-column:span 2}
-.gallery-i:hover{transform:scale(1.08) rotate(0deg) !important;z-index:10}
-.gallery-i img{width:100%;height:180px;object-fit:cover;border-radius:10px}
-.gallery-i:nth-child(5) img{height:200px}
-.gallery-i p{padding:.75rem .5rem .25rem;font-weight:700;color:#1a1a2e;text-align:center;font-size:.9rem}
-@media(max-width:800px){.gallery{grid-template-columns:repeat(2,1fr)}.gallery-i:nth-child(5){grid-column:span 2}}
-@media(max-width:500px){.gallery{grid-template-columns:1fr}.gallery-i:nth-child(5){grid-column:span 1}}
-
-/* === REVIEWS === */
-.reviews{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-@media(max-width:800px){.reviews{grid-template-columns:1fr}}
-.review{
-    background:#fff;border-radius:25px;padding:2rem;position:relative;
-    box-shadow:0 8px 0 rgba(0,0,0,.03),0 15px 30px rgba(0,0,0,.1);
-    transition:all .3s cubic-bezier(.68,-0.55,.27,1.55);
-}
-.review::after{content:'';position:absolute;bottom:-15px;left:30px;width:30px;height:30px;background:#fff;transform:rotate(45deg);box-shadow:5px 5px 0 rgba(0,0,0,.03)}
-.review:hover{transform:translateY(-8px)}
-.review-stars{font-size:1.25rem;margin-bottom:1rem}
-.review p{font-size:1rem;font-weight:600;color:#1a1a2e;line-height:1.6;font-style:italic}
-.review-a{display:flex;align-items:center;gap:1rem;margin-top:1.5rem}
-.review-a span{font-size:2rem}
-.review-a div h4{font-weight:800;color:#1a1a2e}
-.review-a div small{color:#1a1a2e;opacity:.6}
-
-/* === CONTACT === */
-.contact-g{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-@media(max-width:800px){.contact-g{grid-template-columns:1fr}}
-.contact-info h3{font-size:2rem;font-weight:900;color:#1a1a2e;margin-bottom:1rem}
-.contact-info>p{color:#1a1a2e;opacity:.7;line-height:1.6;margin-bottom:2rem}
-.contact-item{display:flex;align-items:center;gap:1rem;padding:1.25rem;background:#fff;border-radius:20px;margin-bottom:1rem;box-shadow:0 5px 0 rgba(0,0,0,.03),0 10px 20px rgba(0,0,0,.08);transition:all .3s ease}
-.contact-item:hover{transform:translateX(10px)}
-.contact-item span{font-size:2rem}
-.contact-item div h4{font-weight:800;color:#1a1a2e}
-.contact-item div a,.contact-item div p{color:#1a1a2e;opacity:.7;text-decoration:none}
-.contact-map{background:#fff;border-radius:25px;overflow:hidden;box-shadow:0 10px 0 rgba(0,0,0,.03),0 20px 40px rgba(0,0,0,.1);padding:.75rem}
-.contact-map iframe{width:100%;height:350px;border:none;border-radius:20px}
-
-/* === FOOTER === */
-footer{background:#1a1a2e;color:#fff;padding:4rem 2rem 2rem;position:relative}
-footer::before{content:'';position:absolute;top:-50px;left:0;right:0;height:100px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%231a1a2e' d='M0,50 Q360,0 720,50 T1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") no-repeat center/cover}
-.footer-g{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
-@media(max-width:700px){.footer-g{grid-template-columns:1fr}}
-.footer-brand img{height:60px;margin-bottom:1rem}
-.footer-brand p{opacity:.7;line-height:1.6;margin-bottom:1.5rem}
-.footer-social{display:flex;gap:.75rem}
-.footer-social a{width:45px;height:45px;background:rgba(255,255,255,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;text-decoration:none;transition:all .3s cubic-bezier(.68,-0.55,.27,1.55)}
-.footer-social a:hover{background:#FF6B35;transform:translateY(-5px) rotate(-5deg)}
-.footer-col h4{font-size:1.1rem;font-weight:800;margin-bottom:1.25rem}
-.footer-col a{display:block;color:#fff;opacity:.7;text-decoration:none;margin-bottom:.75rem;transition:all .2s ease}
-.footer-col a:hover{opacity:1;color:#FFE566;transform:translateX(5px)}
-.footer-bottom{max-width:1000px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);text-align:center;opacity:.6;font-size:.9rem}
-
-/* === WHATSAPP === */
-.wa{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999}
-.wa a{
-    display:flex;align-items:center;justify-content:center;
-    width:65px;height:65px;
-    background:linear-gradient(135deg,#25D366,#128C7E);
-    border-radius:50%;
-    font-size:2rem;text-decoration:none;
-    box-shadow:0 6px 0 #075E54,0 10px 30px rgba(37,211,102,.4);
-    animation:waBounce 2s ease-in-out infinite;
-    transition:all .3s cubic-bezier(.68,-0.55,.27,1.55);
-}
-@keyframes waBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.wa a:hover{transform:scale(1.15)}
-
-/* === REVEAL === */
-.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.68,-0.55,.27,1.55)}
-.reveal.show{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-    <div class="sky"></div>
-    <div class="clouds">
-        <div class="cloud c1"></div>
-        <div class="cloud c2"></div>
-        <div class="cloud c3"></div>
-    </div>
+    <!-- SVG DEFS FOR GRADIENTS -->
+    <svg style="position:absolute;width:0;height:0">
+        <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff5500"/>
+                <stop offset="100%" stop-color="#00e5a0"/>
+            </linearGradient>
+            <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff5500"/>
+                <stop offset="100%" stop-color="#00e5a0"/>
+            </linearGradient>
+            <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#ff5500"/>
+                <stop offset="50%" stop-color="#00e5a0"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+            </linearGradient>
+        </defs>
+    </svg>
 
-    <div class="loader" id="loader">
-        <div class="loader-e">🎢</div>
-        <div class="loader-t">Maceraya Hazırlan!</div>
-    </div>
-
-    <nav id="nav">
-        <div class="nav-in">
-            <a href="#" class="logo">
-                <img src="images/logo.png" alt="Layiga">
-                <span>LAYIGA</span>
-            </a>
-            <div class="nav-links" id="navLinks">
-                <a href="#home">Ana Sayfa</a>
-                <a href="#acts">Aktiviteler</a>
-                <a href="#prices">Fiyatlar</a>
-                <a href="#gallery">Galeri</a>
-                <a href="#contact">İletişim</a>
-                <a href="https://wa.me/905378738398" class="nav-cta">📱 Rezervasyon</a>
+    <!-- EPIC OPENING ANIMATION -->
+    <div class="opening" id="opening">
+        <div class="cinema-bar top"></div>
+        <div class="cinema-bar bottom"></div>
+        <div class="opening-content">
+            <div class="logo-icon-anim">
+                <svg viewBox="0 0 64 64">
+                    <path d="M32 4L6 52h14l12-24 12 24h14L32 4zM32 20l8 16H24l8-16z"/>
+                </svg>
             </div>
-            <button class="menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+            <div class="logo-text-reveal">
+                <div class="logo-text-inner">LAYIGA<span>.</span></div>
+            </div>
+            <div class="tagline-reveal">
+                <div class="tagline-inner">Adventure Awaits</div>
+            </div>
+            <div class="progress-container">
+                <svg class="progress-ring" viewBox="0 0 80 80">
+                    <circle class="bg" cx="40" cy="40" r="36"/>
+                    <circle class="progress" cx="40" cy="40" r="36"/>
+                </svg>
+                <div class="progress-percent">0%</div>
+            </div>
         </div>
+        <div class="particles-explosion" id="particles"></div>
+    </div>
+
+    <!-- BACKGROUND EFFECTS -->
+    <div class="orb-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+
+    <!-- CURSOR -->
+    <div class="cursor" id="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="#" class="logo">
+            <div class="logo-mark">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 19h6l4-8 4 8h6L12 2z"/></svg>
+            </div>
+            <span class="logo-text">LAYIGA<span>.</span></span>
+        </a>
+        <div class="nav-links">
+            <a href="#activities">Aktiviteler</a>
+            <a href="#gallery">Galeri</a>
+            <a href="#pricing">Fiyatlar</a>
+            <a href="#contact">İletişim</a>
+        </div>
+        <button class="nav-cta">
+            <span>Rezervasyon</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="menu-btn" id="menuBtn">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-bg"><img src="images/hero.jpg" alt="Macera"></div>
-        <div class="hero-c">
-            <div class="hero-e">🏔️</div>
-            <h1>
-                <span>MACERA</span>
-                <span>BAŞLIYOR</span>
-                <span>!</span>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#activities">Aktiviteler</a>
+        <a href="#gallery">Galeri</a>
+        <a href="#pricing">Fiyatlar</a>
+        <a href="#contact">İletişim</a>
+        <a href="#" class="nav-cta" style="display:inline-flex;margin-top:1rem">Rezervasyon</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="./images/hero.jpg" alt="Layiga Adventure" loading="eager">
+            <div class="hero-gradient"></div>
+            <div class="hero-vignette"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>Türkiye'nin Zirvesi</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="line"><span class="line-inner">MACERAYA</span></span>
+                <span class="line"><span class="line-inner gradient-text">ATIL</span></span>
             </h1>
-            <p>Uzungöl'ün muhteşem doğasında 300m zipline, dev salıncak ve daha fazlası! Gel, uç, gül, yaşa!</p>
-            <div class="hero-btns">
-                <a href="https://wa.me/905378738398" class="btn btn-p">🚀 Hemen Rezervasyon</a>
-                <a href="#acts" class="btn btn-s">🎯 Aktiviteleri Gör</a>
+            <p class="hero-desc">Uzungöl'ün eşsiz doğasında Türkiye'nin en yüksek zipline ve dev salıncağıyla tanışın. Adrenalin ve doğanın buluştuğu tek adres.</p>
+            <div class="hero-actions">
+                <a href="#pricing" class="btn btn-primary">
+                    <span>Hemen Rezervasyon</span>
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#activities" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M10 8l6 4-6 4V8z"/></svg>
+                    <span>Keşfet</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-count="750">0</div>
+                    <div class="hero-stat-label">Metre Yükseklik</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-count="120">0</div>
+                    <div class="hero-stat-label">km/s Hız</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value" data-count="50000">0</div>
+                    <div class="hero-stat-label">Mutlu Misafir</div>
+                </div>
             </div>
         </div>
-        <div class="scroll-hint">👇</div>
-    </section>
-
-    <section class="stats">
-        <div class="stats-g">
-            <div class="stat reveal">
-                <div class="stat-e">🎿</div>
-                <div class="stat-n" data-count="300">0</div>
-                <div class="stat-l">Metre Zipline</div>
-            </div>
-            <div class="stat reveal">
-                <div class="stat-e">😊</div>
-                <div class="stat-n" data-count="25000">0</div>
-                <div class="stat-l">Mutlu Misafir</div>
-            </div>
-            <div class="stat reveal">
-                <div class="stat-e">⭐</div>
-                <div class="stat-n" data-count="4.9">0</div>
-                <div class="stat-l">Puan</div>
-            </div>
-            <div class="stat reveal">
-                <div class="stat-e">🎂</div>
-                <div class="stat-n" data-count="6">0</div>
-                <div class="stat-l">Yıllık Deneyim</div>
-            </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-mouse"></div>
         </div>
     </section>
 
-    <section class="section sec-blue" id="acts">
-        <div class="sec-head">
-            <span>🎪</span>
-            <h2>Aktiviteler</h2>
-            <p>Adrenalin, eğlence ve doğa bir arada!</p>
+    <!-- ACTIVITIES -->
+    <section id="activities">
+        <div class="section-header reveal">
+            <div class="section-label">
+                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span>Aktiviteler</span>
+            </div>
+            <h2 class="section-title">Adrenalin Dolu Deneyimler</h2>
+            <p class="section-desc">Her seviyeye uygun, profesyonel ekip eşliğinde güvenli macera aktiviteleri.</p>
         </div>
-        <div class="acts">
-            <div class="act reveal">
-                <div class="act-img">
-                    <img src="images/zipline2.jpg" alt="Zipline">
-                    <div class="act-badge">⭐ Popüler</div>
+        <div class="activities-grid">
+            <div class="activity-card reveal reveal-delay-1">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 4l7 7-2 6 6-2 7 7M18 2l4 4-7 7M9 15l-5 5"/></svg>
                 </div>
-                <div class="act-c">
-                    <span>🎿</span>
-                    <h3>Zipline</h3>
-                    <p>300 metre uzunluğunda, göl manzaralı uçuş deneyimi!</p>
-                    <div class="act-price">200₺</div>
-                </div>
-            </div>
-            <div class="act reveal">
-                <div class="act-img">
-                    <img src="images/swing.JPG" alt="Dev Salıncak">
-                    <div class="act-badge">🔥 Heyecan</div>
-                </div>
-                <div class="act-c">
-                    <span>🎡</span>
-                    <h3>Dev Salıncak</h3>
-                    <p>Uçurumun kenarında sallanmanın heyecanı!</p>
-                    <div class="act-price">150₺</div>
+                <h3 class="activity-title">Mega Zipline</h3>
+                <p class="activity-desc">1800 metre uzunluğunda, Türkiye'nin en uzun zipline hattında saatte 120 km hıza ulaşın.</p>
+                <div class="activity-meta">
+                    <div class="activity-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+                        <span>750m Yükseklik</span>
+                    </div>
+                    <div class="activity-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6v6l4 2"/></svg>
+                        <span>90 Saniye</span>
+                    </div>
                 </div>
             </div>
-            <div class="act reveal">
-                <div class="act-img">
-                    <img src="images/car.jpg" alt="ATV">
-                    <div class="act-badge">🌲 Doğa</div>
+            <div class="activity-card reveal reveal-delay-2">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v12M6 12h12"/></svg>
                 </div>
-                <div class="act-c">
-                    <span>🚗</span>
-                    <h3>ATV Safari</h3>
-                    <p>Orman yollarında macera dolu tur!</p>
-                    <div class="act-price">300₺</div>
-                </div>
-            </div>
-            <div class="act reveal">
-                <div class="act-img">
-                    <img src="images/shooting.jpg" alt="Atış">
-                </div>
-                <div class="act-c">
-                    <span>🎯</span>
-                    <h3>Atış Poligonu</h3>
-                    <p>Güvenli ortamda nişancılık deneyimi!</p>
-                    <div class="act-price">100₺</div>
+                <h3 class="activity-title">Dev Salıncak</h3>
+                <p class="activity-desc">500 metre yükseklikten bırakılarak, vadinin üzerinde özgürce sallanın.</p>
+                <div class="activity-meta">
+                    <div class="activity-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+                        <span>500m Yükseklik</span>
+                    </div>
+                    <div class="activity-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6v6l4 2"/></svg>
+                        <span>60 Saniye</span>
+                    </div>
                 </div>
             </div>
-            <div class="act reveal">
-                <div class="act-img">
-                    <video src="videos/trampoline.mp4" autoplay muted loop playsinline></video>
-                    <div class="act-badge">👨‍👩‍👧 Aile</div>
+            <div class="activity-card reveal reveal-delay-3">
+                <div class="activity-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
                 </div>
-                <div class="act-c">
-                    <span>🤸</span>
-                    <h3>Trambolin</h3>
-                    <p>Zıpla, uç, eğlen! Her yaşa uygun!</p>
-                    <div class="act-price">75₺</div>
-                </div>
-            </div>
-            <div class="act reveal">
-                <div class="act-img">
-                    <img src="images/cafe.JPG" alt="Kafe">
-                </div>
-                <div class="act-c">
-                    <span>☕</span>
-                    <h3>Panoramik Kafe</h3>
-                    <p>Manzaraya karşı kahve keyfi!</p>
-                    <div class="act-price">Ücretsiz Giriş</div>
+                <h3 class="activity-title">Bungee Jump</h3>
+                <p class="activity-desc">200 metreden serbest düşüşün verdiği eşsiz heyecanı yaşayın.</p>
+                <div class="activity-meta">
+                    <div class="activity-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+                        <span>200m Yükseklik</span>
+                    </div>
+                    <div class="activity-meta-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6v6l4 2"/></svg>
+                        <span>45 Saniye</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section sec-orange" id="prices">
-        <div class="sec-head">
-            <span>🎁</span>
-            <h2>Paketler</h2>
-            <p>Sana en uygun macera paketini seç!</p>
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery">
+        <div class="section-header reveal">
+            <div class="section-label">
+                <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span>Galeri</span>
+            </div>
+            <h2 class="section-title">Anılarınızı Yakalayın</h2>
+            <p class="section-desc">Misafirlerimizin unutulmaz anlarından kareler.</p>
         </div>
-        <div class="prices">
-            <div class="price reveal">
-                <span>🌱</span>
-                <h3>Başlangıç</h3>
-                <div class="price-a">150₺</div>
-                <ul>
-                    <li>Dev Salıncak</li>
-                    <li>Fotoğraf Çekimi</li>
-                    <li>Kafe %10 İndirim</li>
+        <div class="gallery-container reveal">
+            <div class="gallery-track" id="galleryTrack">
+                <div class="gallery-item">
+                    <img src="./images/gallery-1.jpg" alt="Zipline" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Mega Zipline</h4>
+                        <span>Hız Tutkunları</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery-2.jpg" alt="Salıncak" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Dev Salıncak</h4>
+                        <span>Özgürlük Hissi</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery-3.jpg" alt="Manzara" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Uzungöl Manzarası</h4>
+                        <span>Doğanın Kalbi</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/gallery-4.jpg" alt="Macera" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Macera Anı</h4>
+                        <span>Adrenalin</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-nav">
+                <button class="gallery-btn" id="galleryPrev">
+                    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <button class="gallery-btn" id="galleryNext">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+        <div class="section-header reveal">
+            <div class="section-label">
+                <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <span>Fiyatlar</span>
+            </div>
+            <h2 class="section-title">Paket Seçenekleri</h2>
+            <p class="section-desc">Size en uygun paketi seçin ve maceraya başlayın.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="price-card reveal reveal-delay-1">
+                <div class="price-icon">
+                    <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3 class="price-name">Başlangıç</h3>
+                <p class="price-desc">Tek aktivite deneyimi</p>
+                <div class="price-amount">₺450<span>/kişi</span></div>
+                <p class="price-period">Tek seferlik</p>
+                <ul class="price-features">
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>1 Aktivite Seçimi</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Profesyonel Ekipman</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Güvenlik Eğitimi</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Sigorta Dahil</li>
                 </ul>
-                <button class="price-btn" onclick="window.open('https://wa.me/905378738398?text=Başlangıç paketi istiyorum!')">Seç</button>
+                <button class="price-btn">Rezervasyon Yap</button>
             </div>
-            <div class="price pop reveal">
-                <div class="price-tag">🔥 En Popüler</div>
-                <span>⚡</span>
-                <h3>Adrenalin</h3>
-                <div class="price-a">300₺</div>
-                <ul>
-                    <li>Zipline 300m</li>
-                    <li>Dev Salıncak</li>
-                    <li>Pro Fotoğraf</li>
-                    <li>Ücretsiz İçecek</li>
+            <div class="price-card featured reveal reveal-delay-2">
+                <div class="price-badge">En Popüler</div>
+                <div class="price-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3 class="price-name">Macera</h3>
+                <p class="price-desc">Tam macera deneyimi</p>
+                <div class="price-amount">₺850<span>/kişi</span></div>
+                <p class="price-period">3 aktivite dahil</p>
+                <ul class="price-features">
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>3 Aktivite</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>VIP Ekipman</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Video Kayıt</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Özel Fotoğraf Çekimi</li>
                 </ul>
-                <button class="price-btn" onclick="window.open('https://wa.me/905378738398?text=Adrenalin paketi istiyorum!')">Seç</button>
+                <button class="price-btn">Rezervasyon Yap</button>
             </div>
-            <div class="price reveal">
-                <span>👑</span>
-                <h3>VIP</h3>
-                <div class="price-a">500₺</div>
-                <ul>
-                    <li>Tüm Aktiviteler</li>
-                    <li>VIP Kafe</li>
-                    <li>Video + Fotoğraf</li>
-                    <li>Özel Rehber</li>
+            <div class="price-card reveal reveal-delay-3">
+                <div class="price-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3 class="price-name">Grup</h3>
+                <p class="price-desc">5+ kişilik gruplar</p>
+                <div class="price-amount">₺650<span>/kişi</span></div>
+                <p class="price-period">Grup indirimi</p>
+                <ul class="price-features">
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Tüm Aktiviteler</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Özel Rehber</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Grup Fotoğrafı</li>
+                    <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Ücretsiz Transfer</li>
                 </ul>
-                <button class="price-btn" onclick="window.open('https://wa.me/905378738398?text=VIP paketi istiyorum!')">Seç</button>
+                <button class="price-btn">Rezervasyon Yap</button>
             </div>
         </div>
     </section>
 
-    <section class="section sec-green" id="gallery">
-        <div class="sec-head">
-            <span>📸</span>
-            <h2>Galeri</h2>
-            <p>Unutulmaz anlardan kareler!</p>
-        </div>
-        <div class="gallery">
-            <div class="gallery-i reveal"><img src="images/swinguzungol.jpg" alt=""><p>Uzungöl Manzarası</p></div>
-            <div class="gallery-i reveal"><img src="images/zipline3.jpg" alt=""><p>Zipline</p></div>
-            <div class="gallery-i reveal"><img src="images/swing.JPG" alt=""><p>Dev Salıncak</p></div>
-            <div class="gallery-i reveal"><img src="images/cafe.JPG" alt=""><p>Kafe</p></div>
-            <div class="gallery-i reveal"><img src="images/shooting.jpg" alt=""><p>Aktiviteler</p></div>
-        </div>
-    </section>
-
-    <section class="section sec-blue">
-        <div class="sec-head">
-            <span>💬</span>
-            <h2>Yorumlar</h2>
-            <p>Misafirlerimiz ne diyor?</p>
-        </div>
-        <div class="reviews">
-            <div class="review reveal">
-                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p>"Hayatımın en güzel deneyimiydi! Zipline muhteşemdi, personel süper!"</p>
-                <div class="review-a">
-                    <span>👩</span>
-                    <div><h4>Ayşe Y.</h4><small>İstanbul</small></div>
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info reveal">
+                <h3>Bize Ulaşın</h3>
+                <p>Sorularınız için 7/24 hizmetinizdeyiz. Rezervasyon ve detaylı bilgi için iletişime geçin.</p>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <span>Adres</span>
+                            <p>Uzungöl, Çaykara, Trabzon</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <span>Telefon</span>
+                            <a href="tel:+905001234567">+90 500 123 45 67</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <span>E-posta</span>
+                            <a href="mailto:info@layiga.com">info@layiga.com</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="review reveal">
-                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p>"Dev salıncak inanılmazdı! Manzara nefes kesici. Tekrar geleceğiz!"</p>
-                <div class="review-a">
-                    <span>👨</span>
-                    <div><h4>Mehmet K.</h4><small>Ankara</small></div>
-                </div>
-            </div>
-            <div class="review reveal">
-                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                <p>"Ailece geldik, herkes çok eğlendi! Trambolin ve kafe harika!"</p>
-                <div class="review-a">
-                    <span>👩</span>
-                    <div><h4>Fatma K.</h4><small>İzmir</small></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section sec-orange" id="contact">
-        <div class="sec-head">
-            <span>📍</span>
-            <h2>İletişim</h2>
-            <p>Bize ulaşın, maceraya başlayın!</p>
-        </div>
-        <div class="contact-g">
-            <div class="contact-info">
-                <h3>Hazır mısın? 🚀</h3>
-                <p>Sorularınız için bize yazın veya hemen rezervasyon yapın!</p>
-                <div class="contact-item">
-                    <span>📞</span>
-                    <div><h4>Telefon</h4><a href="tel:+905378738398">0537 873 83 98</a></div>
-                </div>
-                <div class="contact-item">
-                    <span>💬</span>
-                    <div><h4>WhatsApp</h4><a href="https://wa.me/905378738398">Mesaj Gönder</a></div>
-                </div>
-                <div class="contact-item">
-                    <span>📍</span>
-                    <div><h4>Adres</h4><p>Uzungöl, Çaykara, Trabzon</p></div>
-                </div>
-                <div class="contact-item">
-                    <span>🕐</span>
-                    <div><h4>Çalışma Saatleri</h4><p>Her gün 08:00 - 20:00</p></div>
-                </div>
-            </div>
-            <div class="contact-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12048!2d40.2879!3d40.6175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVXp1bmfDtmw!5e0!3m2!1str!2str" allowfullscreen loading="lazy"></iframe>
+            <div class="contact-form reveal reveal-delay-1">
+                <form>
+                    <div class="form-group">
+                        <label>Ad Soyad</label>
+                        <input type="text" placeholder="Adınızı girin">
+                    </div>
+                    <div class="form-group">
+                        <label>E-posta</label>
+                        <input type="email" placeholder="E-posta adresiniz">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        <input type="tel" placeholder="Telefon numaranız">
+                    </div>
+                    <div class="form-group">
+                        <label>Mesajınız</label>
+                        <textarea placeholder="Mesajınızı yazın..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        <span>Gönder</span>
+                        <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-g">
+        <div class="footer-top">
             <div class="footer-brand">
-                <img src="images/logo.png" alt="Layiga">
-                <p>Uzungöl'ün kalbinde macera! 2018'den beri binlerce mutlu misafir.</p>
+                <a href="#" class="logo">
+                    <div class="logo-mark">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 19h6l4-8 4 8h6L12 2z"/></svg>
+                    </div>
+                    <span class="logo-text">LAYIGA<span>.</span></span>
+                </a>
+                <p>Türkiye'nin en yüksek macera parkı. Uzungöl'de eşsiz deneyimler için bizi tercih edin.</p>
                 <div class="footer-social">
-                    <a href="https://instagram.com/layigazipline">📷</a>
-                    <a href="https://wa.me/905378738398">💬</a>
-                    <a href="#">📘</a>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                    </a>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                    </a>
                 </div>
             </div>
-            <div class="footer-col">
-                <h4>Linkler</h4>
-                <a href="#home">Ana Sayfa</a>
-                <a href="#acts">Aktiviteler</a>
-                <a href="#prices">Fiyatlar</a>
-                <a href="#gallery">Galeri</a>
-            </div>
-            <div class="footer-col">
-                <h4>İletişim</h4>
-                <a href="tel:+905378738398">0537 873 83 98</a>
-                <a href="https://wa.me/905378738398">WhatsApp</a>
-                <a href="https://instagram.com/layigazipline">@layigazipline</a>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h5>Aktiviteler</h5>
+                    <a href="#">Mega Zipline</a>
+                    <a href="#">Dev Salıncak</a>
+                    <a href="#">Bungee Jump</a>
+                    <a href="#">Tırmanış</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Şirket</h5>
+                    <a href="#">Hakkımızda</a>
+                    <a href="#">Kariyer</a>
+                    <a href="#">Blog</a>
+                    <a href="#">İletişim</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Destek</h5>
+                    <a href="#">SSS</a>
+                    <a href="#">Güvenlik</a>
+                    <a href="#">İptal Koşulları</a>
+                    <a href="#">Gizlilik</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2024 Layiga Adventure Park ❤️ Sevgiyle yapıldı</p>
+            <p>&copy; 2024 LAYIGA. Tüm hakları saklıdır.</p>
+            <p>Made with <a href="#">passion</a> in Türkiye</p>
         </div>
     </footer>
 
-    <div class="wa">
-        <a href="https://wa.me/905378738398">💬</a>
-    </div>
-
     <script>
-    // Loader
-    setTimeout(()=>document.getElementById('loader').classList.add('bye'),1800);
+    (function(){
+        'use strict';
 
-    // Nav scroll
-    window.addEventListener('scroll',()=>{
-        document.getElementById('nav').classList.toggle('scrolled',scrollY>50);
-    });
+        const isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)||window.innerWidth<768;
+        const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Reveal
-    const obs=new IntersectionObserver(e=>{
-        e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('show')});
-    },{threshold:.1});
-    document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));
+        // EPIC OPENING ANIMATION
+        const opening=document.getElementById('opening');
+        const progressCircle=document.querySelector('.progress-ring .progress');
+        const progressPercent=document.querySelector('.progress-percent');
+        const particles=document.getElementById('particles');
 
-    // Counter
-    const countObs=new IntersectionObserver(e=>{
-        e.forEach(x=>{
-            if(x.isIntersecting){
-                const t=parseFloat(x.target.dataset.count);
-                const d=t%1!==0;
-                let c=0;
-                const i=setInterval(()=>{
-                    c+=t/40;
-                    if(c>=t){c=t;clearInterval(i)}
-                    x.target.textContent=d?c.toFixed(1):Math.floor(c).toLocaleString();
-                    if(t>=1000)x.target.textContent+='+'
-                    if(t===300)x.target.textContent+='m'
-                },40);
-                countObs.unobserve(x.target);
+        if(!prefersReducedMotion){
+            let progress=0;
+            const circumference=2*Math.PI*36;
+            progressCircle.style.strokeDasharray=circumference;
+            progressCircle.style.strokeDashoffset=circumference;
+
+            const duration=isMobile?2000:3000;
+            const startTime=performance.now();
+
+            function animateProgress(currentTime){
+                const elapsed=currentTime-startTime;
+                progress=Math.min((elapsed/duration)*100,100);
+
+                const offset=circumference-(progress/100)*circumference;
+                progressCircle.style.strokeDashoffset=offset;
+                progressPercent.textContent=Math.round(progress)+'%';
+
+                if(progress<100){
+                    requestAnimationFrame(animateProgress);
+                }else{
+                    // Particle explosion
+                    createParticleExplosion();
+                    setTimeout(()=>{
+                        opening.classList.add('done');
+                        setTimeout(()=>opening.style.display='none',1500);
+                    },500);
+                }
             }
-        });
-    },{threshold:.5});
-    document.querySelectorAll('.stat-n').forEach(x=>countObs.observe(x));
+            requestAnimationFrame(animateProgress);
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-        a.addEventListener('click',e=>{
-            e.preventDefault();
-            const t=document.querySelector(a.getAttribute('href'));
-            if(t)t.scrollIntoView({behavior:'smooth'});
-            document.getElementById('navLinks').classList.remove('open');
+            function createParticleExplosion(){
+                particles.classList.add('active');
+                const colors=['#ff5500','#00e5a0','#7c3aed','#fff'];
+                for(let i=0;i<20;i++){
+                    const particle=document.createElement('div');
+                    particle.className='explosion-particle';
+                    particle.style.background=colors[Math.floor(Math.random()*colors.length)];
+                    const angle=(Math.PI*2/20)*i;
+                    const distance=100+Math.random()*100;
+                    const tx=Math.cos(angle)*distance+'px';
+                    const ty=Math.sin(angle)*distance+'px';
+                    particle.style.setProperty('--tx',tx);
+                    particle.style.setProperty('--ty',ty);
+                    particle.style.animation=`particleExplode .8s ease forwards`;
+                    particles.appendChild(particle);
+                }
+            }
+        }else{
+            opening.style.display='none';
+        }
+
+        // CURSOR
+        const cursor=document.getElementById('cursor');
+        if(cursor&&!isMobile){
+            let mouseX=0,mouseY=0,cursorX=0,cursorY=0;
+            document.addEventListener('mousemove',e=>{
+                mouseX=e.clientX;
+                mouseY=e.clientY;
+            },{passive:true});
+
+            function updateCursor(){
+                cursorX+=(mouseX-cursorX)*.15;
+                cursorY+=(mouseY-cursorY)*.15;
+                cursor.style.transform=`translate(${cursorX}px,${cursorY}px)`;
+                requestAnimationFrame(updateCursor);
+            }
+            updateCursor();
+
+            document.querySelectorAll('a,button,.activity-card,.price-card,.gallery-item').forEach(el=>{
+                el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
+                el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
+            });
+        }
+
+        // NAV
+        const nav=document.getElementById('nav');
+        let lastScroll=0;
+        window.addEventListener('scroll',()=>{
+            const currentScroll=window.pageYOffset;
+            nav.classList.toggle('scrolled',currentScroll>50);
+            lastScroll=currentScroll;
+        },{passive:true});
+
+        // MOBILE MENU
+        const menuBtn=document.getElementById('menuBtn');
+        const mobileMenu=document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click',()=>{
+            menuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow=mobileMenu.classList.contains('active')?'hidden':'';
         });
-    });
+        mobileMenu.querySelectorAll('a').forEach(a=>{
+            a.addEventListener('click',()=>{
+                menuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow='';
+            });
+        });
+
+        // REVEAL ANIMATIONS
+        const reveals=document.querySelectorAll('.reveal');
+        const revealObserver=new IntersectionObserver((entries)=>{
+            entries.forEach(entry=>{
+                if(entry.isIntersecting){
+                    entry.target.classList.add('active');
+                }
+            });
+        },{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+        reveals.forEach(el=>revealObserver.observe(el));
+
+        // COUNTER ANIMATION
+        const counters=document.querySelectorAll('[data-count]');
+        const counterObserver=new IntersectionObserver((entries)=>{
+            entries.forEach(entry=>{
+                if(entry.isIntersecting){
+                    const target=entry.target;
+                    const count=parseInt(target.dataset.count);
+                    let current=0;
+                    const increment=count/60;
+                    const timer=setInterval(()=>{
+                        current+=increment;
+                        if(current>=count){
+                            target.textContent=count.toLocaleString();
+                            clearInterval(timer);
+                        }else{
+                            target.textContent=Math.floor(current).toLocaleString();
+                        }
+                    },16);
+                    counterObserver.unobserve(target);
+                }
+            });
+        },{threshold:0.5});
+        counters.forEach(el=>counterObserver.observe(el));
+
+        // GALLERY
+        const track=document.getElementById('galleryTrack');
+        const prevBtn=document.getElementById('galleryPrev');
+        const nextBtn=document.getElementById('galleryNext');
+        let galleryIndex=0;
+        const itemWidth=isMobile?85:50;
+
+        function updateGallery(){
+            track.style.transform=`translateX(-${galleryIndex*(itemWidth+1.5)}%)`;
+        }
+        nextBtn.addEventListener('click',()=>{
+            galleryIndex=Math.min(galleryIndex+1,2);
+            updateGallery();
+        });
+        prevBtn.addEventListener('click',()=>{
+            galleryIndex=Math.max(galleryIndex-1,0);
+            updateGallery();
+        });
+
+        // Touch swipe for gallery
+        let touchStartX=0;
+        track.addEventListener('touchstart',e=>touchStartX=e.touches[0].clientX,{passive:true});
+        track.addEventListener('touchend',e=>{
+            const diff=touchStartX-e.changedTouches[0].clientX;
+            if(Math.abs(diff)>50){
+                if(diff>0)nextBtn.click();
+                else prevBtn.click();
+            }
+        },{passive:true});
+
+        // Particle explosion keyframes
+        const style=document.createElement('style');
+        style.textContent=`@keyframes particleExplode{0%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0}}`;
+        document.head.appendChild(style);
+
+    })();
     </script>
 </body>
 </html>
