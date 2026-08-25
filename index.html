@@ -777,6 +777,35 @@
             }
         }
 
+        /* Hero accent line - solid, legible over photography */
+        .hero-accent {
+            color: #FFB073 !important;
+        }
+
+        /* Price system - one treatment across every activity */
+        .price {
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.025em;
+            color: var(--layiga-orange);
+            line-height: 1;
+        }
+
+        .price .cur {
+            font-size: 0.62em;
+            font-weight: 600;
+            margin-left: 0.06em;
+            vertical-align: 0.08em;
+            opacity: 0.78;
+        }
+
+        .price-note {
+            margin-top: 0.45rem;
+            font-size: 0.6875rem;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+
         /* Text gradient animation */
         .text-gradient-animated {
             background: linear-gradient(135deg, #FF6B35, #FFD700, #FF6B35, #16A085);
@@ -1310,7 +1339,6 @@
             width: 200%;
             height: 200%;
             background: conic-gradient(from 0deg, transparent, rgba(255, 107, 53, 0.1), transparent, rgba(22, 160, 133, 0.1), transparent);
-            animation: card-glow 8s linear infinite;
             opacity: 0;
             transition: opacity 0.6s ease;
             z-index: 1;
@@ -1318,6 +1346,11 @@
 
         .card-hover:hover::after {
             opacity: 1;
+            animation: card-glow 8s linear infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card-hover:hover::after { animation: none; }
         }
 
         .card-hover > * {
@@ -1662,7 +1695,9 @@
     <section id="ana-sayfa" class="min-h-screen flex items-center justify-center relative overflow-hidden" style="padding-top: 64px; background: var(--bg-primary);">
         <div class="absolute inset-0">
             <img src="/assets/hero.jpg" alt="Layiga Adventure Park - Ultimate Zipline Experience" class="w-full h-full object-cover object-bottom">
-            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute inset-0" style="background:
+                radial-gradient(120% 78% at 50% 40%, rgba(8,12,20,0.60) 0%, rgba(8,12,20,0.20) 55%, rgba(8,12,20,0) 100%),
+                linear-gradient(180deg, rgba(8,12,20,0.70) 0%, rgba(8,12,20,0.14) 26%, rgba(8,12,20,0.34) 60%, rgba(8,12,20,0.88) 100%);"></div>
         </div>
         
                  <!-- Hero content positioned strategically between the legs -->
@@ -1680,19 +1715,19 @@
                 </div>
 
                 <h1 class="hero-title font-serif text-4xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-2xl" 
-                    data-tr="Gökyüzündeki<br/><span class='block text-gradient-animated'>Özgürlük Anı</span>" 
-                    data-en="Sky-High<br/><span class='block text-gradient-animated'>Freedom Moment</span>" 
-                    data-ar="لحظة الحرية<br/><span class='block text-gradient-animated'>في السماء</span>"
-                    style="text-shadow: 3px 6px 12px rgba(0,0,0,0.8), 0 0 30px rgba(255,107,53,0.6);">
+                    data-tr="Gökyüzündeki<br/><span class='block hero-accent'>Özgürlük Anı</span>" 
+                    data-en="Sky-High<br/><span class='block hero-accent'>Freedom Moment</span>" 
+                    data-ar="لحظة الحرية<br/><span class='block hero-accent'>في السماء</span>"
+                    style="color: #FFFFFF !important; text-shadow: 0 2px 28px rgba(4,7,12,0.62), 0 1px 3px rgba(4,7,12,0.5);">
                     Gökyüzündeki
-                    <span class="block text-gradient-animated">Özgürlük Anı</span>
+                    <span class="block hero-accent">Özgürlük Anı</span>
                 </h1>
                 
-                <p class="hero-subtitle text-lg md:text-xl text-white/95 mb-8 max-w-2xl mx-auto leading-relaxed font-medium backdrop-blur-sm bg-black/20 rounded-xl p-4" 
+                <p class="hero-subtitle text-lg md:text-xl text-white/90 mb-10 max-w-xl mx-auto leading-relaxed" 
                    data-tr="Uzungöl'ün büyüleyici atmosferinde cesaret ve heyecanın buluşma noktası. Her anı özel kılan macera seni bekliyor!" 
                    data-en="Where courage meets excitement in the enchanting atmosphere of Uzungöl. The adventure that makes every moment special awaits you!" 
                    data-ar="حيث تلتقي الشجاعة بالإثارة في أجواء أوزونغول الساحرة. المغامرة التي تجعل كل لحظة مميزة تنتظرك!"
-                   style="text-shadow: 2px 4px 8px rgba(0,0,0,0.8);">
+                   style="text-shadow: 0 1px 16px rgba(4,7,12,0.7);">
                     Uzungöl'ün büyüleyici atmosferinde cesaret ve heyecanın buluşma noktası. Her anı özel kılan macera seni bekliyor!
                 </p>
                 
@@ -1835,8 +1870,8 @@
                         
                         <div class="flex justify-between items-center">
                             <div>
-                                <span class="text-3xl font-bold text-layiga-orange">400₺</span>
-                                <p class="text-sm text-gray-500" data-tr="kişi başı" data-en="per person" data-ar="للشخص الواحد">kişi başı</p>
+                                <span class="text-4xl font-bold price">400<span class="cur">₺</span></span>
+                                <p class="price-note" data-tr="kişi başı" data-en="per person" data-ar="للشخص الواحد">kişi başı</p>
                             </div>
                             <button onclick="openWhatsAppForActivity('zipline')" class="whatsapp-btn text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2 transition-all duration-300" 
                                     data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">
@@ -1911,8 +1946,8 @@
                         
                         <div class="flex justify-between items-center">
                             <div>
-                                <span class="text-3xl font-bold text-layiga-green">300₺</span>
-                                <p class="text-sm text-gray-500" data-tr="kişi başı" data-en="per person" data-ar="للشخص الواحد">kişi başı</p>
+                                <span class="text-4xl font-bold price">300<span class="cur">₺</span></span>
+                                <p class="price-note" data-tr="kişi başı" data-en="per person" data-ar="للشخص الواحد">kişi başı</p>
                             </div>
                             <button onclick="openWhatsAppForActivity('swing')" class="whatsapp-btn text-white px-6 py-2 rounded-lg font-medium flex items-center space-x-2 transition-all duration-300" 
                                     data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">
@@ -1955,8 +1990,8 @@
                         
                         <div class="flex justify-between items-center">
                             <div>
-                                <span class="text-2xl font-bold text-orange-600">250₺</span>
-                                <p class="text-xs text-gray-500" data-tr="40 atış" data-en="40 shots" data-ar="40 رصاصة">40 atış</p>
+                                <span class="text-3xl font-bold price">250<span class="cur">₺</span></span>
+                                <p class="price-note" data-tr="40 atış" data-en="40 shots" data-ar="40 رصاصة">40 atış</p>
                             </div>
                             <button onclick="openWhatsAppForActivity('shooting')" class="whatsapp-btn text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-1 transition-all duration-300" 
                                     data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">
@@ -1997,8 +2032,8 @@
                         
                         <div class="flex justify-between items-center">
                             <div>
-                                <span class="text-2xl font-bold text-blue-600">150₺</span>
-                                <p class="text-xs text-gray-500" data-tr="5 dk tur" data-en="5 min tour" data-ar="جولة 5 دقائق">5 dk tur</p>
+                                <span class="text-3xl font-bold price">150<span class="cur">₺</span></span>
+                                <p class="price-note" data-tr="5 dk tur" data-en="5 min tour" data-ar="جولة 5 دقائق">5 dk tur</p>
                             </div>
                             <a href="https://wa.me/905378738398?text=Merhaba! Akülü araç aktivitesi için rezervasyon yapmak istiyorum." target="_blank" class="whatsapp-btn text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-1 transition-all duration-300" 
                                     data-tr="WhatsApp" data-en="WhatsApp" data-ar="واتساب">
@@ -2042,8 +2077,8 @@
                         
                         <div class="flex justify-between items-center">
                             <div>
-                                <span class="text-2xl font-bold text-layiga-orange">250₺</span>
-                                <p class="text-xs text-gray-500" data-tr="7 dk" data-en="7 min" data-ar="7 دقائق">7 dk</p>
+                                <span class="text-3xl font-bold price">250<span class="cur">₺</span></span>
+                                <p class="price-note" data-tr="7 dk" data-en="7 min" data-ar="7 دقائق">7 dk</p>
                             </div>
                             <button onclick="openWhatsAppForActivity('trampoline')" class="whatsapp-btn text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-1 transition-all duration-300" 
                                     data-tr="Bilgi Al" data-en="Get Info" data-ar="احصل على معلومات">
@@ -2140,10 +2175,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
                 <h2 class="font-serif text-4xl md:text-6xl font-bold mb-6" style="color: var(--layiga-orange);" 
-                    data-tr="🚡 Gökyüzündeki Adrenalin Deneyimi" 
-                    data-en="🚡 Adrenaline Experience in the Sky" 
-                    data-ar="🚡 تجربة الأدرينالين في السماء">
-                    🚡 Gökyüzündeki Adrenalin Deneyimi
+                    data-tr="Gökyüzündeki Adrenalin Deneyimi" 
+                    data-en="Adrenaline Experience in the Sky" 
+                    data-ar="تجربة الأدرينالين في السماء">
+                    Gökyüzündeki Adrenalin Deneyimi
                 </h2>
                 <p class="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed" style="color: var(--text-secondary);" 
                    data-tr="300 metre uzunluğunda Türkiye'nin en nefes kesici zipline deneyimini keşfedin. Uzungöl'ün büyüleyici manzarası eşliğinde unutulmaz anlar yaşayın." 
@@ -2644,7 +2679,7 @@
                         <!-- Statistics -->
                         <div class="grid grid-cols-3 gap-4">
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-layiga-orange">5+</div>
+                                <div class="text-2xl font-bold text-layiga-orange">7+</div>
                                 <div class="text-sm" style="color: var(--text-secondary);" data-tr="Yıl Deneyim" data-en="Years Experience" data-ar="سنوات خبرة">Yıl Deneyim</div>
                             </div>
                             <div class="text-center">
@@ -2902,6 +2937,10 @@
                     }
                 });
 
+                // Keep the document language in sync - drives locale-correct
+                // casing (Turkish dotted I) and screen-reader pronunciation.
+                document.documentElement.lang = lang;
+
                 // Update RTL for Arabic
                 document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
                 document.body.classList.toggle('rtl', lang === 'ar');
@@ -3043,28 +3082,39 @@
                     // Staggered animations for premium effect
                     setTimeout(() => {
                         entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0) scale(1)';
-                        entry.target.style.filter = 'blur(0)';
-                        entry.target.classList.add('animate-slide-up');
-                        
-                        // Add shimmer effect on reveal
-                        entry.target.classList.add('loading-shimmer');
-                        setTimeout(() => {
-                            entry.target.classList.remove('loading-shimmer');
-                        }, 1000);
-                    }, index * 150);
+                        entry.target.style.transform = 'none';
+                        premiumObserver.unobserve(entry.target);
+                    }, Math.min(index, 5) * 70);
                 }
             });
         }, observerOptions);
 
         // Observe premium elements
-        document.querySelectorAll('.card-hover, .glass-card, .glass-effect').forEach((element, index) => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(40px) scale(0.95)';
-            element.style.filter = 'blur(5px)';
-            element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-            premiumObserver.observe(element);
-        });
+        const REVEAL_SEL = '.card-hover, .glass-card, .glass-effect';
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!reduceMotion) {
+            document.querySelectorAll(REVEAL_SEL).forEach((element) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(24px)';
+                element.style.transition = 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+                premiumObserver.observe(element);
+            });
+
+            // Fail-safe: nothing stays invisible. Anything still hidden after the
+            // first paint window gets revealed outright.
+            const failSafe = () => {
+                document.querySelectorAll(REVEAL_SEL).forEach((el) => {
+                    if (el.style.opacity !== '1') {
+                        el.style.opacity = '1';
+                        el.style.transform = 'none';
+                        premiumObserver.unobserve(el);
+                    }
+                });
+            };
+            window.addEventListener('load', () => setTimeout(failSafe, 1500));
+            setTimeout(failSafe, 4000);
+        }
 
         // Premium Parallax Effects
         let ticking = false;
