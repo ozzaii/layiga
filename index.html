@@ -1506,40 +1506,54 @@
             text-align: right;
         }
 
-        /* Premium WhatsApp Button Styles */
-        .whatsapp-btn {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            border: 2px solid rgba(255,255,255,0.2);
-            box-shadow: 
-                0 4px 15px rgba(37, 211, 102, 0.4),
-                inset 0 1px 0 rgba(255,255,255,0.2);
-        }
-
-        .whatsapp-btn:hover {
-            background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
-            transform: translateY(-2px);
-            box-shadow: 
-                0 8px 25px rgba(37, 211, 102, 0.6),
-                inset 0 1px 0 rgba(255,255,255,0.3);
-        }
-
+        /* WhatsApp buttons - one solid colour, weight carried by the label */
+        .whatsapp-btn,
         .whatsapp-btn-large {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            border: 2px solid rgba(255,255,255,0.2);
-            box-shadow: 
-                0 8px 30px rgba(37, 211, 102, 0.4),
-                inset 0 2px 0 rgba(255,255,255,0.2);
+            background: #1EBE5D;
+            border: 1px solid rgba(6, 40, 22, 0.28);
+            box-shadow: 0 1px 2px rgba(6, 40, 22, 0.28), 0 8px 20px -12px rgba(6, 40, 22, 0.55);
+            letter-spacing: -0.005em;
         }
 
+        .whatsapp-btn:hover,
         .whatsapp-btn-large:hover {
-            background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
-            box-shadow: 
-                0 12px 40px rgba(37, 211, 102, 0.6),
-                inset 0 2px 0 rgba(255,255,255,0.3);
+            background: #17A551;
+            transform: translateY(-1px);
+            box-shadow: 0 1px 2px rgba(6, 40, 22, 0.3), 0 14px 28px -14px rgba(6, 40, 22, 0.6);
         }
 
-        .whatsapp-btn-large .fa-whatsapp {
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        .whatsapp-btn:active,
+        .whatsapp-btn-large:active {
+            transform: translateY(0);
+            background: #148C45;
+        }
+
+        /* Hero stat rail - numbers on the photograph, not in five little boxes */
+        .hero-stat-item {
+            background: transparent !important;
+            border: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            padding: 0.5rem 0.25rem !important;
+            border-radius: 0 !important;
+        }
+
+        .hero-stat-item:hover {
+            transform: none !important;
+        }
+
+        @media (min-width: 768px) {
+            .hero-stat-item + .hero-stat-item {
+                border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
+            }
+        }
+
+        /* Rating stars */
+        .rating-stars {
+            display: inline-flex;
+            gap: 0.15em;
+            color: #F5A524;
+            font-size: 0.95rem;
         }
     </style>
 </head>
@@ -2349,8 +2363,8 @@
                                 A
                             </div>
                             <div class="flex justify-center mb-4">
-                                <div class="flex text-amber-400 text-xl">
-                                    ⭐⭐⭐⭐⭐
+                                <div class="rating-stars" role="img" aria-label="5/5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                 </div>
                             </div>
                             <blockquote class="text-lg font-medium mb-6 italic" style="color: var(--text-primary);" 
@@ -2378,8 +2392,8 @@
                                 E
                             </div>
                             <div class="flex justify-center mb-4">
-                                <div class="flex text-amber-400 text-xl">
-                                    ⭐⭐⭐⭐⭐
+                                <div class="rating-stars" role="img" aria-label="5/5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                 </div>
                             </div>
                             <blockquote class="text-lg font-medium mb-6 italic" style="color: var(--text-primary);" 
@@ -2407,8 +2421,8 @@
                                 O
                             </div>
                             <div class="flex justify-center mb-4">
-                                <div class="flex text-amber-400 text-xl">
-                                    ⭐⭐⭐⭐⭐
+                                <div class="rating-stars" role="img" aria-label="5/5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                 </div>
                             </div>
                             <blockquote class="text-lg font-medium mb-6 italic" style="color: var(--text-primary);" 
@@ -2705,8 +2719,8 @@
                         
                         <!-- Rating -->
                         <div class="flex justify-center mb-4">
-                            <div class="flex text-amber-400 text-xl">
-                                ⭐⭐⭐⭐⭐
+                            <div class="rating-stars" role="img" aria-label="5/5">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
                         </div>
                         
