@@ -458,6 +458,7 @@
         }
 
         /* Mobile menu improvements */
+        .mobile-menu.nav-blur { background: var(--bg-primary); }   /* opaque: the hero headline bled through the translucent nav glass */
         .mobile-menu {
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -3452,11 +3453,9 @@
         
         // Attach event listeners to mobile menu buttons
         if (mobileMenuButton) {
-            mobileMenuButton.addEventListener('click', toggleMobileMenu);
         }
         
         if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', toggleMobileMenu);
         }
         
         // Close mobile menu when clicking on links
